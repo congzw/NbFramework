@@ -4,7 +4,11 @@
 
 - [] common utililty
 - [] web ui template (unify)
-- [] mvc ioc support 
-- [] webapi ioc support
+- [] mvc with ioc 
+- [] webapi with ioc
 - [] theme
 - [] multi-tenancy
+
+## todo
+
+- [x] add mvc support

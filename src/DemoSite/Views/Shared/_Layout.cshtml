@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - NbFramework Demo</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+</head>
+<body>
+    @Html.Partial("_NavTop")
+    <div class="container body-content">
+        @RenderBody()
+        @Html.Partial("_Footer")
+    </div>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
