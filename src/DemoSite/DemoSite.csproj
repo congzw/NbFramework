@@ -97,6 +97,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_NavTop.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Home\Tenants.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -121,6 +122,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DemoSite.Domains\DemoSite.Domains.csproj">
+      <Project>{72f8a8e4-5179-447e-aeda-4465e8ce6a59}</Project>
+      <Name>DemoSite.Domains</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DemoSite.Infrastructure\DemoSite.Infrastructure.csproj">
       <Project>{790f0e27-2478-4819-9cf1-2408e9383308}</Project>
       <Name>DemoSite.Infrastructure</Name>

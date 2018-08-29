@@ -7,8 +7,9 @@
 - [] mvc with ioc 
 - [] webapi with ioc
 - [] theme
-- [] multi-tenancy
 
 ## todo
 
 - [x] add mvc support
+- [x] add mvc ioc support
+- [] add multi-tenancy
