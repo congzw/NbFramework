@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{790F0E27-2478-4819-9CF1-2408E9383308}</ProjectGuid>
+    <ProjectGuid>{72F8A8E4-5179-447E-AEDA-4465E8CE6A59}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DemoSite.Infrastructure</RootNamespace>
-    <AssemblyName>DemoSite.Infrastructure</AssemblyName>
+    <RootNamespace>DemoSite.Domains</RootNamespace>
+    <AssemblyName>DemoSite.Domains</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -42,21 +42,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DemoSite.Domains\DemoSite.Domains.csproj">
-      <Project>{72f8a8e4-5179-447e-aeda-4465e8ce6a59}</Project>
-      <Name>DemoSite.Domains</Name>
-    </ProjectReference>
     <ProjectReference Include="..\NbFramework.Common\NbFramework.Common.csproj">
       <Project>{bdea1bb8-7b9e-4cc5-ad7f-ab40e8290741}</Project>
       <Name>NbFramework.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\NbFramework.MultiTenancy\NbFramework.MultiTenancy.csproj">
-      <Project>{486f4749-7f93-440a-b3cd-d3dbe4d934e2}</Project>
-      <Name>NbFramework.MultiTenancy</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\NbFramework.Themes\NbFramework.Themes.csproj">
-      <Project>{526ed650-aa6b-433e-a281-fa377b5211a8}</Project>
-      <Name>NbFramework.Themes</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
