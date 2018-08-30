@@ -12,6 +12,7 @@
     @Html.Partial("_NavTop")
     <div class="container body-content">
         @RenderBody()
+        @Html.Partial("_IoCInfo")
         @Html.Partial("_Footer")
     </div>
     @RenderSection("scripts", required: false)

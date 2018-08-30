@@ -1,0 +1,14 @@
+﻿@using DemoSite.Domains.Demo
+@using NbFramework.Common.Ioc
+
+<hr />
+@{
+    @ShowObjectInfo(CoreServiceProvider.LocateService<IDemoService>())
+    @ShowObjectInfo(CoreServiceProvider.LocateService<IFooDemoService>())
+    @ShowObjectInfo(CoreServiceProvider.LocateService<IBarDemoService>())
+}
+@helper ShowObjectInfo(object value)
+{
+    var message = string.Format("{0}", value.ToDebugInfo().Replace(Environment.NewLine, "<br/>").Replace("\t", "&nbsp;&nbsp;&nbsp;&nbsp;"));
+    <h3>@Html.Raw(message)</h3>
+}

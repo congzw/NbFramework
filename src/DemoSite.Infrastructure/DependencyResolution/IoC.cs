@@ -18,6 +18,8 @@
 
 using System;
 using System.Diagnostics;
+using CommonServiceLocator;
+using NbFramework.Common.Ioc;
 
 namespace DemoSite.Infrastructure.DependencyResolution {
 	using StructureMap;
@@ -35,23 +37,29 @@ namespace DemoSite.Infrastructure.DependencyResolution {
 						var name = assembly.GetName().Name;
 						return name.StartsWith("DemoSite", StringComparison.OrdinalIgnoreCase) || name.StartsWith("NbFramework");
 					});
-
-					//Filter types
-					//_.Exclude(type => type.Name.Contains("Bad"));
-
+                    
                     //registries
 					_.LookForRegistries();
 				});
-			});
 
-			//show info
-		    var whatDidIScan = container.WhatDidIScan();
-            Debug.Write(whatDidIScan);
+                //global register
+                c.For<IServiceLocator>().Use<StructureMapDependencyScope>().Singleton();
+            });
 
-            var whatDoIHave = container.WhatDoIHave();
-            Debug.Write(whatDoIHave);
+            CoreServiceProvider.CurrentFunc = () => container.GetInstance<IServiceLocator>();
+
+			ShowDebugInfo(container);
 
 		    return container;
 		}
+
+	    private static void ShowDebugInfo(Container container)
+	    {
+	        var whatDidIScan = container.WhatDidIScan();
+	        Debug.Write(whatDidIScan);
+
+	        var whatDoIHave = container.WhatDoIHave();
+	        Debug.Write(whatDoIHave);
+	    }
 	}
 }

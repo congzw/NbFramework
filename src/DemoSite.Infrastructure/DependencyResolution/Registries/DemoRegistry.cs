@@ -28,6 +28,11 @@ namespace DemoSite.Infrastructure.DependencyResolution.Registries
                     //scan.Exclude(type => type.Name.Contains("Foo"));
                 });
 
+
+            For(typeof(IVisualizer<>)).Use(typeof(DefaultVisualizer<>));
+            // Register a specific visualizer for IssueCreated
+            For<IVisualizer<IssueCreated>>().Use<IssueCreatedVisualizer>();
+
             //For<IExample>().Use<Example>();
 
             //Inline!

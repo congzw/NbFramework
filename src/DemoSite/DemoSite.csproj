@@ -98,6 +98,7 @@
     <Content Include="Views\Shared\_NavTop.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Home\Tenants.cshtml" />
+    <Content Include="Views\Shared\_IoCInfo.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

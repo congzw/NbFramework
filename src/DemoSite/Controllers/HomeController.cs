@@ -6,12 +6,12 @@ namespace DemoSite.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IDemoService _demoService;
+        //private readonly IDemoService _demoService;
 
-        public HomeController(IDemoService demoService)
-        {
-            _demoService = demoService;
-        }
+        //public HomeController(IDemoService demoService)
+        //{
+        //    _demoService = demoService;
+        //}
 
         //private readonly IList<IDemoService> _demoServices;
         //public HomeController(IList<IDemoService> demoServices)
