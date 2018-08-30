@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Reflection;
 using System.Text;
+using NbFramework.Common.Extensions;
 
 namespace DemoSite.Domains.Demo
 {
@@ -45,7 +46,7 @@ namespace DemoSite.Domains.Demo
             var t = objectType ?? value.GetType();
 
             StringBuilder sb = new StringBuilder();
-            sb.AppendFormat("<< {0}: {1}", t.Name, value.GetHashCode());
+            sb.AppendFormat("<< {0}: {1}", t.GetFriendlyName(), value.GetHashCode());
 
             int append = 0;
             var propertyInfos = t.GetProperties();
@@ -63,7 +64,7 @@ namespace DemoSite.Domains.Demo
                 object propValue = propertyInfo.GetValue(value, null);
                 if (propValue == null)
                 {
-                    sb.AppendFormat("{0}<< {1} : NULL >>", Tabs(append), propType.Name);
+                    sb.AppendFormat("{0}<< {1} : NULL >>", Tabs(append), propType.GetFriendlyName());
                 }
                 else
                 {

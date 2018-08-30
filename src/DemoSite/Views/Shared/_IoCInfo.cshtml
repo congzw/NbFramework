@@ -4,11 +4,14 @@
 <hr />
 @{
     @ShowObjectInfo(CoreServiceProvider.LocateService<IDemoService>())
-    @ShowObjectInfo(CoreServiceProvider.LocateService<IFooDemoService>())
-    @ShowObjectInfo(CoreServiceProvider.LocateService<IBarDemoService>())
+    @*@ShowObjectInfo(CoreServiceProvider.LocateService<IFooDemoService>())
+    @ShowObjectInfo(CoreServiceProvider.LocateService<IBarDemoService>())*@
+    @*@ShowObjectInfo(CoreServiceProvider.LocateService<IVisualizer<object>>())
+    @ShowObjectInfo(CoreServiceProvider.LocateService<IVisualizer<IssueCreated>>())
+    @ShowObjectInfo(CoreServiceProvider.LocateService<IssueCreatedVisualizer>())*@
 }
 @helper ShowObjectInfo(object value)
 {
     var message = string.Format("{0}", value.ToDebugInfo().Replace(Environment.NewLine, "<br/>").Replace("\t", "&nbsp;&nbsp;&nbsp;&nbsp;"));
-    <h3>@Html.Raw(message)</h3>
+    <h3>@message</h3>
 }
