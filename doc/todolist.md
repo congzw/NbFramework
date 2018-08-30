@@ -4,6 +4,7 @@
 
 - [] common utililty
     - [x] CoreServiceProvider
+    - [] Crud Repository & Uow support
 - [] web ui template (unify)
 - [] mvc with ioc 
 - [] webapi with ioc

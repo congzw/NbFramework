@@ -1,4 +1,4 @@
-﻿namespace DemoSite.Domains.Demo
+﻿namespace DemoSite.Domains.Mocks
 {
     public interface IVisualizer<in TLog>
     {

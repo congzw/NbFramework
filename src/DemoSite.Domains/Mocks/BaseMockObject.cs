@@ -4,7 +4,7 @@ using System.Reflection;
 using System.Text;
 using NbFramework.Common.Extensions;
 
-namespace DemoSite.Domains.Demo
+namespace DemoSite.Domains.Mocks
 {
     public abstract class BaseMockObject : IDisposable
     {
@@ -36,19 +36,20 @@ namespace DemoSite.Domains.Demo
 
     public static class ObjectDebugExtensions
     {
-        public static string ToDebugInfo(this object value, Type objectType = null)
+        public static string ToDebugInfo(this object value, Type objectType = null, int appendDeep = 0, string propName = null)
         {
             if (value == null)
             {
-                return string.Format("<< {0} : NULL >>", objectType == null ? string.Empty : objectType.Name);
+                return string.Format("{0}{2}<< {1} : NULL >>", Tabs(appendDeep), objectType == null ? string.Empty : objectType.Name, string.IsNullOrWhiteSpace(propName) ? "" : "["+propName+": ");
             }
             
             var t = objectType ?? value.GetType();
 
             StringBuilder sb = new StringBuilder();
-            sb.AppendFormat("<< {0}: {1}", t.GetFriendlyName(), value.GetHashCode());
+            sb.AppendFormat("{0}{3}<< {1}: {2}", Tabs(appendDeep), t.GetFriendlyName(), value.GetHashCode(), string.IsNullOrWhiteSpace(propName) ? "" : "[" + propName + ": ");
 
-            int append = 0;
+            //int append = 0;
+            appendDeep++;
             var propertyInfos = t.GetProperties();
             foreach (var propertyInfo in propertyInfos)
             {
@@ -60,23 +61,9 @@ namespace DemoSite.Domains.Demo
                 }
 
                 sb.AppendLine();
-                append++;
                 object propValue = propertyInfo.GetValue(value, null);
-                if (propValue == null)
-                {
-                    sb.AppendFormat("{0}<< {1} : NULL >>", Tabs(append), propType.GetFriendlyName());
-                }
-                else
-                {
-                    sb.AppendFormat("{0} {1}", Tabs(append), propValue);
-                }
+                sb.AppendFormat("{0}{1}]", Tabs(1), propValue.ToDebugInfo(objectType, appendDeep, propertyInfo.Name));
             }
-
-            if (append > 0)
-            {
-                sb.AppendLine();
-            }
-
             var result = sb.ToString();
             return result;
         }
@@ -106,5 +93,41 @@ namespace DemoSite.Domains.Demo
             }
             return new String('\t', n);
         }
+    }
+
+
+    public class NestedClass : BaseMockObject
+    {
+        public NestedClass Nested { get; set; }
+        
+        public static NestedClass Create(int deep)
+        {
+            var parent = new NestedClass();
+            AppendChild(parent, deep);
+            return parent;
+        }
+
+        public static void AppendChild(NestedClass parent, int deep)
+        {
+            var child = new NestedClass();
+            parent.Nested = child;
+            if (deep > 0)
+            {
+                AppendChild(child, --deep);
+            }
+        }
+
+        //public static NestedClass Create(int deep)
+        //{
+        //    var parent = new NestedClass();
+        //    var child = new NestedClass();
+        //    parent.Nested = child;
+        //    if (deep > 0)
+        //    {
+        //        //var more = Create(--deep);
+        //        //child.Nested = more;
+        //    }
+        //    return parent;
+        //}
     }
 }

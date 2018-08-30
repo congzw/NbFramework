@@ -39,9 +39,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Demo\BaseMockObject.cs" />
-    <Compile Include="Demo\DemoService.cs" />
-    <Compile Include="Demo\GenericTypes.cs" />
+    <Compile Include="Mocks\BaseMockObject.cs" />
+    <Compile Include="Mocks\DemoService.cs" />
+    <Compile Include="Mocks\GenericTypes.cs" />
+    <Compile Include="Mocks\MockRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,11 +1,11 @@
-﻿using DemoSite.Domains.Demo;
+﻿using DemoSite.Domains.Mocks;
 using StructureMap;
 
 namespace DemoSite.Infrastructure.DependencyResolution.Registries
 {
-    public class DemoRegistry : Registry {
+    public class MockRegistry : Registry {
 
-        public DemoRegistry()
+        public MockRegistry()
         {
             Scan(
                 scan =>
@@ -15,7 +15,7 @@ namespace DemoSite.Infrastructure.DependencyResolution.Registries
                     //3 Optionally, set filters to only include certain types or exclude other types from being processed by the scanning operation
                     
                     //1
-                    scan.Assembly(typeof(IDemoService).Assembly);
+                    scan.Assembly(typeof(IMockService).Assembly);
                     
                     //2
                     scan.WithDefaultConventions();
@@ -32,13 +32,9 @@ namespace DemoSite.Infrastructure.DependencyResolution.Registries
             For(typeof(IVisualizer<>)).Use(typeof(DefaultVisualizer<>));
             // Register a specific visualizer for IssueCreated
             For<IVisualizer<IssueCreated>>().Use<IssueCreatedVisualizer>();
-
+            
+            //Inline config
             //For<IExample>().Use<Example>();
-
-            //Inline!
-            //For<IDemoService>().Use<DemoService>();
-            //For<IDemoService>().Add<FooDemoService>();
-            //For<IDemoService>().Add<BarDemoService>();
         }
     }
 }

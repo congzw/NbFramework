@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\ISimpleRepository.cs" />
+    <Compile Include="Data\NbEntity.cs" />
     <Compile Include="Extensions\TypeExtensions.cs" />
     <Compile Include="Ioc\CoreServiceProvider.cs" />
     <Compile Include="Ioc\NullServiceLocator.cs" />

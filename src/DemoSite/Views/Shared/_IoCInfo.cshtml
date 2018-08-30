@@ -1,17 +1,19 @@
-﻿@using DemoSite.Domains.Demo
+﻿@using DemoSite.Domains.Mocks
 @using NbFramework.Common.Ioc
-
-<hr />
 @{
-    @ShowObjectInfo(CoreServiceProvider.LocateService<IDemoService>())
-    @*@ShowObjectInfo(CoreServiceProvider.LocateService<IFooDemoService>())
-    @ShowObjectInfo(CoreServiceProvider.LocateService<IBarDemoService>())*@
+    <hr/>
+
+    @ShowObjectInfo(NestedClass.Create(2))
+
+    @*@ShowObjectInfo(CoreServiceProvider.LocateService<IDemoService>())
+    @ShowObjectInfo(CoreServiceProvider.LocateService<IFooDemoService>())*@
+    @ShowObjectInfo(CoreServiceProvider.LocateService<IBarDemoService>())
     @*@ShowObjectInfo(CoreServiceProvider.LocateService<IVisualizer<object>>())
     @ShowObjectInfo(CoreServiceProvider.LocateService<IVisualizer<IssueCreated>>())
     @ShowObjectInfo(CoreServiceProvider.LocateService<IssueCreatedVisualizer>())*@
 }
 @helper ShowObjectInfo(object value)
 {
-    var message = string.Format("{0}", value.ToDebugInfo().Replace(Environment.NewLine, "<br/>").Replace("\t", "&nbsp;&nbsp;&nbsp;&nbsp;"));
-    <h3>@message</h3>
+    var message = string.Format("{0}", value == null ? "<<NULL>>" : value.ToString().Replace(Environment.NewLine, "<br/>").Replace("\t", "&nbsp;&nbsp;&nbsp;&nbsp;"));
+    <h3>@Html.Raw(message)</h3>
 }
