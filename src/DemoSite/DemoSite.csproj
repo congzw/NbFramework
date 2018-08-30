@@ -101,6 +101,7 @@
     <Content Include="Views\Home\Tenants.cshtml" />
     <Content Include="Views\Shared\_IoCInfo.cshtml" />
     <Content Include="Views\Empty\Index.cshtml" />
+    <Content Include="Views\Error\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
