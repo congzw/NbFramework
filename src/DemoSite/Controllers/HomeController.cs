@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Collections.Generic;
+using System.Web.Mvc;
 using DemoSite.Domains.Demo;
 
 namespace DemoSite.Controllers
@@ -11,6 +12,12 @@ namespace DemoSite.Controllers
         {
             _demoService = demoService;
         }
+
+        //private readonly IList<IDemoService> _demoServices;
+        //public HomeController(IList<IDemoService> demoServices)
+        //{
+        //    _demoServices = demoServices;
+        //}
 
         //demo for each tenant infos(per database)!
         public ActionResult Index()

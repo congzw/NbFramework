@@ -16,19 +16,42 @@
 // --------------------------------------------------------------------------------------------------------------------
 
 
-using DemoSite.Infrastructure.DependencyResolution.Registries;
+using System;
+using System.Diagnostics;
 
 namespace DemoSite.Infrastructure.DependencyResolution {
-    using StructureMap;
+	using StructureMap;
 	
-    public static class IoC {
-        public static IContainer Initialize()
-        {
-            return new Container(c =>
+	public static class IoC {
+		public static IContainer Initialize()
+		{
+			var container =  new Container(c =>
             {
-                c.AddRegistry<MvcRegistry>();
-                c.AddRegistry<DemoRegistry>();
-            });
-        }
-    }
+				c.Scan(_ =>
+				{
+					//assemblies
+					_.AssembliesAndExecutablesFromApplicationBaseDirectory(assembly =>
+					{
+						var name = assembly.GetName().Name;
+						return name.StartsWith("DemoSite", StringComparison.OrdinalIgnoreCase) || name.StartsWith("NbFramework");
+					});
+
+					//Filter types
+					//_.Exclude(type => type.Name.Contains("Bad"));
+
+                    //registries
+					_.LookForRegistries();
+				});
+			});
+
+			//show info
+		    var whatDidIScan = container.WhatDidIScan();
+            Debug.Write(whatDidIScan);
+
+            var whatDoIHave = container.WhatDoIHave();
+            Debug.Write(whatDoIHave);
+
+		    return container;
+		}
+	}
 }

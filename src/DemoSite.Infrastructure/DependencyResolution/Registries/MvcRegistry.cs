@@ -24,11 +24,11 @@ namespace DemoSite.Infrastructure.DependencyResolution.Registries {
 		public MvcRegistry() {
 			Scan(
 				scan => {
-					scan.TheCallingAssembly();
-					scan.WithDefaultConventions();
+                    scan.TheCallingAssembly();
+                    scan.WithDefaultConventions();
 					scan.With(new ControllerConvention());
 				});
-			//For<IExample>().Use<Example>();
+
 			//For<IExample>().Use<Example>();
 		}
 

@@ -86,6 +86,7 @@
   <ItemGroup>
     <Compile Include="App_Start\StructuremapMvc.cs" />
     <Compile Include="DependencyResolution\ControllerConvention.cs" />
+    <Compile Include="DependencyResolution\Conventions\AllInterfacesConvention.cs" />
     <Compile Include="DependencyResolution\Registries\MvcRegistry.cs" />
     <Compile Include="DependencyResolution\IoC.cs" />
     <Compile Include="DependencyResolution\Registries\DemoRegistry.cs" />
