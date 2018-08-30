@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 
 namespace DemoSite.Controllers
 {
@@ -7,6 +8,11 @@ namespace DemoSite.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+
+        public ActionResult Ex()
+        {
+            throw new Exception("whatever");
         }
     }
 }

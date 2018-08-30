@@ -36,6 +36,7 @@ namespace DemoSite.Infrastructure.Mocks
         }
         public void Cancel()
         {
+            //todo multi call call and commit logic!
             var message = string.Format("[{0}]: Invoke Cancel() and reset [Cancelled] from {1} to {2}", UtilsDateTime.Current.Now().ToFormat(), TransactionInfo.Cancelled, true);
             TransactionInfo.Infos.Add(message);
             LogMessage(message);

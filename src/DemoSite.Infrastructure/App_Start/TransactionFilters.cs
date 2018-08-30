@@ -5,10 +5,20 @@ using NbFramework.Common.Ioc;
 
 namespace DemoSite.Infrastructure
 {
+    //Repace TransactionFilter with IHttpModule (mvc & webapi) !
+    #region temp
+
+    //filters.Add(new TransactionFilter());
+    //IHttpModule.Error += (sender, args) =>
+    //{
+    //    var transactionManager = StructuremapMvc.StructureMapDependencyScope.GetInstance<ITransactionManager>();
+    //    transactionManager.Cancel();
+    //};
+
     /// <summary>
     /// TransactionFilter For Mvc
     /// </summary>
-    public class TransactionFilter : IExceptionFilter//ActionFilterAttribute, IExceptionFilter
+    public class TransactionFilter : IExceptionFilter
     {
         public void OnException(ExceptionContext filterContext)
         {
@@ -22,4 +32,6 @@ namespace DemoSite.Infrastructure
             UtilsLogger.LogMessage(string.Format("{0} > {1}", transactionManager.GetHashCode(), message));
         }
     }
+
+    #endregion
 }

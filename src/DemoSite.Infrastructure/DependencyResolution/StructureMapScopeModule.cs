@@ -4,14 +4,10 @@ using NbFramework.Common;
 using NbFramework.Common.Data;
 using StructureMap.Web.Pipeline;
 
-namespace DemoSite.Infrastructure.DependencyResolution {
-
-    public class StructureMapScopeModule : IHttpModule {
-
-        public void Dispose()
-        {
-        }
-
+namespace DemoSite.Infrastructure.DependencyResolution
+{
+    public class StructureMapScopeModule : IHttpModule
+    {
         public void Init(HttpApplication context)
         {
             context.BeginRequest += (sender, e) =>
@@ -27,6 +23,16 @@ namespace DemoSite.Infrastructure.DependencyResolution {
                 StructuremapMvc.StructureMapDependencyScope.DisposeNestedContainer();
                 LogMessage("EndRequest");
             };
+
+            context.Error += (sender, args) =>
+            {
+                var transactionManager = StructuremapMvc.StructureMapDependencyScope.GetInstance<ITransactionManager>();
+                transactionManager.Cancel();
+                LogMessage("Request Ex: transactionManager.Cancel()");
+            };
+        }
+        public void Dispose()
+        {
         }
         private void LogMessage(string message)
         {
