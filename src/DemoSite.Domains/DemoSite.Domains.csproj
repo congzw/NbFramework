@@ -43,7 +43,6 @@
     <Compile Include="Mocks\BaseMockObject.cs" />
     <Compile Include="Mocks\DemoService.cs" />
     <Compile Include="Mocks\GenericTypes.cs" />
-    <Compile Include="Mocks\MockRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

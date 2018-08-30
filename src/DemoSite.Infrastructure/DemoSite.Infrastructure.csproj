@@ -93,6 +93,9 @@
     <Compile Include="DependencyResolution\Registries\DemoRegistry.cs" />
     <Compile Include="DependencyResolution\StructureMapDependencyScope.cs" />
     <Compile Include="DependencyResolution\StructureMapScopeModule.cs" />
+    <Compile Include="Mocks\MockRepository.cs" />
+    <Compile Include="Mocks\MockSession.cs" />
+    <Compile Include="Mocks\MockTransactionManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

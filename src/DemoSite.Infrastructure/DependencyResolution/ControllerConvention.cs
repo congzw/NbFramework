@@ -33,7 +33,8 @@ namespace DemoSite.Infrastructure.DependencyResolution {
                 if (type.CanBeCastTo<Controller>() && !type.IsAbstract)
                 {
                     //MVC: System.Web.Mvc.ControllerBase.VerifyExecuteCalledOnce()
-                    //不能使用控制器“XxxController”的单个实例处理多个请求。如果正在使用自定义控制器工厂，请确保它为每个请求创建该控制器的新实例。]
+                    //A single instance of controller 'XxxController' cannot be used to handle multiple requests. 
+                    //If a custom controller factory is in use, make sure that it creates a new instance of the controller for each request.
                     registry.For(type).LifecycleIs(new UniquePerRequestLifecycle());
                 }
             }

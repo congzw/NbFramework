@@ -24,6 +24,11 @@ namespace DemoSite.Controllers
             return View();
         }
 
+        public ActionResult ChildWidget()
+        {
+            return Content("ChildWidget");
+        }
+
         //demo for all tenants manage
         public ActionResult Tenants()
         {

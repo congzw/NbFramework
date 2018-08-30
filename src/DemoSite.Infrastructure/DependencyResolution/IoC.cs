@@ -19,6 +19,7 @@
 using System;
 using System.Diagnostics;
 using CommonServiceLocator;
+using DemoSite.Domains.Mocks;
 using NbFramework.Common.Ioc;
 
 namespace DemoSite.Infrastructure.DependencyResolution {
@@ -48,6 +49,7 @@ namespace DemoSite.Infrastructure.DependencyResolution {
 
             CoreServiceProvider.CurrentFunc = () => container.GetInstance<IServiceLocator>();
 
+            BaseMockObject.ExcludedNames.Add(typeof(TransactionManager.TransactionTraceInfo).Name);
 			ShowDebugInfo(container);
 
 		    return container;

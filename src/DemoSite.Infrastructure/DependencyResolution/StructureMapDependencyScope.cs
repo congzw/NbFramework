@@ -20,6 +20,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using CommonServiceLocator;
+using NbFramework.Common;
 using StructureMap;
 
 namespace DemoSite.Infrastructure.DependencyResolution {
@@ -41,6 +42,8 @@ namespace DemoSite.Infrastructure.DependencyResolution {
                 throw new ArgumentNullException("container");
             }
             Container = container;
+
+            LogMessage("Ctor()");
         }
 
         #endregion
@@ -80,7 +83,10 @@ namespace DemoSite.Infrastructure.DependencyResolution {
             CurrentNestedContainer = Container.GetNestedContainer();
         }
 
-        public void Dispose() {
+        public void Dispose()
+        {
+            LogMessage("Dispose()");
+
             DisposeNestedContainer();
             Container.Dispose();
         }
@@ -117,5 +123,10 @@ namespace DemoSite.Infrastructure.DependencyResolution {
         }
 
         #endregion
+        private void LogMessage(string message)
+        {
+            return;
+            UtilsLogger.LogMessage(this.GetType(), message);
+        }
     }
 }

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using System.Text;
 using NbFramework.Common;
@@ -33,7 +35,27 @@ namespace DemoSite.Domains.Mocks
 
         private void LogMessage(string message)
         {
-            UtilsLogger.LogMessage(this.GetType(), message);
+            if (TraceDebug())
+            {
+                UtilsLogger.LogMessage(this.GetType(), message);
+            }
+        }
+
+        private static IList<string> _excludedNames = new List<string>();
+        public static IList<string> ExcludedNames
+        {
+            get { return _excludedNames; }
+            set { _excludedNames = value; }
+        }
+
+        public static Func<bool> TraceDebug = getTraceLifecycle;
+
+
+        public const string TraceLifecycleKey = "Config.Common.TraceLifecycle";
+        private static bool getTraceLifecycle()
+        {
+            var myConfigHelper = MyConfigHelper.Resolve();
+            return myConfigHelper.GetAppSettingValueAsBool(TraceLifecycleKey, false);
         }
     }
 
@@ -62,7 +84,8 @@ namespace DemoSite.Domains.Mocks
                 {
                     continue;
                 }
-                if (propType == typeof(TransactionManager.TransactionTraceInfo))
+
+                if (BaseMockObject.ExcludedNames.Any(x => x.Equals(propType.Name, StringComparison.OrdinalIgnoreCase)))
                 {
                     continue;
                 }

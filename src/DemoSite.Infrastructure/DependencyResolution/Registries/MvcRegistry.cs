@@ -15,6 +15,7 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
+using System;
 using StructureMap;
 
 namespace DemoSite.Infrastructure.DependencyResolution.Registries {
@@ -24,7 +25,14 @@ namespace DemoSite.Infrastructure.DependencyResolution.Registries {
 		public MvcRegistry() {
 			Scan(
 				scan => {
-                    scan.TheCallingAssembly();
+                    //assemblies
+                    scan.AssembliesAndExecutablesFromApplicationBaseDirectory(assembly =>
+                    {
+                        var name = assembly.GetName().Name;
+                        return name.StartsWith("DemoSite", StringComparison.OrdinalIgnoreCase);
+                    });
+
+                    //scan.TheCallingAssembly();
                     scan.WithDefaultConventions();
 					scan.With(new ControllerConvention());
 				});

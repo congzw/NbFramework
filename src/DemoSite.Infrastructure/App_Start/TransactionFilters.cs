@@ -8,7 +8,7 @@ namespace DemoSite.Infrastructure
     /// <summary>
     /// TransactionFilter For Mvc
     /// </summary>
-    public class TransactionFilter : IExceptionFilter
+    public class TransactionFilter : IExceptionFilter//ActionFilterAttribute, IExceptionFilter
     {
         public void OnException(ExceptionContext filterContext)
         {
