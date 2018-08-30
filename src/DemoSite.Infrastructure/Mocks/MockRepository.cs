@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Linq;
+using DemoSite.Domains.Mocks;
 using NbFramework.Common.Data;
 
-namespace DemoSite.Domains.Mocks
+namespace DemoSite.Infrastructure.Mocks
 {
     public class SimpleRepository : BaseMockObject, ISimpleRepository
     {
@@ -11,14 +12,6 @@ namespace DemoSite.Domains.Mocks
         {
             Session = session;
         }
-
-        //public ISession Session { get; set; }
-        //public TransactionManager TransactionManager { get; set; }
-        //public SimpleRepository(TransactionManager transactionManager)
-        //{
-        //    Session = transactionManager.Session;
-        //    TransactionManager = transactionManager;
-        //}
 
         public IQueryable<T> Query<T>() where T : INbEntity<Guid>
         {

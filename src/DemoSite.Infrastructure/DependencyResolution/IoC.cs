@@ -20,6 +20,7 @@ using System;
 using System.Diagnostics;
 using CommonServiceLocator;
 using DemoSite.Domains.Mocks;
+using DemoSite.Infrastructure.Mocks;
 using NbFramework.Common.Ioc;
 
 namespace DemoSite.Infrastructure.DependencyResolution {

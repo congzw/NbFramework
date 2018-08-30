@@ -1,6 +1,7 @@
 ﻿using System;
+using DemoSite.Domains.Mocks;
 
-namespace DemoSite.Domains.Mocks
+namespace DemoSite.Infrastructure.Mocks
 {
     public interface ISession : IDisposable
     {

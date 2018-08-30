@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Text;
+using DemoSite.Domains.Mocks;
 using NbFramework.Common;
 using NbFramework.Common.Data;
 using NbFramework.Common.Extensions;
 
-namespace DemoSite.Domains.Mocks
+namespace DemoSite.Infrastructure.Mocks
 {
     public class TransactionManager : ITransactionManager
     {
