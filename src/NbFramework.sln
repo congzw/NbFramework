@@ -16,13 +16,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NbFramework.Themes", "NbFra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NbFramework.MultiTenancy", "NbFramework.MultiTenancy\NbFramework.MultiTenancy.csproj", "{486F4749-7F93-440A-B3CD-D3DBE4D934E2}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "fx", "fx", "{7ADFB802-50AD-4206-9D14-4CDA2DC01F36}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NbFramework", "NbFramework", "{7ADFB802-50AD-4206-9D14-4CDA2DC01F36}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoSite.Infrastructure", "DemoSite.Infrastructure\DemoSite.Infrastructure.csproj", "{790F0E27-2478-4819-9CF1-2408E9383308}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoSite.Domains", "DemoSite.Domains\DemoSite.Domains.csproj", "{72F8A8E4-5179-447E-AEDA-4465E8CE6A59}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "demo", "demo", "{68CE3D6C-0346-45A4-954F-D982AF1A8A33}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{68CE3D6C-0346-45A4-954F-D982AF1A8A33}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
