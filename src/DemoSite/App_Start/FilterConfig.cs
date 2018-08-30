@@ -1,5 +1,4 @@
 ﻿using System.Web.Mvc;
-using DemoSite.Infrastructure;
 
 namespace DemoSite
 {
