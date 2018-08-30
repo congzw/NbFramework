@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Reflection;
 using System.Text;
+using NbFramework.Common.Data;
 using NbFramework.Common.Extensions;
 
 namespace DemoSite.Domains.Mocks
@@ -56,6 +57,10 @@ namespace DemoSite.Domains.Mocks
                 var propType = propertyInfo.PropertyType;
                 var isSimpleType = IsSimpleType(propType);
                 if (isSimpleType && propType.Name != "Tenant")
+                {
+                    continue;
+                }
+                if (propType == typeof(NullTransactionManager.TransactionTraceInfo))
                 {
                     continue;
                 }

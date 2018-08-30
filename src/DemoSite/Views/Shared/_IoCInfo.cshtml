@@ -1,10 +1,12 @@
 ﻿@using DemoSite.Domains.Mocks
+@using NbFramework.Common.Data
 @using NbFramework.Common.Ioc
 @{
     <hr/>
-
-    @ShowObjectInfo(NestedClass.Create(2))
-
+    var transactionManager = CoreServiceProvider.LocateService<ITransactionManager>();
+    transactionManager.Cancel();
+    
+    @*@ShowObjectInfo(NestedClass.Create(2))*@
     @*@ShowObjectInfo(CoreServiceProvider.LocateService<IDemoService>())
     @ShowObjectInfo(CoreServiceProvider.LocateService<IFooDemoService>())*@
     @ShowObjectInfo(CoreServiceProvider.LocateService<IBarDemoService>())

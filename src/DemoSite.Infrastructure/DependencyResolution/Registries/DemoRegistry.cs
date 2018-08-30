@@ -1,4 +1,5 @@
 ﻿using DemoSite.Domains.Mocks;
+using NbFramework.Common.Data;
 using StructureMap;
 
 namespace DemoSite.Infrastructure.DependencyResolution.Registries
@@ -27,7 +28,8 @@ namespace DemoSite.Infrastructure.DependencyResolution.Registries
                     ////FooDemoService will excluded!
                     //scan.Exclude(type => type.Name.Contains("Foo"));
                 });
-
+            
+            For<ITransactionManager>().Use<NullTransactionManager>();
 
             For(typeof(IVisualizer<>)).Use(typeof(DefaultVisualizer<>));
             // Register a specific visualizer for IssueCreated

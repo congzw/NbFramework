@@ -7,10 +7,11 @@ namespace DemoSite.Domains.Mocks
     public class SimpleRepository : BaseMockObject, ISimpleRepository
     {
         public ISession Session { get; set; }
-
-        public SimpleRepository(ISession session)
+        public ITransactionManager TransactionManager { get; set; }
+        public SimpleRepository(ISession session, ITransactionManager transactionManager)
         {
             Session = session;
+            TransactionManager = transactionManager;
         }
 
         public IQueryable<T> Query<T>() where T : INbEntity<Guid>
@@ -53,7 +54,7 @@ namespace DemoSite.Domains.Mocks
             throw new NotImplementedException();
         }
     }
-    
+
     public interface ISession : IDisposable
     {
         string ForDebug { get; set; }
