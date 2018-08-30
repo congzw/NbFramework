@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 
 namespace NbFramework.Common
@@ -15,30 +16,27 @@ namespace NbFramework.Common
         /// <summary>
         /// 写入日志
         /// </summary>
-        /// <param name="message"></param>
-        public static void LogMessage(string message)
+        /// <param name="messages"></param>
+        public static void LogMessage(params string[] messages)
         {
-            defaultLogAction.Invoke(message);
-        }
-
-        /// <summary>
-        /// 写入日志
-        /// </summary>
-        /// <param name="catelog"></param>
-        /// <param name="message"></param>
-        public static void LogMessage(string catelog, string message)
-        {
-            defaultLogAction.Invoke(string.Format("[{0}] {1}", catelog, message));
+            foreach (var message in messages)
+            {
+                defaultLogAction.Invoke(message);
+            }
         }
 
         /// <summary>
         /// 写入日志
         /// </summary>
         /// <param name="type"></param>
-        /// <param name="message"></param>
-        public static void LogMessage(Type type, string message)
+        /// <param name="messages"></param>
+        public static void LogMessage(Type type, params string[] messages)
         {
-            defaultLogAction.Invoke(string.Format("[{0}] {1}", type.Name, message));
+            foreach (var message in messages)
+            {
+
+                defaultLogAction.Invoke(string.Format("[{0}] {1}", type.Name, message));
+            }
         }
 
         /// <summary>

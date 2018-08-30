@@ -29,7 +29,7 @@ namespace DemoSite.Infrastructure.DependencyResolution.Registries
                     //scan.Exclude(type => type.Name.Contains("Foo"));
                 });
             
-            For<ITransactionManager>().Use<NullTransactionManager>();
+            For<ITransactionManager>().Use<TransactionManager>();
 
             For(typeof(IVisualizer<>)).Use(typeof(DefaultVisualizer<>));
             // Register a specific visualizer for IssueCreated

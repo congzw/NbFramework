@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Reflection;
 using System.Text;
-using NbFramework.Common.Data;
+using NbFramework.Common;
 using NbFramework.Common.Extensions;
 
 namespace DemoSite.Domains.Mocks
@@ -15,8 +14,7 @@ namespace DemoSite.Domains.Mocks
         {
             var type = this.GetType();
             var message = string.Format("<< create: {0} {1}", type.Name, this.GetHashCode());
-            //Console.WriteLine(message);
-            Debug.WriteLine(message);
+            LogMessage(message);
         }
 
         public void Dispose()
@@ -24,14 +22,18 @@ namespace DemoSite.Domains.Mocks
             // clean up
             var type = this.GetType();
             var message = string.Format("             dispose {0}: {1} >> ", type.Name, this.GetHashCode());
-            //Console.WriteLine(message);
-            Debug.WriteLine(message);
+            LogMessage(message);
             WasDisposed = true;
         }
 
         public override string ToString()
         {
             return this.ToDebugInfo();
+        }
+
+        private void LogMessage(string message)
+        {
+            UtilsLogger.LogMessage(this.GetType(), message);
         }
     }
 
@@ -60,7 +62,7 @@ namespace DemoSite.Domains.Mocks
                 {
                     continue;
                 }
-                if (propType == typeof(NullTransactionManager.TransactionTraceInfo))
+                if (propType == typeof(TransactionManager.TransactionTraceInfo))
                 {
                     continue;
                 }
@@ -99,8 +101,7 @@ namespace DemoSite.Domains.Mocks
             return new String('\t', n);
         }
     }
-
-
+    
     public class NestedClass : BaseMockObject
     {
         public NestedClass Nested { get; set; }
@@ -121,18 +122,5 @@ namespace DemoSite.Domains.Mocks
                 AppendChild(child, --deep);
             }
         }
-
-        //public static NestedClass Create(int deep)
-        //{
-        //    var parent = new NestedClass();
-        //    var child = new NestedClass();
-        //    parent.Nested = child;
-        //    if (deep > 0)
-        //    {
-        //        //var more = Create(--deep);
-        //        //child.Nested = more;
-        //    }
-        //    return parent;
-        //}
     }
 }
