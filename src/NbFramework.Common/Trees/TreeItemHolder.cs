@@ -73,6 +73,25 @@ namespace NbFramework.Common.Trees
         }
 
         /// <summary>
+        /// 转换为其他的树
+        /// </summary>
+        /// <typeparam name="TTree"></typeparam>
+        /// <param name="convertFunc"></param>
+        /// <param name="getChildren"></param>
+        /// <returns></returns>
+        public TTree ConvertToTree<TTree>(Func<T, TTree> convertFunc, Func<TTree, IList<TTree>> getChildren)
+        {
+            var newTree = convertFunc(Value);
+            var newTreeChildren = getChildren(newTree);
+            foreach (var childHolder in Children)
+            {
+                var childTree = childHolder.ConvertToTree(convertFunc, getChildren);
+                newTreeChildren.Add(childTree);
+            }
+            return newTree;
+        }
+
+        /// <summary>
         /// 转化数据结构为树型容器
         /// </summary>
         /// <param name="treeItems"></param>

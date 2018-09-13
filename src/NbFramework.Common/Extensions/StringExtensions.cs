@@ -66,5 +66,42 @@ namespace NbFramework.Common.Extensions
             return string.Join(separator, source);
         }
 
+        /// <summary>
+        /// 替换字符串
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="oldV"></param>
+        /// <param name="newV"></param>
+        /// <returns></returns>
+        public static string ReplaceString(this string value, string oldV, string newV = ".")
+        {
+            if (value == null)
+            {
+                return null;
+            }
+            return value.Replace(oldV, newV);
+        }
+
+        /// <summary>
+        /// 替换字符串
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="oldV"></param>
+        /// <param name="newV"></param>
+        /// <returns></returns>
+        public static string ReplaceString(this string value, string[] oldV, string newV = ".")
+        {
+            if (value == null)
+            {
+                return null;
+            }
+            string result = value;
+            foreach (var old in oldV)
+            {
+                result = ReplaceString(result, old, newV);
+            }
+            return result;
+        }
+
     }
 }

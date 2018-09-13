@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using NbFramework.Common.Extensions;
 
 namespace NbFramework.Common.Trees
 {
@@ -38,6 +39,33 @@ namespace NbFramework.Common.Trees
 
                 AppendNode(items, nodeCountPerDeep, item.Id, deep - 1);
             }
+        }
+    }
+    
+    public class MockTreeItemTree : MockTreeItem
+    {
+        public MockTreeItemTree()
+        {
+            Children = new List<MockTreeItemTree>();
+        }
+
+        public IList<MockTreeItemTree> Children { get; set; }
+
+        public static IList<MockTreeItemTree> ConvertTrees(IList<MockTreeItem> items)
+        {
+            var trees = new List<MockTreeItemTree>();
+            if (items.IsNullOrEmpty())
+            {
+                return trees;
+            }
+
+            var holders = TreeItemHolder<MockTreeItem>.ConvertToHolders(items, item => item.Id, item => item.ParentId, null);
+            foreach (var holder in holders)
+            {
+                var itemTree = holder.ConvertToTree(item => item.ToMapped<MockTreeItemTree>(), tree => tree.Children);
+                trees.Add(itemTree);
+            }
+            return trees;
         }
     }
 }
