@@ -28,6 +28,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NbFramework.TextRules", "Nb
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NbFramework.UnitTests", "NbFramework.UnitTests\NbFramework.UnitTests.csproj", "{185CD4A9-609B-4E44-A2B6-68499BC6091F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NbFramework.UI", "NbFramework.UI\NbFramework.UI.csproj", "{2172DF62-A9FD-4711-A23D-C02608413D11}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -66,6 +68,10 @@ Global
 		{185CD4A9-609B-4E44-A2B6-68499BC6091F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{185CD4A9-609B-4E44-A2B6-68499BC6091F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{185CD4A9-609B-4E44-A2B6-68499BC6091F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2172DF62-A9FD-4711-A23D-C02608413D11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2172DF62-A9FD-4711-A23D-C02608413D11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2172DF62-A9FD-4711-A23D-C02608413D11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2172DF62-A9FD-4711-A23D-C02608413D11}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -76,5 +82,6 @@ Global
 		{486F4749-7F93-440A-B3CD-D3DBE4D934E2} = {7ADFB802-50AD-4206-9D14-4CDA2DC01F36}
 		{72F8A8E4-5179-447E-AEDA-4465E8CE6A59} = {68CE3D6C-0346-45A4-954F-D982AF1A8A33}
 		{40A5077D-E4AE-4054-A2DB-A24300F6900F} = {7ADFB802-50AD-4206-9D14-4CDA2DC01F36}
+		{2172DF62-A9FD-4711-A23D-C02608413D11} = {7ADFB802-50AD-4206-9D14-4CDA2DC01F36}
 	EndGlobalSection
 EndGlobal
