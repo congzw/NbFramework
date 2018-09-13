@@ -51,6 +51,9 @@
   </Choose>
   <ItemGroup>
     <Compile Include="AssertHelper.cs" />
+    <Compile Include="Common\Extensions\StringExtensionsSpecs.cs" />
+    <Compile Include="Common\Trees\TreeItemHolderSpecs.cs" />
+    <Compile Include="Common\Trees\_Mocks.cs" />
     <Compile Include="TestExtensions.cs" />
     <Compile Include="TextRules\_Mocks.cs" />
     <Compile Include="TextRules\TextRuleEngineSpecs.cs" />

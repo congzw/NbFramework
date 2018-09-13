@@ -48,6 +48,8 @@
     <Compile Include="Data\ITransactionManager.cs" />
     <Compile Include="Data\NbEntity.cs" />
     <Compile Include="Extensions\DateTimeExtensions.cs" />
+    <Compile Include="Extensions\EnumerableExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Extensions\TypeExtensions.cs" />
     <Compile Include="Ioc\CoreServiceProvider.cs" />
     <Compile Include="Ioc\NullServiceLocator.cs" />
@@ -55,12 +57,15 @@
     <Compile Include="MyConfigHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResolveAsSingleton.cs" />
+    <Compile Include="Trees\_TreeItemHelper.cs" />
+    <Compile Include="Trees\TreeItemHolder.cs" />
     <Compile Include="UtilsDateTime.cs" />
     <Compile Include="UtilsLogger.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
