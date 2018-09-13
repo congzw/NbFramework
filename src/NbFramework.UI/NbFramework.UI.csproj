@@ -39,14 +39,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Navigations\INavItemProcessService.cs" />
+    <Compile Include="Navigations\INavItemService.cs" />
     <Compile Include="Navigations\NavItem.cs" />
+    <Compile Include="Navigations\INavItemRepository.cs" />
     <Compile Include="Navigations\NavItemType.cs" />
+    <Compile Include="Navigations\_Impl\NavItemService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Fx\Ace\" />
     <Folder Include="Fx\Unify\" />
     <Folder Include="Widgets\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NbFramework.Common\NbFramework.Common.csproj">
+      <Project>{bdea1bb8-7b9e-4cc5-ad7f-ab40e8290741}</Project>
+      <Name>NbFramework.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

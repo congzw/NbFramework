@@ -10,6 +10,7 @@ namespace NbFramework.UI.Navigations
         public NavItem()
         {
             NavItemTypes = (NavItemType.Breadcrumb | NavItemType.Menu).ToTypeNames();
+            Hidden = false;
         }
 
         public string Pk { get; set; }
@@ -21,5 +22,11 @@ namespace NbFramework.UI.Navigations
         public string FromModule { get; set; }
         public string Position { get; set; }
         public string NavItemTypes { get; set; }
+        public string ValueBag { get; set; }
+
+        /// <summary>
+        /// 是否隐藏
+        /// </summary>
+        public bool Hidden { get; set; }
     }
 }

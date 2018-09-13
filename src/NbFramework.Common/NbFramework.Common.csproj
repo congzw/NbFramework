@@ -47,8 +47,10 @@
     <Compile Include="Data\ISimpleRepository.cs" />
     <Compile Include="Data\ITransactionManager.cs" />
     <Compile Include="Data\NbEntity.cs" />
+    <Compile Include="Extensions\ComparableExtensions.cs" />
     <Compile Include="Extensions\DateTimeExtensions.cs" />
     <Compile Include="Extensions\EnumerableExtensions.cs" />
+    <Compile Include="NbGuard.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Extensions\TypeExtensions.cs" />
     <Compile Include="Ioc\CoreServiceProvider.cs" />
