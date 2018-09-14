@@ -39,6 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Navigations\Api\INavItemTreeApi.cs" />
+    <Compile Include="Navigations\Api\_Impl\NavItemTreeApi.cs" />
     <Compile Include="Navigations\INavItemFilter.cs" />
     <Compile Include="Navigations\INavItemService.cs" />
     <Compile Include="Navigations\NavItem.cs" />

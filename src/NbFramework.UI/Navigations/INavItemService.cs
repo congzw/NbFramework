@@ -10,6 +10,5 @@ namespace NbFramework.UI.Navigations
     public class GetNavItemsArgs
     {
         public string Position { get; set; }
-        public NavItemType? NavItemType { get; set; }
     }
 }
