@@ -8,12 +8,12 @@ namespace NbFramework.UI.Navigations._Impl
     public class NavItemService : INavItemService
     {
         private readonly INavItemRepository _navItemRepository;
-        private readonly IList<INavItemProcessService> _navItemProcessServices;
+        private readonly IList<INavItemFilter> _navItemFilters;
 
-        public NavItemService(INavItemRepository navItemRepository, IList<INavItemProcessService> navItemProcessServices)
+        public NavItemService(INavItemRepository navItemRepository, IList<INavItemFilter> navItemFilters)
         {
             _navItemRepository = navItemRepository;
-            _navItemProcessServices = navItemProcessServices;
+            _navItemFilters = navItemFilters;
         }
 
         public IList<NavItem> GetNavItems(GetNavItemsArgs args)
@@ -25,12 +25,12 @@ namespace NbFramework.UI.Navigations._Impl
                 navItems = _navItemRepository.GetAll().Where(x => args.Position.NbEquals(x.Position)).ToList();
             }
 
-            if (_navItemProcessServices.IsNullOrEmpty())
+            if (_navItemFilters.IsNullOrEmpty())
             {
                 return navItems;
             }
 
-            foreach (var processer in _navItemProcessServices.OrderBy(x => x.Order))
+            foreach (var processer in _navItemFilters.OrderBy(x => x.Order))
             {
                 navItems = processer.Process(navItems);
             }

@@ -61,7 +61,7 @@
     <Compile Include="UI\Navigations\NavItemServiceSpecs.cs" />
     <Compile Include="UI\Navigations\NavItemTypeSpecs.cs" />
     <Compile Include="UI\Navigations\_Mocks\MemoryNavItemRepository.cs" />
-    <Compile Include="UI\Navigations\_Mocks\MockNavItemProcessService.cs" />
+    <Compile Include="UI\Navigations\_Mocks\MockNavItemFilter.cs" />
     <Compile Include="_Fx\EnumFlagSpecs.cs" />
   </ItemGroup>
   <ItemGroup>

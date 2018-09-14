@@ -39,10 +39,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Navigations\INavItemProcessService.cs" />
+    <Compile Include="Navigations\INavItemFilter.cs" />
     <Compile Include="Navigations\INavItemService.cs" />
     <Compile Include="Navigations\NavItem.cs" />
     <Compile Include="Navigations\INavItemRepository.cs" />
+    <Compile Include="Navigations\NavItemTree.cs" />
     <Compile Include="Navigations\NavItemType.cs" />
     <Compile Include="Navigations\_Impl\NavItemService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -24,7 +24,7 @@ namespace NbFramework.UI.Navigations
         {
             var memoryNavItemRepository = new MemoryNavItemRepository();
             var navItems = memoryNavItemRepository.Items;
-            var navItemService = new NavItemService(memoryNavItemRepository, new List<INavItemProcessService>(){new MockNavItemProcessService()});
+            var navItemService = new NavItemService(memoryNavItemRepository, new List<INavItemFilter>(){new MockNavItemFilter()});
             var items = navItemService.GetNavItems(new GetNavItemsArgs());
             items.Count(x => !x.Hidden).ShouldEqual(navItems.Count - 1);
         }

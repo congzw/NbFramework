@@ -4,7 +4,7 @@ using NbFramework.Common.Extensions;
 
 namespace NbFramework.UI.Navigations._Mocks
 {
-    public class MockNavItemProcessService : INavItemProcessService
+    public class MockNavItemFilter : INavItemFilter
     {
         public int Order { get; set; }
         public IList<NavItem> Process(IList<NavItem> navItems)
