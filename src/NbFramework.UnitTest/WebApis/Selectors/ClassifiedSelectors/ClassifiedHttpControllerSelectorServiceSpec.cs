@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace NbFramework.WebApis.Selectors
+namespace NbFramework.WebApis.Selectors.ClassifiedSelectors
 {
     [TestClass]
-    public class MyApiControllerSelectorSpecs
+    public class ClassifiedHttpControllerSelectorServiceSpec
     {
         [TestMethod]
         public void Select_NullArgs_ShouldThrowEx()
         {
-            var myApiControllerSelector = new NamespaceApiControllerSelector();
+            var myApiControllerSelector = new ClassifiedHttpControllerSelectorService();
             var controllers = new List<string>();
             controllers.Add("Xxx.Web.Api.MockController");
 
@@ -22,7 +22,7 @@ namespace NbFramework.WebApis.Selectors
         [TestMethod]
         public void Select_NoArea_Should_Return_TheOne()
         {
-            var myApiControllerSelector = new NamespaceApiControllerSelector();
+            var myApiControllerSelector = new ClassifiedHttpControllerSelectorService();
             var controllers = new List<string>();
             controllers.Add("Xxx.Web.Api.MockController");
             controllers.Add("Xxx.Web.Api.A.MockController");
@@ -38,7 +38,7 @@ namespace NbFramework.WebApis.Selectors
         [TestMethod]
         public void Select_WihtArea_Should_Return_TheOne()
         {
-            var myApiControllerSelector = new NamespaceApiControllerSelector();
+            var myApiControllerSelector = new ClassifiedHttpControllerSelectorService();
             var controllers = new List<string>();
             controllers.Add("Xxx.Web.Api.MockController");
             controllers.Add("Xxx.Web.Api.A.MockController");
@@ -64,7 +64,7 @@ namespace NbFramework.WebApis.Selectors
         [TestMethod]
         public void Select_SamePrefix_Should_Return_TheOne()
         {
-            var myApiControllerSelector = new NamespaceApiControllerSelector();
+            var myApiControllerSelector = new ClassifiedHttpControllerSelectorService();
             var controllers = new List<string>();
             controllers.Add("Foo.Web.Areas.Live.Api.ActivityController");
             controllers.Add("Foo.Web.Areas.Live.Api.ActivityInfoController");
@@ -76,27 +76,27 @@ namespace NbFramework.WebApis.Selectors
 
     public static class NamespaceApiControllerSelectorExtensions
     {
-        public static void ShouldReturnTheOne(this INamespaceApiControllerSelector selector, string expectedResult, IList<string> apiControllerFullNames, string apiFolder, string controller, string area, params string[] categories)
+        public static void ShouldReturnTheOne(this IClassifiedHttpControllerSelectorService selectorService, string expectedResult, IList<string> apiControllerFullNames, string apiFolder, string controller, string area, params string[] categories)
         {
-            var theOne = selector.Select(apiControllerFullNames, apiFolder, controller, area, categories);
+            var theOne = selectorService.Select(apiControllerFullNames, apiFolder, controller, area, categories);
             theOne.ShouldEqual(expectedResult);
         }
 
-        public static void ShouldThrowEx(this INamespaceApiControllerSelector selector, IList<string> apiControllerFullNames, string apiFolder, string controller, string area, params string[] categories)
+        public static void ShouldThrowEx(this IClassifiedHttpControllerSelectorService selectorService, IList<string> apiControllerFullNames, string apiFolder, string controller, string area, params string[] categories)
         {
             AssertHelper.ShouldThrows<ArgumentNullException>(() =>
             {
-                selector.Select(apiControllerFullNames, apiFolder, controller, area, categories);
+                selectorService.Select(apiControllerFullNames, apiFolder, controller, area, categories);
             });
 
             AssertHelper.ShouldThrows<ArgumentNullException>(() =>
             {
-                selector.Select(apiControllerFullNames, apiFolder, controller, area, categories);
+                selectorService.Select(apiControllerFullNames, apiFolder, controller, area, categories);
             });
 
             AssertHelper.ShouldThrows<ArgumentNullException>(() =>
             {
-                selector.Select(apiControllerFullNames, apiFolder, controller, area, categories);
+                selectorService.Select(apiControllerFullNames, apiFolder, controller, area, categories);
             }); ;
         }
     }

@@ -3,6 +3,7 @@ using System.Web.Http;
 using System.Web.Http.Dispatcher;
 using NbFramework.WebApis;
 using NbFramework.WebApis.Selectors;
+using NbFramework.WebApis.Selectors.ClassifiedSelectors;
 
 namespace DemoSite.Infrastructure
 {

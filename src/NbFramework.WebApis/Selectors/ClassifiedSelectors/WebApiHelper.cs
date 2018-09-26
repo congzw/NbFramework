@@ -1,12 +1,12 @@
 ﻿using System;
 
-namespace NbFramework.WebApis.Selectors
+namespace NbFramework.WebApis.Selectors.ClassifiedSelectors
 {
     public class WebApiSelectorHelper
     {
-        private static Func<INamespaceApiControllerSelector> _resolve = () => new NamespaceApiControllerSelector();
+        private static Func<IClassifiedHttpControllerSelectorService> _resolve = () => new ClassifiedHttpControllerSelectorService();
 
-        public static Func<INamespaceApiControllerSelector> Resolve
+        public static Func<IClassifiedHttpControllerSelectorService> Resolve
         {
             get { return _resolve; }
             set { _resolve = value; }

@@ -54,7 +54,8 @@
     <Compile Include="ObjectIntanceTestResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestExtensions.cs" />
-    <Compile Include="WebApis\Selectors\MyApiControllerSelectorSpecs.cs" />
+    <Compile Include="WebApis\Selectors\CategorySelectors\CategoryHttpControllerSelectorServiceSpec.cs" />
+    <Compile Include="WebApis\Selectors\ClassifiedSelectors\ClassifiedHttpControllerSelectorServiceSpec.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NbFramework.Common\NbFramework.Common.csproj">

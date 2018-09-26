@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace NbFramework.WebApis.Selectors
+namespace NbFramework.WebApis.Selectors.ClassifiedSelectors
 {
-    public interface INamespaceApiControllerSelector
+    public interface IClassifiedHttpControllerSelectorService
     {
         string Select(IList<string> apiControllerFullNames, string apiFolder, string controller, string area, params string[] category);
     }
 
-    public class NamespaceApiControllerSelector : INamespaceApiControllerSelector
+    public class ClassifiedHttpControllerSelectorService : IClassifiedHttpControllerSelectorService
     {
         public string Select(IList<string> apiControllerFullNames, string apiFolder, string controller, string area, params string[] categories)
         {

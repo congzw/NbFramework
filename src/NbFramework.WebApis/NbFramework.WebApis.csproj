@@ -41,6 +41,7 @@
       <HintPath>..\..\lib\Microsoft.AspNet.WebApi.Client.5.2.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Http, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\lib\Microsoft.AspNet.WebApi.Core.5.2.2\lib\net45\System.Web.Http.dll</HintPath>
       <Private>True</Private>
@@ -56,10 +57,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Selectors\ClassifiedHttpControllerSelector.cs" />
-    <Compile Include="Selectors\NamespaceApiControllerSelector.cs" />
+    <Compile Include="Selectors\CategorySelectors\CategoryHttpControllerSelectorService.cs" />
+    <Compile Include="Selectors\CategorySelectors\CategoryApiRoute.cs" />
+    <Compile Include="Selectors\ClassifiedSelectors\ClassifiedHttpControllerSelector.cs" />
+    <Compile Include="Selectors\ClassifiedSelectors\ClassifiedHttpControllerSelectorService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Selectors\WebApiHelper.cs" />
+    <Compile Include="Selectors\CategorySelectors\CategoryHttpControllerSelector.cs" />
+    <Compile Include="Selectors\ClassifiedSelectors\WebApiHelper.cs" />
     <Compile Include="TransactionFilters.cs" />
   </ItemGroup>
   <ItemGroup>
