@@ -13,14 +13,19 @@ namespace NbFramework.Common
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="instance"></param>
-        public static void MakeSureIsNotDefault<T>(T instance)
+        /// <param name="message"></param>
+        public static void MakeSureIsNotDefault<T>(T instance, string message = null)
         {
             var value = default(T);
             bool isEqual = Equals(instance, value); 
 
             if (isEqual)
             {
-                string exMessage = string.Format("值不能为:{0}", instance);
+                if (message != null)
+                {
+                    throw new ArgumentException(message);
+                }
+                var exMessage = string.Format("值不能为:{0}", instance);
                 exMessage = exMessage == "值不能为:" ? "值不能为:null" : exMessage;
                 throw new ArgumentException(exMessage);
             }

@@ -30,6 +30,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NbFramework.UnitTests", "Nb
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NbFramework.UI", "NbFramework.UI\NbFramework.UI.csproj", "{2172DF62-A9FD-4711-A23D-C02608413D11}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NbFramework.DataStandards", "NbFramework.DataStandards\NbFramework.DataStandards.csproj", "{2A2E4924-731C-46E6-AE56-8D9B02600197}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -72,6 +74,10 @@ Global
 		{2172DF62-A9FD-4711-A23D-C02608413D11}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2172DF62-A9FD-4711-A23D-C02608413D11}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2172DF62-A9FD-4711-A23D-C02608413D11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A2E4924-731C-46E6-AE56-8D9B02600197}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A2E4924-731C-46E6-AE56-8D9B02600197}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A2E4924-731C-46E6-AE56-8D9B02600197}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A2E4924-731C-46E6-AE56-8D9B02600197}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -83,5 +89,6 @@ Global
 		{72F8A8E4-5179-447E-AEDA-4465E8CE6A59} = {68CE3D6C-0346-45A4-954F-D982AF1A8A33}
 		{40A5077D-E4AE-4054-A2DB-A24300F6900F} = {7ADFB802-50AD-4206-9D14-4CDA2DC01F36}
 		{2172DF62-A9FD-4711-A23D-C02608413D11} = {7ADFB802-50AD-4206-9D14-4CDA2DC01F36}
+		{2A2E4924-731C-46E6-AE56-8D9B02600197} = {7ADFB802-50AD-4206-9D14-4CDA2DC01F36}
 	EndGlobalSection
 EndGlobal
