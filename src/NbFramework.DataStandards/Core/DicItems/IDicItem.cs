@@ -1,4 +1,4 @@
-﻿namespace NbFramework.DataStandards
+﻿namespace NbFramework.DataStandards.Core.DicItems
 {
     /// <summary>
     /// 字典项

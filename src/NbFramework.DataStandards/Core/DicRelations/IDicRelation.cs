@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using NbFramework.Common;
 
-namespace NbFramework.DataStandards
+namespace NbFramework.DataStandards.Core.DicRelations
 {
     public interface IDicRelation
     {

@@ -39,20 +39,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Districts.cs" />
-    <Compile Include="IDicItem.cs" />
-    <Compile Include="IDicRelation.cs" />
-    <Compile Include="IDicType.cs" />
+    <Compile Include="Core\Districts\Districts.cs" />
+    <Compile Include="Core\DicItems\IDicItem.cs" />
+    <Compile Include="Core\DicItems\IDicItemService.cs" />
+    <Compile Include="Core\DicRelations\IDicRelation.cs" />
+    <Compile Include="Core\DicRelations\IDicRelationService.cs" />
+    <Compile Include="Core\DicTypes\IDicType.cs" />
+    <Compile Include="Core\DicTypes\IDicTypeService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="readme.md" />
+    <None Include="Core\readme.md" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NbFramework.Common\NbFramework.Common.csproj">
       <Project>{bdea1bb8-7b9e-4cc5-ad7f-ab40e8290741}</Project>
       <Name>NbFramework.Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Core\_Impl\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

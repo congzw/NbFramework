@@ -1,4 +1,4 @@
-﻿namespace NbFramework.DataStandards
+﻿namespace NbFramework.DataStandards.Core.DicTypes
 {
     /// <summary>
     /// 字典类型的接口
@@ -24,5 +24,13 @@
         /// 某些字典类型下的条目不需要提供修改功能
         /// </summary>
         bool CanEdit { get; set; }
+    }
+
+    public class DicType : IDicType
+    {
+        public string Code { get; set; }
+        public string Name { get; set; }
+        public bool InUse { get; set; }
+        public bool CanEdit { get; set; }
     }
 }

@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using NbFramework.Common.Extensions;
 
-namespace NbFramework.DataStandards
+namespace NbFramework.DataStandards.Core.Districts
 {
     #region 中华人民共和国行政区划分
 
