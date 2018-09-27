@@ -7,6 +7,7 @@ namespace NbFramework.UI.Fx.RequireJs
 {
     public static class RequireJsHelpers
     {
+        //no use yet! => https://volaresystems.com/blog/post/2014/05/27/Adding-RequireJS-to-an-ASPNET-MVC-project
         public static MvcHtmlString InitPageMainModule(this HtmlHelper helper, string pageModule)
         {
             var requireScript = new StringBuilder();
