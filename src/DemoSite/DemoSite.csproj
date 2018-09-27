@@ -89,11 +89,32 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\css\angular-csp.css" />
+    <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\images\demo.jpg" />
+    <Content Include="Content\libs\angular\angular-route.js" />
+    <Content Include="Content\libs\angular\angular.js" />
+    <Content Include="Content\libs\jquery\jquery-2.1.0.js" />
+    <Content Include="Content\libs\jquery\jquery.form.js" />
+    <Content Include="Content\libs\jquery\jquery.qrcode.min.js" />
+    <Content Include="Content\libs\jquery\jquery.timer.js" />
+    <Content Include="Content\libs\require.js" />
+    <Content Include="Content\libs\toastr\toastr.css" />
+    <Content Include="Content\libs\toastr\toastr.js" />
+    <Content Include="Content\scripts\config.js" />
+    <Content Include="Content\scripts\configForAngular.js" />
+    <Content Include="Content\scripts\mainApp.js" />
+    <Content Include="Content\scripts\showScriptsLoading.js" />
+    <Content Include="Content\scripts\zqnb.js" />
+    <Content Include="Content\scripts\zqnb.log.js" />
+    <Content Include="Content\scripts\zqnb.mainVue.js" />
     <Content Include="packages.config" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_RequireJsLayout.cshtml">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_NavTop.cshtml" />
@@ -115,6 +136,8 @@
     <Content Include="Views\Shared\_Unify\_UnifyStyles.cshtml" />
     <Content Include="Views\Shared\_Unify\_UnifyScriptsFix.cshtml" />
     <Content Include="Views\Shared\_Unify\Web.config" />
+    <Content Include="Views\Shared\_Debug.cshtml" />
+    <Content Include="Views\Pages\Demo\RequireJs.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
