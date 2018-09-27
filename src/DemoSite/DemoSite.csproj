@@ -102,6 +102,9 @@
     <Content Include="Views\Shared\_IoCInfo.cshtml" />
     <Content Include="Views\Empty\Index.cshtml" />
     <Content Include="Views\Error\Index.cshtml" />
+    <Content Include="Views\Shared\Widgets\Player\Html5Player.cshtml" />
+    <Content Include="Views\Shared\Widgets\Player\FlashPlayer.cshtml" />
+    <Content Include="Views\Shared\Widgets\_DemoForPlayer.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -119,12 +122,14 @@
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\PagesController.cs" />
     <Compile Include="Controllers\EmptyController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Shared\Widgets\Player\PlayCourseVm.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DemoSite.Domains\DemoSite.Domains.csproj">

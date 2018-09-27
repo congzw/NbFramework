@@ -1,0 +1,32 @@
+﻿@using DemoSite.Views.Shared.Widgets.Player
+@model PlayCourseVm
+@{
+    var playerVm = Model ?? TryCreateFromRequestContext(this.Request);
+    if (playerVm == null)
+    {
+        @*<h2>Unkonwn ViewModel!</h2>*@
+        throw new Exception("Unkonwn ViewModel");
+    }
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+</head>
+<body>
+    <div>
+        <h2>Hello, @playerVm.Title</h2>
+    </div>
+</body>
+</html>
+@functions {
+
+    private PlayCourseVm TryCreateFromRequestContext(HttpRequestBase request)
+    {
+        return new PlayCourseVm() { Title = "Html5Player" };
+    }
+}

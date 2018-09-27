@@ -1,0 +1,16 @@
+﻿@{
+    // => ~/Pages/Widgets/_DemoForPlayer?flash=true
+    bool isHtml5 = !(Request.Params["flash"] != null && this.Request.Params["flash"].Equals("true", StringComparison.OrdinalIgnoreCase));
+    var widgetName = isHtml5 ? "Html5Player" : "FlashPlayer";
+}
+@section scripts
+{
+    <script>
+        console.log('todo');
+    </script>
+}
+<div class="row">
+    <div class="col-md-9">
+        @Html.Partial("Widgets/Player/" + widgetName, null)
+    </div>
+</div>
