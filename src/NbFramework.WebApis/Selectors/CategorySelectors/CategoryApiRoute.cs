@@ -4,6 +4,8 @@ namespace NbFramework.WebApis.Selectors.CategorySelectors
 {
     public class CategoryApiRoute
     {
+        //0 "RpcApi":
+        //"api/{controller}/{action}"
         //1 "CategoryRpcApi":
         //"api/{category}/{controller}/{action}"
         //2 "VersionCategoryRpcApi":
@@ -17,6 +19,11 @@ namespace NbFramework.WebApis.Selectors.CategorySelectors
 
         public static void Register(HttpConfiguration config)
         {
+            config.Routes.MapHttpRoute(
+                "RpcApi",
+                "api/{controller}/{action}",
+                new { });
+
             config.Routes.MapHttpRoute(
                 "CategoryRpcApi",
                 "api/{category}/{controller}/{action}",

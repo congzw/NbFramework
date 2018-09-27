@@ -1,4 +1,5 @@
 ﻿using DemoSite.Domains.Mocks;
+using DemoSite.Domains.Mocks.Api;
 using DemoSite.Infrastructure.Mocks;
 using NbFramework.Common.Data;
 using StructureMap;
@@ -38,6 +39,7 @@ namespace DemoSite.Infrastructure.DependencyResolution.Registries
             
             //Inline config
             //For<IExample>().Use<Example>();
+            For<DemoAppService>().Use<DemoAppService>();
         }
     }
 }

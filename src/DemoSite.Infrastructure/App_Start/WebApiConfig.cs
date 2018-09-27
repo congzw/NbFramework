@@ -8,6 +8,16 @@ namespace DemoSite.Infrastructure
 {
     public static class WebApiConfig
     {
+        public static void Init()
+        {
+            var config = GlobalConfiguration.Configuration;
+            RegisterRoute(config);
+            RegisterGlobalFilters(config);
+            ReplaceSelector(config);
+            SetFormatters(config);
+            SetCors(config);
+        }
+
         public static void RegisterRoute(HttpConfiguration config)
         {
             CategoryApiRoute.Register(config);

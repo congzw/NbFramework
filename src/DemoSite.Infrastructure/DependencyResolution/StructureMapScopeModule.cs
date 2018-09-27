@@ -1,5 +1,6 @@
 using System.Web;
 using DemoSite.Domains.Mocks;
+using DemoSite.Domains.Mocks.Api;
 using NbFramework.Common;
 using NbFramework.Common.Data;
 using StructureMap.Web.Pipeline;
@@ -14,6 +15,7 @@ namespace DemoSite.Infrastructure.DependencyResolution
             {
                 StructuremapMvc.StructureMapDependencyScope.CreateNestedContainer();
                 var transactionManager = StructuremapMvc.StructureMapDependencyScope.GetInstance<ITransactionManager>();
+
                 //lazy mode, no need start tx;
                 LogMessage("BeginRequest: " + transactionManager.GetHashCode());
             };

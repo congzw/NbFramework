@@ -25,7 +25,7 @@ namespace NbFramework.WebApis.Selectors.CategorySelectors
         public CategoryHttpControllerSelector(HttpConfiguration configuration)
             : base(configuration)
         {
-            //check instance count, todo
+            //check instance count => result: only 1
             _configuration = configuration;
             _apiControllerTypes = new Lazy<ConcurrentDictionary<string, Type>>(GetAllControllerTypes);
         }
