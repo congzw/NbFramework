@@ -1,0 +1,57 @@
+﻿@using NbFramework.Common.Extensions
+@using NbFramework.UI.Fx.Unify
+@model IDynamicPage
+@{
+    var dynamicLayout = Model;
+    if (dynamicLayout == null)
+    {
+        throw new InvalidOperationException("必须指定ViewBag.DynamicLayout");
+    }
+    var unifyContext = UnifyContext.Current;
+    var pageWidgets = dynamicLayout.Widgets.Where(x => x.WidgetPosition == DynamicWidgetPosition.RenderBody);
+    var beforeRenderBodyWidgets = dynamicLayout.Widgets.Where(x => x.WidgetPosition == DynamicWidgetPosition.BeforeRenderBody);
+    var afterRenderBodyWidgets = dynamicLayout.Widgets.Where(x => x.WidgetPosition == DynamicWidgetPosition.AfterRenderBody);
+}
+
+@foreach (var dynamicWidget in beforeRenderBodyWidgets)
+{
+    @Html.Partial("_Unify/_DynamicUnifyWidget", dynamicWidget)
+}
+<!--=== Content ===-->
+@if (unifyContext.MainContentPartStyle.WithWrapper)
+{
+    <div class="@unifyContext.MainContentPartStyle.WrapperCss">
+        @foreach (var dynamicWidget in pageWidgets)
+        {
+            @Html.Partial("_Unify/_DynamicUnifyWidget", dynamicWidget)
+        }
+    </div>
+}
+else
+{
+    foreach (var dynamicWidget in pageWidgets)
+    {
+        @Html.Partial("_Unify/_DynamicUnifyWidget", dynamicWidget)
+    }
+}
+<!--=== End Content ===-->
+
+@foreach (var dynamicWidget in afterRenderBodyWidgets)
+{
+    @Html.Partial("_Unify/_DynamicUnifyWidget", dynamicWidget)
+}
+
+@Html.Partial("_Unify/_UnifyQrcode")
+
+@{
+    var allowedCustomizeTheme = Session["AllowedCustomizeTheme"];
+    bool allowedCustomize = allowedCustomizeTheme != null && allowedCustomizeTheme.ToString().NbEquals("true");
+    if (allowedCustomize)
+    {
+        @Html.Partial("_Unify/_UnifyStyleSwitcherManage")
+    }
+    else
+    {
+        @Html.Partial("_Unify/_UnifyStyleSwitcher")
+    }
+}

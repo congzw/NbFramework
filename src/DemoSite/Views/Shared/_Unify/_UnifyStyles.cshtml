@@ -1,0 +1,44 @@
+﻿@using NbFramework.UI.Fx.Unify
+@using NbFramework.UI.SiteConfigs
+@{
+    var unifyFolder = UnifyHelper.GetAssetPath();
+    var unifyContext = UnifyContext.Current;
+    var themeColor = unifyContext.ThemeColor;
+    var themeCss = string.Format("{0}/css/theme-colors/{1}.css", unifyFolder, themeColor);
+}
+<link rel="stylesheet" href="@unifyFolder/plugins/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="~/Content/bundles/UnifyBundle-base.min.css">
+<link rel="stylesheet" href="~/Content/bundles/UnifyBundle-plugins.min.css">
+<link rel="stylesheet" href="@unifyFolder/css/headers/header-v5.css">
+<link rel="stylesheet" href="@unifyFolder/css/footers/footer-v1.css">
+
+<!--[if lt IE 9]>
+<link rel="stylesheet"
+      href="@unifyFolder/plugins/sky-forms-pro/skyforms/custom/custom-sky-forms.css">
+<![endif]-->
+<!--提示框-->
+<link rel="stylesheet" href="~/Content/Libs/sweetalert/dist/sweetalert.css" />
+<link rel="stylesheet" href="~/Content/css/makeDialog/my_dialog.css">
+<!-- CSS Theme 必须不可省-->
+<link rel="stylesheet" href="@themeCss" id="style_color">
+<link rel="stylesheet" href="@unifyFolder/css/theme-skins/dark.css">
+<!-- CSS Global Customization  全局CSS，必不可省-->
+<link rel="stylesheet" href="~/Content/css/layout_template.css">
+<link rel="stylesheet" href="~/Content/css/layout_angular.css">
+<link rel="stylesheet" href="~/Content/css/layout_template_3.4.css">
+<!--全局Unify定制css-->
+@{
+    //支持替换全局的定制unify-custom.css
+    if (!string.IsNullOrWhiteSpace(unifyContext.UnifyCustomCss))
+    {
+        <link rel="stylesheet" href="@Url.Content(string.Format("~/Content/css/{0}.css", unifyContext.UnifyCustomCss))" />
+    }
+}
+<!--全站置灰-->
+@{
+    var siteContext = SiteConfigContext.Current;
+    var siteGreyEnabled = siteContext.SiteGreyEnabled;
+    var allGrayCss = this.Url.Content(siteGreyEnabled ? "~/Content/css/unify-allgray.css" : "~/Content/css/unify-allgray-empty.css");
+    <link href="@allGrayCss" rel="stylesheet" id="gray_style" />
+}
+

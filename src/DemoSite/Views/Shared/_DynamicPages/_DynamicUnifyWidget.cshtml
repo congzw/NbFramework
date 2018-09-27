@@ -1,0 +1,29 @@
+﻿@model ZQNB.Web.Common.Pages.IDynamicWidget
+@{
+    var dynamicWidget = Model;
+    if (dynamicWidget == null)
+    {
+        return;
+    }
+    var container = dynamicWidget.Container;
+    if (container != null)
+    {
+        <div class="@container.OuterCssClass" id="@container.ContainerDomId">
+            <div class="@container.InnerCssClass">
+                @*solve the bug: 
+                //The model item passed into the dictionary is of type 'ZQNB.Web.Common.Pages.DynamicWidget',
+                //but this dictionary requires a model item of type 'ZQNB.Web.Common.CommonWidgets.Banners.BannerWithNewsVo'.*@
+
+                @(dynamicWidget.WidgetVo == null ?
+                      Html.Partial(dynamicWidget.WidgetPath, dynamicWidget.WidgetVo, new ViewDataDictionary()) :
+                      Html.Partial(dynamicWidget.WidgetPath, dynamicWidget.WidgetVo))
+            </div>
+        </div>
+    }
+    else
+    {
+        @(dynamicWidget.WidgetVo == null ?
+                      Html.Partial(dynamicWidget.WidgetPath, dynamicWidget.WidgetVo, new ViewDataDictionary()) :
+                      Html.Partial(dynamicWidget.WidgetPath, dynamicWidget.WidgetVo))
+    }
+}

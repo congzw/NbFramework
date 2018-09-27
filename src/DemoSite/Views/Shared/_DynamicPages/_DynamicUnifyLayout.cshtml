@@ -1,0 +1,189 @@
+﻿@{
+    var unifyContext = UnifyContext.Current;
+    var bodyCssClass = string.Format("header-fixed header-fixed-space-default {0} {1}", unifyContext.ThemeSkin, unifyContext.LayoutStyle).Trim();
+
+    var platform = NbRegistry.Instance.GetProperty<string>("Platform.FriendlyName", "NbFramework");
+    var logLevel = NbRegistry.Instance.GetProperty<int>("Common.Config.LogLevel", 0);
+    
+    var title = string.IsNullOrWhiteSpace(ViewBag.Title) ? 
+        platform
+        : string.Format("{0} - {1}", ViewBag.Title, platform);
+
+    var angularContext = AngularContext.Resolve();
+    var moduleApp = angularContext.NgApp;
+    var moduleJsUrl = angularContext.GetNgAppModuleJsPath();
+}
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+    <title>@title</title>
+    @Html.Partial("_Unify/_UnifyMetas")
+    @Html.Partial("_Unify/_UnifyStyles")
+    <!-- CSS Customization From Parital Widget -->
+    @Html.RenderDelayed("partial_styles")
+    <!-- CSS Customization From Page -->
+    @RenderSection("styles", false)
+</head>
+<body ng-app="@moduleApp" class="@bodyCssClass">
+    <div class="wrapper">
+        @RenderBody()
+    </div>
+    <script src="~/Content/libs/Unify1.9/plugins/jquery/jquery.min.js"></script>
+    <script src="~/Content/libs/Unify1.9/plugins/jquery/jquery-migrate.min.js"></script>
+    @if (!string.IsNullOrWhiteSpace(moduleJsUrl))
+    {
+        <script type="text/javascript">
+        jQuery(document).ready(function () {
+            //判断当前浏览器是否适用于本网站（目前适用于本网站的浏览器及版本：Opera 11.60，Internet Explorer 9*，Firefox 4，Safari 5.1**，Chrome 13）
+            var isRightBrowser = false; //是否是正确的浏览器
+            var isNotHint = false; //是否不再提示
+            var brow = $.browser;
+            var version = brow.version.split(".")[0];
+            var judgeBrowser = function () {
+                isNotHint = sessionStorage.getItem("isNotHint");
+                if (brow.msie) {
+                    //navigator.appVersion.split(";")[1].replace(/[ ]/g, "").split("MSIE")[1]<10
+                    if (version >= 9) {
+                        isRightBrowser = true;
+                    }
+                }
+                if (brow.mozilla) {
+
+                    if (version >= 4) {
+                        isRightBrowser = true;
+                    }
+                }
+
+                if (brow.safari) {
+                    if (version >= 5.1) {
+                        isRightBrowser = true;
+                    }
+                }
+                if (brow.opera) {
+                    if (version >= 11.60) {
+                        isRightBrowser = true;
+                    }
+                }
+                if (brow.chrome) {
+                    //navigator.appVersion.split("/")[2].split(".")[0] <= 13
+                    if (version >= 13) {
+                        isRightBrowser = true;
+                    }
+                }
+                if (!isRightBrowser && !isNotHint) {
+                    sessionStorage.setItem("isNotHint", "true");
+                    //newAlert();
+                    $("#headerIsRightBrowser").removeClass("hidden");
+                } else {
+                    $("#headerIsRightBrowser").addClass("hidden");
+                }
+            };
+            //隐藏对话框
+            var divhidden = function () {
+                $("#headerIsRightBrowser").addClass("hidden");
+            };
+            //弹框
+            var newAlert = function (message, okFn) {
+                swal({
+                    title: "提示",
+                    text: "<span ></span><span class='text'>当前使用的浏览器版本过低，建议使用Firefox 4、Chrome 13或IE 9以上的浏览器。（点击下载新版本的浏览器：<a href='http://www.firefox.com.cn/' target='_Blank'>Firefox</a>&nbsp;&nbsp;&nbsp;<a href='http://www.google.cn/chrome/browser/desktop/' target='_Blank'>Chrome</a>)</span>",
+                    confirmButtonText: '确定',
+                    html: true
+                },
+                    function () {
+                        if (okFn) {
+                            okFn();
+                        } else {
+                            swal.close();
+                        }
+                    });
+            };
+            judgeBrowser();
+        });
+        </script>
+    }
+    <script src="~/Content/libs/Unify1.9/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <!-- JS Implementing Plugins -->
+    <script src="~/Content/libs/Unify1.9/plugins/back-to-top.js"></script>
+    <!-- JS Page Level -->
+    <script src="~/Content/libs/Unify1.9/plugins/sky-forms-pro/skyforms/js/jquery-ui.min.js"></script>
+    <!--滚动条-->
+    <script src="~/Content/libs/Unify1.9/plugins/smoothScroll.js"></script>
+    <script src="~/Content/libs/Unify1.9/plugins/scrollbar/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="~/Content/libs/Unify1.9/js/app.js"></script>
+
+    <script src="~/Content/libs/angular/angular.js"></script>
+    <script src="~/Content/libs/angular/filters.js"></script>
+    <script src="~/Content/libs/angular/ui-bootstrap/ui-bootstrap-tpls-0.10.0.min.js"></script>
+    <script src="~/Content/libs/angular-dialog-service/dialogs.min.js"></script>
+
+    @RenderSection("angularPluginScripts", false);
+    <script src="~/Content/libs/sweetalert/dist/sweetalert-dev-fix.js"></script>
+    <script src="~/Content/Scripts/zqnb.js"></script>
+    @Html.Partial("_ContextHidden")
+    <script src="~/Content/Scripts/zqnb.mainApp.js"></script>
+    <script src="~/Content/scripts/zqnb.mainApp.unify.js"></script>
+
+    @if (!string.IsNullOrWhiteSpace(moduleJsUrl))
+    {
+        <script src="@moduleJsUrl"></script>
+    }
+    <script type="text/javascript">
+
+    jQuery(document).ready(function() {
+        //全局控制日志级别
+        //DEBUG: 1,
+        //INFO: 2,
+        //WARN: 3,
+        //ERROR: 4,
+        //FATAL: 5,
+        //OFF: 100
+        zqnb.log.level = @logLevel;
+        //zqnb.log.debug("log debug demo");
+        //zqnb.log.error("log error demo");
+        App.init();
+        App.initScrollBar(); //滚动条
+
+        //修改带图片的链接的打开行为
+        //$("img").parent("a").attr("target","_blank");
+        //$("img").parents("a").attr("target","_blank");
+        $("img").parents("a").each(function() {
+            var $self = $(this);
+            if (!$self.attr("target")) {
+                $self.attr("target", "_blank");
+            }
+        });
+
+        //thumbnail-style a
+        //profile-event a
+        //thumbnail-img a
+        $(".thumbnail-style a").each(function() {
+            var $self = $(this);
+            if (!$self.attr("target")) {
+                $self.attr("target", "_blank");
+            }
+        });
+        $(".profile-event a").each(function() {
+            var $self = $(this);
+            if (!$self.attr("target")) {
+                $self.attr("target", "_blank");
+            }
+        });
+        $(".thumbnail-img a").each(function() {
+            var $self = $(this);
+            if (!$self.attr("target")) {
+                $self.attr("target", "_blank");
+            }
+        });
+    });
+
+    </script>
+    @Html.RenderDelayed()
+    @RenderSection("scripts", false)
+    @Html.Partial("_Unify/_UnifyScriptsFix")
+</body>
+</html>

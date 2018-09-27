@@ -51,6 +51,7 @@
     <Compile Include="Extensions\DateTimeExtensions.cs" />
     <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="Extensions\SimpleMapToExtensions.cs" />
+    <Compile Include="NbRegistry.cs" />
     <Compile Include="MyModelHelper.cs" />
     <Compile Include="NbGuard.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
@@ -65,6 +66,7 @@
     <Compile Include="Trees\TreeItemHolder.cs" />
     <Compile Include="UtilsDateTime.cs" />
     <Compile Include="UtilsLogger.cs" />
+    <Compile Include="Web\CDN\CdnServer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

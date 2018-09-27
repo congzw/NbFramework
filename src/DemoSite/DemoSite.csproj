@@ -105,6 +105,16 @@
     <Content Include="Views\Shared\Widgets\Player\Html5Player.cshtml" />
     <Content Include="Views\Shared\Widgets\Player\FlashPlayer.cshtml" />
     <Content Include="Views\Shared\Widgets\_DemoForPlayer.cshtml" />
+    <Content Include="Views\Shared\_DynamicPages\_DynamicUnifyPage.cshtml" />
+    <Content Include="Views\Shared\_DynamicPages\_DynamicUnifyLayout.cshtml" />
+    <Content Include="Views\Shared\_DynamicPages\_DynamicUnifyWidget.cshtml" />
+    <Content Include="Views\Shared\_DynamicPages\Web.config" />
+    <Content Include="Views\Shared\_DynamicPages\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Unify\_UnifyMetas.cshtml" />
+    <Content Include="Views\Shared\_Unify\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Unify\_UnifyStyles.cshtml" />
+    <Content Include="Views\Shared\_Unify\_UnifyScriptsFix.cshtml" />
+    <Content Include="Views\Shared\_Unify\Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -144,7 +154,12 @@
       <Project>{bdea1bb8-7b9e-4cc5-ad7f-ab40e8290741}</Project>
       <Name>NbFramework.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\NbFramework.UI\NbFramework.UI.csproj">
+      <Project>{2172df62-a9fd-4711-a23d-c02608413d11}</Project>
+      <Name>NbFramework.UI</Name>
+    </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
