@@ -26,6 +26,7 @@
         @RenderBody()
     </div>
     @RenderSection("scripts", required: false)
+    @Html.RenderDelayed()
     @Html.Partial("_Debug")
 </body>
 </html>

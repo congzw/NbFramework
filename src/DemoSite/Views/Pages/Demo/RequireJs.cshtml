@@ -1,4 +1,21 @@
 ﻿@{
     this.Layout = "~/Views/Shared/_RequireJsLayout.cshtml";
 }
-<h2>RequireJs DEMO</h2>
+<div ng-cloak>
+    <h2>RequireJs DEMO: {{1 + 1}}</h2>
+    <hr />
+    <div ng-controller="demoCtrl">
+        <p>{{message}}</p>
+    </div>
+</div>
+@using (Html.Delayed())
+{
+    <script>
+        require(['mainApp', 'nbLog'], function (mainApp, nbLog) {
+            nbLog.debug("angular.index.js");
+            mainApp.controller('demoCtrl', function ($scope) {
+                $scope.message = "from angular controller!";
+            });
+        });
+    </script>
+}

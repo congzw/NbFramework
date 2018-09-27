@@ -107,7 +107,6 @@
     <Content Include="Content\scripts\showScriptsLoading.js" />
     <Content Include="Content\scripts\zqnb.js" />
     <Content Include="Content\scripts\zqnb.log.js" />
-    <Content Include="Content\scripts\zqnb.mainVue.js" />
     <Content Include="packages.config" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />

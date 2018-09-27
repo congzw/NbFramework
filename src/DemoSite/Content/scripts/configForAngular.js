@@ -1,6 +1,6 @@
 requirejs(['angular', 'nbLog'], function (angular, nbLog) {
 
-    nbLog.debug('bootstrap.js');
+    nbLog.debug('loading configForAngular.js');
 
     requirejs(['mainApp'], function (mainApp) {
 

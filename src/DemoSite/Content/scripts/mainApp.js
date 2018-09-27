@@ -1,6 +1,6 @@
 ﻿define(["angular", 'nbLog'], function (angular, nbLog) {
 
-    nbLog.debug("mainApp.js");
+    nbLog.debug("loading mainApp.js");
     var mainApp = angular.module("mainApp", []);
 
     //服务演示代码

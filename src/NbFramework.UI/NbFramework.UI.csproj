@@ -68,6 +68,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Fx\RequireJs\RequireJsHelpers.cs" />
     <Compile Include="MvcExtensions\HtmlExtensions.cs" />
     <Compile Include="MvcExtensions\HtmlRenderExtensions.cs" />
     <Compile Include="MvcExtensions\RazorExtensions.cs" />
