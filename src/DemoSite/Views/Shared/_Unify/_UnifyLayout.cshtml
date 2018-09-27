@@ -1,19 +1,23 @@
 ﻿@{
+    ViewBag.Title = ViewBag.Title;
     var angularSupport = this.GetAngularSupport();
 }
 <!DOCTYPE html>
-<html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - NbFramework Demo</title>
+    <title>@ViewBag.Title</title>
+    @Html.Partial("_Unify/_UnifyMetas")
+    @Html.Partial("_Unify/_UnifyStyles")
     @if (angularSupport)
     {
         <link href="~/Content/css/angular-csp.css" rel="stylesheet" />
     }
-    <link href="~/Content/css/bootstrap.css" rel="stylesheet" />
     <link href="~/Content/libs/toastr/toastr.css" rel="stylesheet" />
+    @RenderSection("styles", required: false)
     <script src="~/content/libs/require.js"></script>
     <script src="~/Content/scripts/config.js"></script>
     @if (angularSupport)
@@ -28,5 +32,6 @@
     @RenderSection("scripts", required: false)
     @Html.RenderDelayed()
     @Html.Partial("_Debug")
+    @Html.Partial("_Unify/_UnifyScriptsFix")
 </body>
 </html>

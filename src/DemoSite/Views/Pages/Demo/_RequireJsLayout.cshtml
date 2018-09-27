@@ -1,0 +1,31 @@
+﻿@{
+    var angularSupport = this.GetAngularSupport();
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title - NbFramework Demo</title>
+    @Html.Partial("_Unify/_UnifyMetas")
+    @Html.Partial("_Unify/_UnifyStyles")
+    @if (angularSupport)
+    {
+        <link href="~/Content/css/angular-csp.css" rel="stylesheet" />
+    }
+    <link href="~/Content/libs/toastr/toastr.css" rel="stylesheet" />
+    @RenderSection("styles", required: false)
+    <script src="~/content/libs/require.js"></script>
+    <script src="~/Content/scripts/config.js"></script>
+    @if (angularSupport)
+    {
+        <script src="~/Content/scripts/configForAngular.js"></script>
+    }
+</head>
+<body>
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+    @RenderSection("scripts", required: false)
+    @Html.RenderDelayed()
+    @Html.Partial("_Debug")
+</body>
+</html>

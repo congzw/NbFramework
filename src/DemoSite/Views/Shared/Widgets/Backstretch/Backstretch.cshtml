@@ -1,0 +1,29 @@
+﻿@using DemoSite.Views.Shared.Widgets.Backstretch
+@model BackstretchVm
+@{
+    var viewModel = Model ?? new BackstretchVm();
+    var urls = "";
+    foreach (var url in viewModel.ImgUrls)
+    {
+        var absolutePath = VirtualPathUtility.ToAbsolute(url);
+        urls += "'" + absolutePath + "'";
+        urls += ",";
+    }
+    urls = urls.TrimEnd(',');
+}
+
+@using (Html.Delayed())
+{
+    <script type="text/javascript">
+        require(['jquery', 'backstretch', 'nbLog'], function ($, backstretch, nbLog) {
+            nbLog.debug("loading zqnb.widget.backstretch.js");
+
+            $(document).ready(function () {
+                $.backstretch([@Html.Raw(urls)], {
+                    fade: 1000,
+                    duration: 3000
+                });
+            });
+        });
+    </script>
+}

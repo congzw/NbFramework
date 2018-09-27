@@ -1,4 +1,5 @@
-﻿using NbFramework.Common.Web.CDN;
+﻿using System.Web;
+using NbFramework.Common.Web.CDN;
 
 namespace NbFramework.UI.Fx.Unify
 {
@@ -9,7 +10,8 @@ namespace NbFramework.UI.Fx.Unify
             var virtualPath =  "~/Content/libs/Unify1.9/";
             string result;
             CdnServer.Current.TryResolveCDNPath(virtualPath, out result);
-            return result;
+            var absolutePath = VirtualPathUtility.ToAbsolute(result);
+            return absolutePath;
         }
     }
 }

@@ -1,9 +1,9 @@
 ﻿@{
-    this.Layout = "~/Views/Shared/_RequireJsLayout.cshtml";
+    this.Layout = "~/Views/Pages/Demo/_RequireJsLayout.cshtml";
 }
 <div ng-cloak>
     <h2>RequireJs DEMO: {{1 + 1}}</h2>
-    <hr />
+    <hr/>
     <div ng-controller="demoCtrl">
         <p>{{message}}</p>
     </div>
@@ -19,3 +19,4 @@
         });
     </script>
 }
+@Html.Partial("Widgets/Backstretch/Backstretch")

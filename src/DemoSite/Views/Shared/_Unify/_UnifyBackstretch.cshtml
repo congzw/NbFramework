@@ -1,0 +1,18 @@
+﻿@using (Html.Delayed())
+{
+    <script type="text/javascript">
+        require(['jquery', 'backstretch', 'nbLog'], function ($, backstretch, nbLog) {
+            nbLog.debug("loading zqnb.widget.backstretch.js");
+
+            $(document).ready(function () {
+                $.backstretch([
+                    "@Href("~/Content/Libs/Unify1.9/img/bg/2.jpg")",
+                    "@Href("~/Content/Libs/Unify1.9/img/bg/8.jpg")"
+                ], {
+                    fade: 1000,
+                    duration: 3000
+                });
+            });
+        });
+    </script>
+}

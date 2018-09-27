@@ -91,6 +91,8 @@
   <ItemGroup>
     <Content Include="Content\css\angular-csp.css" />
     <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\images\bg\2.jpg" />
+    <Content Include="Content\images\bg\1.jpg" />
     <Content Include="Content\images\demo.jpg" />
     <Content Include="Content\libs\angular\angular-route.js" />
     <Content Include="Content\libs\angular\angular.js" />
@@ -101,6 +103,56 @@
     <Content Include="Content\libs\require.js" />
     <Content Include="Content\libs\toastr\toastr.css" />
     <Content Include="Content\libs\toastr\toastr.js" />
+    <Content Include="Content\libs\unify1.9\css\app.css" />
+    <Content Include="Content\libs\unify1.9\css\blocks.css" />
+    <Content Include="Content\libs\unify1.9\css\custom.css" />
+    <Content Include="Content\libs\unify1.9\css\footers\footer-default.css" />
+    <Content Include="Content\libs\unify1.9\css\footers\footer-v1.css" />
+    <Content Include="Content\libs\unify1.9\css\footers\footer-v2.css" />
+    <Content Include="Content\libs\unify1.9\css\footers\footer-v3.css" />
+    <Content Include="Content\libs\unify1.9\css\footers\footer-v4.css" />
+    <Content Include="Content\libs\unify1.9\css\footers\footer-v5.css" />
+    <Content Include="Content\libs\unify1.9\css\footers\footer-v6.css" />
+    <Content Include="Content\libs\unify1.9\css\footers\footer-v7.css" />
+    <Content Include="Content\libs\unify1.9\css\footers\footer-v8.css" />
+    <Content Include="Content\libs\unify1.9\css\headers\header-default-centered.css" />
+    <Content Include="Content\libs\unify1.9\css\headers\header-default.css" />
+    <Content Include="Content\libs\unify1.9\css\headers\header-v1.css" />
+    <Content Include="Content\libs\unify1.9\css\headers\header-v2.css" />
+    <Content Include="Content\libs\unify1.9\css\headers\header-v3.css" />
+    <Content Include="Content\libs\unify1.9\css\headers\header-v4-centered-1.css" />
+    <Content Include="Content\libs\unify1.9\css\headers\header-v4-centered.css" />
+    <Content Include="Content\libs\unify1.9\css\headers\header-v4.css" />
+    <Content Include="Content\libs\unify1.9\css\headers\header-v5.css" />
+    <Content Include="Content\libs\unify1.9\css\headers\header-v6.css" />
+    <Content Include="Content\libs\unify1.9\css\headers\header-v7.css" />
+    <Content Include="Content\libs\unify1.9\css\headers\header-v8.css" />
+    <Content Include="Content\libs\unify1.9\css\plugins\style-switcher.css" />
+    <Content Include="Content\libs\unify1.9\css\style.css" />
+    <Content Include="Content\libs\unify1.9\css\theme-colors\aqua.css" />
+    <Content Include="Content\libs\unify1.9\css\theme-colors\blue.css" />
+    <Content Include="Content\libs\unify1.9\css\theme-colors\brown.css" />
+    <Content Include="Content\libs\unify1.9\css\theme-colors\dark-blue.css" />
+    <Content Include="Content\libs\unify1.9\css\theme-colors\dark-red.css" />
+    <Content Include="Content\libs\unify1.9\css\theme-colors\default.css" />
+    <Content Include="Content\libs\unify1.9\css\theme-colors\light-green.css" />
+    <Content Include="Content\libs\unify1.9\css\theme-colors\light.css" />
+    <Content Include="Content\libs\unify1.9\css\theme-colors\orange.css" />
+    <Content Include="Content\libs\unify1.9\css\theme-colors\purple.css" />
+    <Content Include="Content\libs\unify1.9\css\theme-colors\red.css" />
+    <Content Include="Content\libs\unify1.9\css\theme-colors\teal.css" />
+    <Content Include="Content\libs\unify1.9\css\theme-skins\dark.css" />
+    <Content Include="Content\libs\unify1.9\fonts\open-sans\open-sans\stylesheet.css" />
+    <Content Include="Content\libs\unify1.9\fonts\open-sans\open-sans\test.html" />
+    <Content Include="Content\libs\unify1.9\fonts\open-sans\stylesheet.css" />
+    <Content Include="Content\libs\unify1.9\fonts\open-sans\test.html" />
+    <Content Include="Content\libs\jquery\jquery.backstretch.min.js" />
+    <Content Include="Content\libs\unify1.9\plugins\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="Content\libs\unify1.9\plugins\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\libs\unify1.9\plugins\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\libs\unify1.9\plugins\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\libs\unify1.9\plugins\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Content\libs\unify1.9\plugins\font-awesome\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\scripts\config.js" />
     <Content Include="Content\scripts\configForAngular.js" />
     <Content Include="Content\scripts\mainApp.js" />
@@ -111,7 +163,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Shared\_RequireJsLayout.cshtml">
+    <Content Include="Views\Pages\Demo\_RequireJsLayout.cshtml">
       <SubType>Code</SubType>
     </Content>
     <Content Include="Views\Web.config" />
@@ -137,6 +189,30 @@
     <Content Include="Views\Shared\_Unify\Web.config" />
     <Content Include="Views\Shared\_Debug.cshtml" />
     <Content Include="Views\Pages\Demo\RequireJs.cshtml" />
+    <Content Include="Views\Shared\_Unify\_UnifyLayout.cshtml" />
+    <Content Include="Content\libs\unify1.9\fonts\open-sans\fonts\open-sans300normal.eot" />
+    <Content Include="Content\libs\unify1.9\fonts\open-sans\fonts\open-sans300normal.woff" />
+    <Content Include="Content\libs\unify1.9\fonts\open-sans\fonts\open-sans400normal.eot" />
+    <Content Include="Content\libs\unify1.9\fonts\open-sans\fonts\open-sans400normal.woff" />
+    <Content Include="Content\libs\unify1.9\fonts\open-sans\fonts\open-sans600normal.eot" />
+    <Content Include="Content\libs\unify1.9\fonts\open-sans\fonts\open-sans600normal.woff" />
+    <Content Include="Content\libs\unify1.9\fonts\open-sans\open-sans\fonts\open-sans300normal.eot" />
+    <Content Include="Content\libs\unify1.9\fonts\open-sans\open-sans\fonts\open-sans300normal.woff" />
+    <Content Include="Content\libs\unify1.9\fonts\open-sans\open-sans\fonts\open-sans400normal.eot" />
+    <Content Include="Content\libs\unify1.9\fonts\open-sans\open-sans\fonts\open-sans400normal.woff" />
+    <Content Include="Content\libs\unify1.9\fonts\open-sans\open-sans\fonts\open-sans600normal.eot" />
+    <Content Include="Content\libs\unify1.9\fonts\open-sans\open-sans\fonts\open-sans600normal.woff" />
+    <Content Include="Content\libs\unify1.9\plugins\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\libs\unify1.9\plugins\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\libs\unify1.9\plugins\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\libs\unify1.9\plugins\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\libs\unify1.9\plugins\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\libs\unify1.9\plugins\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\libs\unify1.9\plugins\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\libs\unify1.9\plugins\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\libs\unify1.9\plugins\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Views\Shared\_Unify\_UnifyBackstretch.cshtml" />
+    <Content Include="Views\Shared\Widgets\Backstretch\Backstretch.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -161,6 +237,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Shared\Widgets\Backstretch\BackstretchVm.cs" />
     <Compile Include="Views\Shared\Widgets\Player\PlayCourseVm.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -181,7 +258,9 @@
       <Name>NbFramework.UI</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Content\libs\unify1.9\img\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

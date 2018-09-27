@@ -95,7 +95,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Fx\Ace\" />
-    <Folder Include="Widgets\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NbFramework.Common\NbFramework.Common.csproj">
