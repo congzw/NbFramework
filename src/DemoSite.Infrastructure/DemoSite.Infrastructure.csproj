@@ -102,6 +102,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\StructuremapMvc.cs" />
+    <Compile Include="App_Start\StructuremapWebApi.cs" />
     <Compile Include="App_Start\TransactionFilters.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="DependencyResolution\ControllerConvention.cs" />
@@ -111,6 +112,8 @@
     <Compile Include="DependencyResolution\Registries\DemoRegistry.cs" />
     <Compile Include="DependencyResolution\StructureMapDependencyScope.cs" />
     <Compile Include="DependencyResolution\StructureMapScopeModule.cs" />
+    <Compile Include="DependencyResolution\StructureMapWebApiDependencyResolver.cs" />
+    <Compile Include="DependencyResolution\StructureMapWebApiDependencyScope.cs" />
     <Compile Include="Mocks\MockRepository.cs" />
     <Compile Include="Mocks\MockSession.cs" />
     <Compile Include="Mocks\MockTransactionManager.cs" />
