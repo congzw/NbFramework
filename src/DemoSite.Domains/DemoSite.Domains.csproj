@@ -57,7 +57,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Mocks\Api\A1\B1\DemoController.cs" />
     <Compile Include="Mocks\Api\DemoController.cs" />
+    <Compile Include="Mocks\Api\V2\A1\B1\DemoController.cs" />
     <Compile Include="Mocks\BaseMockObject.cs" />
     <Compile Include="Mocks\DemoService.cs" />
     <Compile Include="Mocks\GenericTypes.cs" />

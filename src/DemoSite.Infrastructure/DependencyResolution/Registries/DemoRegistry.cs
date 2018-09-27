@@ -39,7 +39,7 @@ namespace DemoSite.Infrastructure.DependencyResolution.Registries
             
             //Inline config
             //For<IExample>().Use<Example>();
-            For<DemoAppService>().Use<DemoAppService>();
+            //For<DemoAppService>().Use<DemoAppService>();
         }
     }
 }

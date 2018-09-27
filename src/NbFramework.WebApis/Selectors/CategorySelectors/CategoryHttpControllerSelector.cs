@@ -58,10 +58,9 @@ namespace NbFramework.WebApis.Selectors.CategorySelectors
 
         private HttpControllerDescriptor GetApiController(HttpRequestMessage request)
         {
-            string version = GetRouteValueByName(request, CategoryApiRoute.api_version);
             string category = GetRouteValueByName(request, CategoryApiRoute.category);
             string controller = GetControllerName(request);
-            var type = TryGetControllerType(version, category, controller);
+            var type = TryGetControllerType(category, controller);
             if (type == null)
             {
                 return null;
@@ -69,14 +68,14 @@ namespace NbFramework.WebApis.Selectors.CategorySelectors
             return new HttpControllerDescriptor(_configuration, controller, type);
         }
 
-        private Type TryGetControllerType(string version, string category, string controller)
+        private Type TryGetControllerType(string category, string controller)
         {
             var typeDic = _apiControllerTypes.Value;
             var controllers = typeDic.Keys.ToList();
 
             try
             {
-                var theOne = HttpControllerSelectorService.Select(controllers, version, category, controller);
+                var theOne = HttpControllerSelectorService.Select(controllers, category, controller);
                 if (theOne != null)
                 {
                     return typeDic[theOne];

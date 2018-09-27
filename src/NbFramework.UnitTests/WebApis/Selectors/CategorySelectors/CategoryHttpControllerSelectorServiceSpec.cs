@@ -14,7 +14,7 @@ namespace NbFramework.WebApis.Selectors.CategorySelectors
             var controllers = new List<string>();
             controllers.Add("Foo.Bar.Blah.MockController");
 
-            myApiControllerSelector.ShouldThrowEx(null, "v2", "abC", "DeMo");
+            myApiControllerSelector.ShouldThrowEx(null, "abC", "DeMo");
         }
 
         [TestMethod]
@@ -24,7 +24,7 @@ namespace NbFramework.WebApis.Selectors.CategorySelectors
             var controllers = new List<string>();
             controllers.Add("Foo.Bar.Blah.MockController");
 
-            myApiControllerSelector.ShouldThrowEx(controllers, "v2", "abC", null);
+            myApiControllerSelector.ShouldThrowEx(controllers, "abC", null);
         }
 
 
@@ -37,9 +37,9 @@ namespace NbFramework.WebApis.Selectors.CategorySelectors
             controllers.Add("DemoSite.Domains.Mocks.Api.FooController");
             controllers.Add("DemoSite.Domains.Mocks.Api.BarController");
 
-            myApiControllerSelector.ShouldReturnTheOne("DemoSite.Domains.Mocks.Api.DemoController", controllers, "", "", "Demo");
-            myApiControllerSelector.ShouldReturnTheOne("DemoSite.Domains.Mocks.Api.FooController", controllers, "", "", "Foo");
-            myApiControllerSelector.ShouldReturnTheOne("DemoSite.Domains.Mocks.Api.BarController", controllers, "", "", "Bar");
+            myApiControllerSelector.ShouldReturnTheOne("DemoSite.Domains.Mocks.Api.DemoController", controllers, "", "Demo");
+            myApiControllerSelector.ShouldReturnTheOne("DemoSite.Domains.Mocks.Api.FooController", controllers, "", "Foo");
+            myApiControllerSelector.ShouldReturnTheOne("DemoSite.Domains.Mocks.Api.BarController", controllers, "", "Bar");
         }
 
         [TestMethod]
@@ -50,8 +50,8 @@ namespace NbFramework.WebApis.Selectors.CategorySelectors
             controllers.Add("DemoSite.Domains.Mocks.Api.A1.FooController");
             controllers.Add("DemoSite.Domains.Mocks.Api.A2.FooController");
 
-            myApiControllerSelector.ShouldReturnTheOne("DemoSite.Domains.Mocks.Api.A1.FooController", controllers, "", "A1", "Foo");
-            myApiControllerSelector.ShouldReturnTheOne("DemoSite.Domains.Mocks.Api.A2.FooController", controllers, "", "A2", "Foo");
+            myApiControllerSelector.ShouldReturnTheOne("DemoSite.Domains.Mocks.Api.A1.FooController", controllers, "A1", "Foo");
+            myApiControllerSelector.ShouldReturnTheOne("DemoSite.Domains.Mocks.Api.A2.FooController", controllers, "A2", "Foo");
         }
 
         [TestMethod]
@@ -62,26 +62,28 @@ namespace NbFramework.WebApis.Selectors.CategorySelectors
             controllers.Add("DemoSite.Domains.Mocks.Api.FooController");
             controllers.Add("DemoSite.Domains.Mocks.Api.A1.FooController");
             controllers.Add("DemoSite.Domains.Mocks.Api.A1.B1.FooController");
+            controllers.Add("DemoSite.Domains.Mocks.Api.V2.A1.B1.FooController");
 
-            myApiControllerSelector.ShouldReturnTheOne("DemoSite.Domains.Mocks.Api.FooController", controllers, "", "", "Foo");
-            myApiControllerSelector.ShouldReturnTheOne("DemoSite.Domains.Mocks.Api.A1.FooController", controllers, "", "A1", "Foo");
-            myApiControllerSelector.ShouldReturnTheOne("DemoSite.Domains.Mocks.Api.A1.B1.FooController", controllers, "", "A1.B1", "Foo");
+            myApiControllerSelector.ShouldReturnTheOne("DemoSite.Domains.Mocks.Api.FooController", controllers, "", "Foo");
+            myApiControllerSelector.ShouldReturnTheOne("DemoSite.Domains.Mocks.Api.A1.FooController", controllers, "A1", "Foo");
+            myApiControllerSelector.ShouldReturnTheOne("DemoSite.Domains.Mocks.Api.A1.B1.FooController", controllers, "A1.B1", "Foo");
+            myApiControllerSelector.ShouldReturnTheOne("DemoSite.Domains.Mocks.Api.V2.A1.B1.FooController", controllers, "V2.A1.B1", "Foo");
         }
     }
 
     public static class CategoryRpcControllerSelectorExtensions
     {
-        public static void ShouldReturnTheOne(this ICategoryHttpControllerSelectorService selectorService, string expectedResult, IList<string> apiControllerFullNames, string version, string categories, string controller)
+        public static void ShouldReturnTheOne(this ICategoryHttpControllerSelectorService selectorService, string expectedResult, IList<string> apiControllerFullNames, string categories, string controller)
         {
-            var theOne = selectorService.Select(apiControllerFullNames, version, categories, controller);
+            var theOne = selectorService.Select(apiControllerFullNames, categories, controller);
             theOne.ShouldEqual(expectedResult);
         }
 
-        public static void ShouldThrowEx(this ICategoryHttpControllerSelectorService selectorService, IList<string> apiControllerFullNames, string version, string categories, string controller)
+        public static void ShouldThrowEx(this ICategoryHttpControllerSelectorService selectorService, IList<string> apiControllerFullNames, string categories, string controller)
         {
             AssertHelper.ShouldThrows<ArgumentNullException>(() =>
             {
-                selectorService.Select(apiControllerFullNames, version, categories, controller);
+                selectorService.Select(apiControllerFullNames, categories, controller);
             });
         }
     }
