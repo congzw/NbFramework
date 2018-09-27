@@ -34,10 +34,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NbFramework.DataStandards",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NbFramework.WebApis", "NbFramework.WebApis\NbFramework.WebApis.csproj", "{2E0D5E07-935E-438B-BC09-10B89E438FF9}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{77DFAA69-692F-485B-BAA5-993504D405EB}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NbFramework.UnitTest", "NbFramework.UnitTest\NbFramework.UnitTest.csproj", "{B188FDFE-01BE-449D-AA4A-343C0EDF6310}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -88,10 +84,6 @@ Global
 		{2E0D5E07-935E-438B-BC09-10B89E438FF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E0D5E07-935E-438B-BC09-10B89E438FF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E0D5E07-935E-438B-BC09-10B89E438FF9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B188FDFE-01BE-449D-AA4A-343C0EDF6310}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B188FDFE-01BE-449D-AA4A-343C0EDF6310}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B188FDFE-01BE-449D-AA4A-343C0EDF6310}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B188FDFE-01BE-449D-AA4A-343C0EDF6310}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -105,6 +97,5 @@ Global
 		{2172DF62-A9FD-4711-A23D-C02608413D11} = {7ADFB802-50AD-4206-9D14-4CDA2DC01F36}
 		{2A2E4924-731C-46E6-AE56-8D9B02600197} = {7ADFB802-50AD-4206-9D14-4CDA2DC01F36}
 		{2E0D5E07-935E-438B-BC09-10B89E438FF9} = {7ADFB802-50AD-4206-9D14-4CDA2DC01F36}
-		{B188FDFE-01BE-449D-AA4A-343C0EDF6310} = {77DFAA69-692F-485B-BAA5-993504D405EB}
 	EndGlobalSection
 EndGlobal

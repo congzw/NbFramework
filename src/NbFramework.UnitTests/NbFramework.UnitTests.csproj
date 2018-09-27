@@ -62,6 +62,8 @@
     <Compile Include="UI\Navigations\NavItemTypeSpecs.cs" />
     <Compile Include="UI\Navigations\_Mocks\MemoryNavItemRepository.cs" />
     <Compile Include="UI\Navigations\_Mocks\MockNavItemFilter.cs" />
+    <Compile Include="WebApis\Selectors\CategorySelectors\CategoryHttpControllerSelectorServiceSpec.cs" />
+    <Compile Include="WebApis\Selectors\ClassifiedSelectors\ClassifiedHttpControllerSelectorServiceSpec.cs" />
     <Compile Include="_Fx\EnumFlagSpecs.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -76,6 +78,10 @@
     <ProjectReference Include="..\NbFramework.UI\NbFramework.UI.csproj">
       <Project>{2172df62-a9fd-4711-a23d-c02608413d11}</Project>
       <Name>NbFramework.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NbFramework.WebApis\NbFramework.WebApis.csproj">
+      <Project>{2e0d5e07-935e-438b-bc09-10b89e438ff9}</Project>
+      <Name>NbFramework.WebApis</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

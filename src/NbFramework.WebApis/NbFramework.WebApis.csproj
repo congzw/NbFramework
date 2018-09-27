@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="Selectors\CategorySelectors\CategoryHttpControllerSelectorService.cs" />
     <Compile Include="Selectors\CategorySelectors\CategoryApiRoute.cs" />
+    <Compile Include="Selectors\ClassifiedSelectors\ClassifiedApiRoute.cs" />
     <Compile Include="Selectors\ClassifiedSelectors\ClassifiedHttpControllerSelector.cs" />
     <Compile Include="Selectors\ClassifiedSelectors\ClassifiedHttpControllerSelectorService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

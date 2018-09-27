@@ -21,8 +21,7 @@ namespace NbFramework.WebApis.Selectors.CategorySelectors
             {
                 throw new ArgumentNullException("controller");
             }
-
-
+            
             var controllerSearchingName = controller + "Controller";
             //XxxController
             if (!string.IsNullOrWhiteSpace(category))
@@ -45,6 +44,17 @@ namespace NbFramework.WebApis.Selectors.CategorySelectors
             if (results.Count <= 1)
             {
                 return results.SingleOrDefault();
+            }
+            
+            if (string.IsNullOrWhiteSpace(category))
+            {
+                //没指定目录的情况下，如果多条记录，按目录深浅猜测并返回长度最短的一个
+                //FooController
+                //A1.FooController
+                //A1.B1.FooController
+                //var theOne = results.OrderBy(x => x).ToArray().Reverse().First();
+                var theOne = results.OrderBy(x => x.Length).ToArray().First();
+                return theOne;
             }
 
             //多条记录，则抛出异常

@@ -2,8 +2,7 @@
 using System.Web.Http;
 using System.Web.Http.Dispatcher;
 using NbFramework.WebApis;
-using NbFramework.WebApis.Selectors;
-using NbFramework.WebApis.Selectors.ClassifiedSelectors;
+using NbFramework.WebApis.Selectors.CategorySelectors;
 
 namespace DemoSite.Infrastructure
 {
@@ -11,33 +10,7 @@ namespace DemoSite.Infrastructure
     {
         public static void RegisterRoute(HttpConfiguration config)
         {
-            //todo process config with di
-            
-            //Api/Admin/RunningRecord/GetAll
-            //Api/Admin/A/RunningRecord/GetAll
-            //Api/Admin/A.B/RunningRecord/GetAll
-            //Api/Admin/A.B.A/RunningRecord/GetAll
-
-            //AreaCategoryRpcApi
-            
-            config.Routes.MapHttpRoute(
-                "AreaCategoryRpcApi",
-                "api/{area}/{category}/{controller}/{action}", 
-                new {});
-
-            //AreaRpcApi
-            config.Routes.MapHttpRoute(
-                 name: "AreaRpcApi",
-                 routeTemplate: "api/{area}/{controller}/{action}",
-                 defaults: new { }
-             );
-
-            //RpcApi
-            config.Routes.MapHttpRoute(
-                name: "RpcApi",
-                routeTemplate: "api/{controller}/{action}",
-                defaults: new { }
-                );
+            CategoryApiRoute.Register(config);
         }
 
         public static void RegisterGlobalFilters(HttpConfiguration config)
@@ -49,7 +22,7 @@ namespace DemoSite.Infrastructure
         public static void ReplaceSelector(HttpConfiguration config)
         {
             //replace IHttpControllerSelector
-            config.Services.Replace(typeof(IHttpControllerSelector), new ClassifiedHttpControllerSelector(config));
+            config.Services.Replace(typeof(IHttpControllerSelector), new CategoryHttpControllerSelector(config));
         }
 
         public static void SetFormatters(HttpConfiguration config)
