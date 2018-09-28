@@ -89,6 +89,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Foo\content\scripts\pageApp.js" />
     <Content Include="Content\css\angular-csp.css" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\images\bg\2.jpg" />
@@ -213,6 +214,10 @@
     <Content Include="Content\libs\unify1.9\plugins\font-awesome\fonts\FontAwesome.otf" />
     <Content Include="Views\Shared\_Unify\_UnifyBackstretch.cshtml" />
     <Content Include="Views\Shared\Widgets\Backstretch\Backstretch.cshtml" />
+    <Content Include="Views\Shared\_AngularConfig.cshtml" />
+    <Content Include="Views\Pages\Unfiy\Index.cshtml" />
+    <Content Include="Areas\Foo\Views\web.config" />
+    <Content Include="Views\Pages\Unfiy\Index2.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -230,6 +235,7 @@
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Foo\FooAreaRegistration.cs" />
     <Compile Include="Controllers\PagesController.cs" />
     <Compile Include="Controllers\EmptyController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -259,6 +265,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Areas\Foo\Controllers\" />
+    <Folder Include="Areas\Foo\Models\" />
+    <Folder Include="Areas\Foo\Views\Shared\" />
     <Folder Include="Content\libs\unify1.9\img\" />
   </ItemGroup>
   <PropertyGroup>

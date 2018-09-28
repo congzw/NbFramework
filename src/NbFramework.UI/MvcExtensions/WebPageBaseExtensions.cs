@@ -1,57 +1,42 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 using System.Web.WebPages;
 
 namespace NbFramework.UI.MvcExtensions
 {
+    public class AngularAppModule
+    {
+        public string Name { get; set; }
+        public string Path { get; set; }
+
+        public bool IsDefaultMainApp()
+        {
+            return GetDefaultMainApp().Equals(Name, StringComparison.OrdinalIgnoreCase);
+        }
+        public string GetDefaultMainApp()
+        {
+            return "mainApp";
+        }
+    }
+
     public static class WebPageBaseExtensions
     {
-        public static void SetAngularSupport(this WebPageBase webPageBase, bool value)
-        {
-            webPageBase.SetValueFor("AngularSupport", value);
-        }
-
-        public static bool GetAngularSupport(this WebPageBase webPageBase)
-        {
-            return webPageBase.GetValueFor("AngularSupport", true);
-        }
-
-
-        public static void SetDebugMode(this WebPageBase webPageBase, bool value)
-        {
-            webPageBase.SetValueFor("DebugMode", value);
-        }
-
-        public static bool GetDebugMode(this WebPageBase webPageBase)
-        {
-            //todo read from context
-            return webPageBase.GetValueFor("DebugMode", true);
-        }
-
-        #region common helper
-
-        public static void SetValueFor(this WebPageBase webPageBase, string name, bool value)
+        public static void SetValueFor<T>(this WebPageBase webPageBase, string name, T value)
         {
             var nameKey = name.ToLower();
-            //webPageBase.PageData[nameKey] = value;
             webPageBase.Context.Items[nameKey] = value;
         }
 
-        public static bool GetValueFor(this WebPageBase webPageBase, string name, bool defaultValue)
+        public static T GetValueFor<T>(this WebPageBase webPageBase, string name, T defaultValue)
         {
             var nameKey = name.ToLower();
-            //if (webPageBase.PageData[nameKey] == null)
-            //{
-            //    return defaultValue;
-            //}
-            //return webPageBase.PageData[nameKey];
             if (webPageBase.Context.Items[nameKey] == null)
             {
                 return defaultValue;
             }
-            return webPageBase.Context.Items[nameKey].ToString().ToLower() == "true";
+            var result = (T)webPageBase.Context.Items[nameKey];
+            return result;
         }
-
-        #endregion
 
         /// <summary>
         /// 截取汉字
@@ -88,6 +73,59 @@ namespace NbFramework.UI.MvcExtensions
             return cutStr;
         }
 
+        #region for angular
+
+        public static void SetAngularSupport(this WebPageBase webPageBase, bool value)
+        {
+            webPageBase.SetValueFor("AngularSupport", value);
+        }
+
+        public static bool GetAngularSupport(this WebPageBase webPageBase)
+        {
+            return webPageBase.GetValueFor("AngularSupport", true);
+        }
+        
+        //public static void SetAngularAppModule(this WebPageBase webPageBase, string value)
+        //{
+        //    webPageBase.SetValueFor("AngularAppModule", value);
+        //}
+
+        //public static string GetAngularAppModule(this WebPageBase webPageBase)
+        //{
+        //    return webPageBase.GetValueFor("AngularAppModule", "mainApp");
+        //}
+
+        public static void SetAngularAppModule(this WebPageBase webPageBase, AngularAppModule value)
+        {
+            webPageBase.SetValueFor("AngularAppModule", value);
+        }
+
+        private static readonly AngularAppModule _defaultAngularAppModule = new AngularAppModule() { Name = "mainApp", Path = "~/Content/scripts/mainApp.js" };
+        public static AngularAppModule GetAngularAppModule(this WebPageBase webPageBase)
+        {
+            return webPageBase.GetValueFor("AngularAppModule", _defaultAngularAppModule);
+        }
+
+
+        #endregion
+
+        #region for debug
+
+        public static void SetDebugMode(this WebPageBase webPageBase, bool value)
+        {
+            webPageBase.SetValueFor("DebugMode", value);
+        }
+
+        public static bool GetDebugMode(this WebPageBase webPageBase)
+        {
+            //todo read from context
+            return webPageBase.GetValueFor("DebugMode", true);
+        }
+
+        #endregion
+
+        #region for domain
+
         /// <summary>
         /// 截取组织名
         /// </summary>
@@ -99,5 +137,7 @@ namespace NbFramework.UI.MvcExtensions
         {
             return Truncate(value, count, append);
         }
+
+        #endregion
     }
 }

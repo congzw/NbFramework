@@ -1,0 +1,39 @@
+﻿@{
+    var angularSupport = this.GetAngularSupport();
+    if (angularSupport)
+    {
+        var appModule = this.GetAngularAppModule();
+        var appName = appModule.Name;
+        if (!appModule.IsDefaultMainApp())
+        {
+            var appJsPath = Html.Raw(this.Href(appModule.Path.Replace(".js", "")));
+            <script>
+                require.config({
+                    paths: {
+                        '@appName': '@appJsPath'
+                    },
+                    shim: {
+                        '@appName': {
+                            deps: ['@appModule.GetDefaultMainApp()']
+                        }
+                    }
+                });
+            </script>
+        }
+        <script>
+            requirejs(['angular', 'nbLog'], function (angular, nbLog) {
+
+                requirejs(['@appName'], function (mainApp) {
+
+                    nbLog.debug('bootstrapped with appModule: @appName');
+
+                    angular.element(document).ready(function () {
+                        angular.bootstrap(document, ['@appName']);
+                        angular.element(document).find('html').addClass('ng-app');
+                    });
+                    return mainApp;
+                });
+            });
+        </script>
+    }
+}

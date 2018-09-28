@@ -1,0 +1,32 @@
+﻿@{
+    this.Layout = "~/Views/Shared/_Unify/_UnifyLayout.cshtml";
+    //could switch by area auto in layout!
+    this.SetAngularAppModule(new AngularAppModule() { Name = "pageApp", Path = "~/Areas/Foo/content/scripts/pageApp.js" });
+}
+<div ng-cloak>
+    <h2>angular pageApp DEMO: {{1 + 1}}</h2>
+    <hr />
+    <div ng-controller="demoCtrl">
+        <p>{{message}}</p>
+    </div>
+</div>
+@using (Html.Delayed())
+{
+    <script>
+        //require(['mainApp', 'nbLog'], function (mainApp, nbLog) {
+        //    nbLog.debug("angular.index.js");
+        //    mainApp.controller('demoCtrl', function ($scope, demoMockService) {
+        //        $scope.message = "from mainApp demoCtrl: => " + demoMockService.getSomeData();
+        //    });
+        //});
+
+        require(['pageApp', 'nbLog'], function (pageApp, nbLog) {
+            //pageApp.controller('demoCtrl', function ($scope) {
+            //    $scope.message = "from angular controller!";
+            //});
+            pageApp.controller('demoCtrl', function ($scope, demoMockService) {
+                $scope.message = "from pageApp demoCtrl: => " + demoMockService.getSomeData();
+            });
+        });
+    </script>
+}

@@ -12,7 +12,6 @@
             $log.log('get is invoke: ' + mockDatas);
             return mockDatas;
         }
-
         return {
             getSomeData: getSomeData
         };
