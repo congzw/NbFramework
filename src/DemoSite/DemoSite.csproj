@@ -163,7 +163,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Pages\Demo\_RequireJsLayout.cshtml">
+    <Content Include="Views\Pages\RequireJs\_Layout.cshtml">
       <SubType>Code</SubType>
     </Content>
     <Content Include="Views\Web.config" />
@@ -188,7 +188,7 @@
     <Content Include="Views\Shared\_Unify\_UnifyScriptsFix.cshtml" />
     <Content Include="Views\Shared\_Unify\Web.config" />
     <Content Include="Views\Shared\_Debug.cshtml" />
-    <Content Include="Views\Pages\Demo\RequireJs.cshtml" />
+    <Content Include="Views\Pages\RequireJs\Index.cshtml" />
     <Content Include="Views\Shared\_Unify\_UnifyLayout.cshtml" />
     <Content Include="Content\libs\unify1.9\fonts\open-sans\fonts\open-sans300normal.eot" />
     <Content Include="Content\libs\unify1.9\fonts\open-sans\fonts\open-sans300normal.woff" />
