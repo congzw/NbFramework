@@ -227,6 +227,7 @@
     <Content Include="Content\libs\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\libs\bootstrap\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\libs\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Views\Pages\Menus\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
