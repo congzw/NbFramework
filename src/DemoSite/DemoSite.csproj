@@ -97,6 +97,10 @@
     <Content Include="Content\images\demo.jpg" />
     <Content Include="Content\libs\angular\angular-route.js" />
     <Content Include="Content\libs\angular\angular.js" />
+    <Content Include="Content\libs\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="Content\libs\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\libs\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\libs\bootstrap\js\bootstrap.min.js" />
     <Content Include="Content\libs\jquery\jquery-2.1.0.js" />
     <Content Include="Content\libs\jquery\jquery.form.js" />
     <Content Include="Content\libs\jquery\jquery.qrcode.min.js" />
@@ -218,6 +222,11 @@
     <Content Include="Views\Pages\Unfiy\Index.cshtml" />
     <Content Include="Areas\Foo\Views\web.config" />
     <Content Include="Views\Pages\Unfiy\Index2.cshtml" />
+    <Content Include="Views\Shared\_Unify\_UnifyHeader.cshtml" />
+    <Content Include="Content\libs\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\libs\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\libs\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\libs\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -269,6 +278,7 @@
     <Folder Include="Areas\Foo\Models\" />
     <Folder Include="Areas\Foo\Views\Shared\" />
     <Folder Include="Content\libs\unify1.9\img\" />
+    <Folder Include="Views\Shared\Widgets\Navigations\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
