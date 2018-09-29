@@ -13,5 +13,10 @@ namespace DemoSite.Controllers
             }
             return View(category + "/" + view);
         }
+        
+        public ActionResult ChildWidget()
+        {
+            return Content("ChildWidget");
+        }
     }
 }

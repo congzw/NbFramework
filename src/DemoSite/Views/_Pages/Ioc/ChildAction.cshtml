@@ -2,6 +2,12 @@
 @{
     ViewBag.Title = "HOME";
 }
+
 <div class="jumbotron">
     <h1>@UtilsDateTime.Current.Now().ToFormat()</h1>
+    <img src="~/Content/images/demo.jpg" />
+</div>
+<div>
+    <p>@Html.Action("ChildWidget")</p>
+    <p>@Html.Action("ChildWidget")</p>
 </div>

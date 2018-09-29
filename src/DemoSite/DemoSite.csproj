@@ -178,7 +178,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_NavTop.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
-    <Content Include="Views\Home\Tenants.cshtml" />
     <Content Include="Views\Shared\_IoCInfo.cshtml" />
     <Content Include="Views\Shared\Widgets\Player\Html5Player.cshtml" />
     <Content Include="Views\Shared\Widgets\Player\FlashPlayer.cshtml" />
@@ -233,6 +232,10 @@
     <Content Include="Views\_Pages\RequireJs\AreaLoader.cshtml" />
     <Content Include="Views\_Pages\Menus\Default.cshtml" />
     <Content Include="Views\_Pages\RequireJs\_ViewStart.cshtml" />
+    <Content Include="Views\_Pages\Ioc\ChildAction.cshtml" />
+    <Content Include="Views\_Pages\Default.cshtml" />
+    <Content Include="Views\_Pages\_Layout.cshtml" />
+    <Content Include="Views\_Pages\_ViewStart.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
