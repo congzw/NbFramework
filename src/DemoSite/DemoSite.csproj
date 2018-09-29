@@ -89,6 +89,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Foo\content\scripts\hello.js" />
     <Content Include="Areas\Foo\content\scripts\pageApp.js" />
     <Content Include="Content\css\angular-csp.css" />
     <Content Include="Content\css\bootstrap.css" />
@@ -97,6 +98,7 @@
     <Content Include="Content\images\demo.jpg" />
     <Content Include="Content\libs\angular\angular-route.js" />
     <Content Include="Content\libs\angular\angular.js" />
+    <Content Include="Content\libs\areaLoader.js" />
     <Content Include="Content\libs\bootstrap\css\bootstrap-theme.min.css" />
     <Content Include="Content\libs\bootstrap\css\bootstrap.min.css" />
     <Content Include="Content\libs\bootstrap\fonts\glyphicons-halflings-regular.svg" />
@@ -106,6 +108,7 @@
     <Content Include="Content\libs\jquery\jquery.qrcode.min.js" />
     <Content Include="Content\libs\jquery\jquery.timer.js" />
     <Content Include="Content\libs\require.js" />
+    <Content Include="Content\libs\text.js" />
     <Content Include="Content\libs\toastr\toastr.css" />
     <Content Include="Content\libs\toastr\toastr.js" />
     <Content Include="Content\libs\unify1.9\css\app.css" />
@@ -193,7 +196,7 @@
     <Content Include="Views\Shared\_Unify\_UnifyScriptsFix.cshtml" />
     <Content Include="Views\Shared\_Unify\Web.config" />
     <Content Include="Views\Shared\_Debug.cshtml" />
-    <Content Include="Views\Pages\RequireJs\Index.cshtml" />
+    <Content Include="Views\Pages\RequireJs\Angular.cshtml" />
     <Content Include="Views\Shared\_Unify\_UnifyLayout.cshtml" />
     <Content Include="Content\libs\unify1.9\fonts\open-sans\fonts\open-sans300normal.eot" />
     <Content Include="Content\libs\unify1.9\fonts\open-sans\fonts\open-sans300normal.woff" />
@@ -228,6 +231,8 @@
     <Content Include="Content\libs\bootstrap\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\libs\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Views\Pages\Menus\Index.cshtml" />
+    <Content Include="Views\Pages\RequireJs\AngularFree.cshtml" />
+    <Content Include="Views\Pages\RequireJs\AreaLoader.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,0 +1,16 @@
+﻿@{
+    this.Layout = "~/Views/Pages/RequireJs/_Layout.cshtml";
+    this.SetAngularSupport(false);
+}
+<div>
+    <h2>RequireJs DEMO</h2>
+    <hr/>
+</div>
+@using (Html.Delayed())
+{
+    <script>
+        require(['nbLog'], function (nbLog) {
+            nbLog.debug("Hello!");
+        });
+    </script>
+}

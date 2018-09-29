@@ -1,0 +1,66 @@
+﻿@{
+    this.Layout = null;
+    ViewBag.Title = "Pilot - RequireJs";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="~/favicon.ico">
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/libs/toastr/toastr.css" rel="stylesheet" />
+    <script src="~/content/libs/require.js"></script>
+    <script>
+        (function () {
+            'use stricts';
+
+            require.config({
+                paths: {
+                    'areaLoader': '/Content/libs/areaLoader',
+                    'jquery': '/Content/libs/jquery/jquery-2.1.0',
+                    'toastr': '/Content/libs/toastr/toastr',
+                    'bootstrap': '/Content/scripts/bootstrap',
+                    'zqnb': '/Content/scripts/zqnb',
+                    'nbLog': '/Content/scripts/zqnb.log',
+                    'fooModule': '/Areas/Foo/content/scripts'
+                },
+                shim: {
+                    //backstretch: {
+                    //    deps: ["jquery"]
+                    //},
+                }
+            });
+        })();
+    </script>
+</head>
+<body>
+    <div class="container body-content">
+        <h2>@ViewBag.Title</h2>
+        <hr />
+
+    </div>
+<script>
+    //01: load raw path
+    //require(['/Areas/Foo/content/scripts/hello.js', 'nbLog'], function (hello, nbLog) {
+    //    nbLog.debug(hello.say);
+    //});
+    
+    //02: load config path 
+    //require(['fooModule/hello', 'nbLog'], function (hello, nbLog) {
+    //    nbLog.debug(hello.say);
+    //});
+
+    //03: load by a custom plugin: area scripts Loader
+    require(['areaLoader!foo/hello', 'nbLog'], function (hello, nbLog) {
+        nbLog.debug(hello.say);
+    });
+
+</script>
+    @Html.Partial("_Debug")
+</body>
+</html>
