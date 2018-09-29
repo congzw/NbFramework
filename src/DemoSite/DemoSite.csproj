@@ -233,6 +233,7 @@
     <Content Include="Views\Pages\Menus\Index.cshtml" />
     <Content Include="Views\Pages\RequireJs\AngularFree.cshtml" />
     <Content Include="Views\Pages\RequireJs\AreaLoader.cshtml" />
+    <Content Include="Views\Pages\Menus\Default.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
