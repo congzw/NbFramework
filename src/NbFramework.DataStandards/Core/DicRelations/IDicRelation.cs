@@ -112,4 +112,15 @@ namespace NbFramework.DataStandards.Core.DicRelations
             return relations;
         }
     }
+
+
+    public class RelationDouble
+    {
+
+    }
+
+    public class RelationTriple
+    {
+
+    }
 }

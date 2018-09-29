@@ -236,6 +236,8 @@
     <Content Include="Views\_Pages\Default.cshtml" />
     <Content Include="Views\_Pages\_Layout.cshtml" />
     <Content Include="Views\_Pages\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Widgets\Navigations\NavTop.cshtml" />
+    <Content Include="Views\Shared\_Unify\_UnifyNavs.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -254,6 +256,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Foo\FooAreaRegistration.cs" />
+    <Content Include="Content\css\site-unify.css" />
     <Compile Include="Controllers\_PagesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -286,7 +289,6 @@
     <Folder Include="Areas\Foo\Models\" />
     <Folder Include="Areas\Foo\Views\Shared\" />
     <Folder Include="Content\libs\unify1.9\img\" />
-    <Folder Include="Views\Shared\Widgets\Navigations\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,0 +1,50 @@
+﻿@using NbFramework.UI.SiteContexts
+@{
+    var siteContext = SiteContext.Current;
+    var siteInfo = siteContext.SiteInfo;
+}
+<div class="navbar navbar-default mega-menu" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target=".navbar-responsive-collapse">
+                <span class="sr-only">导航</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="@Href(siteInfo.HomeUrl)">
+                @*目前支持的图片大小是156x60*@
+                <img id="logo-header" src="@Href(siteInfo.LogoUrl)" alt="@siteInfo.DisplayName">
+            </a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-responsive-collapse">
+            <!-- Nav Menu -->
+            <ul class="nav navbar-nav">
+                @NavMenus()
+                @NavMenusFix()
+            </ul>
+            <!-- End Nav Menu -->
+        </div>
+    </div>
+</div>
+@helper NavMenus()
+{
+    //todo
+}
+@helper NavMenusFix()
+{
+    <li class="dropdown">
+        <a data-toggle="dropdown" class="dropdown-toggle" href="javascript:void(0);">
+            <i class="fa fa-cog"></i>硬编码菜单
+        </a>
+        <ul class="dropdown-menu">
+            @for (int i = 0; i < 5; i++)
+            {
+                <li><a href="#"><i class="fa fa-cog"></i>自定义(@i.ToString("00"))</a></li>
+            }
+        </ul>
+    </li>
+}

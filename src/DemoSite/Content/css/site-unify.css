@@ -1,0 +1,19 @@
+﻿/* Add here all your css styles (customizations) */
+* {
+    font-family: 'Open Sans', 'Times New Roman', 'Microsoft YaHei', '微软雅黑', 'STXihei', '华文细黑', 'serif';
+    font-size: 12px;
+}
+body .wrapper .content {
+}
+
+.header-fixed .navbar-brand img {
+    height: 50px;
+    width: auto;
+    margin-bottom: 0;
+}
+
+#logo-header {
+    height: 50px;
+    width: auto;
+    margin-bottom: 0;
+}

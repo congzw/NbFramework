@@ -89,9 +89,10 @@
     <Compile Include="Navigations\NavItemType.cs" />
     <Compile Include="Navigations\_Impl\NavItemService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SiteConfigs\SiteGreyContext.cs" />
     <Compile Include="Fx\Unify\UnifyContext.cs" />
     <Compile Include="Fx\Unify\UnifyHelper.cs" />
+    <Compile Include="SiteContexts\SiteContext.cs" />
+    <Compile Include="SiteContexts\SiteInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Fx\Ace\" />

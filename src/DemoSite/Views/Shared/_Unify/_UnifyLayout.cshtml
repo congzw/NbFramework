@@ -23,8 +23,8 @@
     @Html.Partial("_AngularConfig")
 </head>
 <body>
+    @Html.Partial("_Unify/_UnifyHeader")
     <div class="container body-content">
-        @Html.Partial("_Unify/_UnifyHeader")
         @RenderBody()
     </div>
     @RenderSection("scripts", required: false)
