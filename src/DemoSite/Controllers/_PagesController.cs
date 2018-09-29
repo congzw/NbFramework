@@ -2,9 +2,9 @@
 
 namespace DemoSite.Controllers
 {
-    public class PagesController : Controller
+    //render a raw razor view, only should be used on perpose!
+    public class _PagesController : Controller
     {
-        //simple render a view
         public ActionResult Show(string category, string view)
         {
             if (string.IsNullOrWhiteSpace(category))

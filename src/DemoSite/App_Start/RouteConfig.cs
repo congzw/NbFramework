@@ -12,7 +12,7 @@ namespace DemoSite
             routes.MapRoute(
                 name: "Default_Pages",
                 url: "Pages/{category}/{view}",
-                defaults: new { controller = "Pages", action = "Show", category = "", view = "Default" }
+                defaults: new { controller = "_Pages", action = "Show", category = "", view = "Default" }
             );
 
             routes.MapRoute(

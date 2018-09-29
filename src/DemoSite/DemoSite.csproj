@@ -171,7 +171,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Pages\RequireJs\_Layout.cshtml">
+    <Content Include="Views\_Pages\RequireJs\_Layout.cshtml">
       <SubType>Code</SubType>
     </Content>
     <Content Include="Views\Web.config" />
@@ -180,8 +180,6 @@
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Home\Tenants.cshtml" />
     <Content Include="Views\Shared\_IoCInfo.cshtml" />
-    <Content Include="Views\Empty\Index.cshtml" />
-    <Content Include="Views\Error\Index.cshtml" />
     <Content Include="Views\Shared\Widgets\Player\Html5Player.cshtml" />
     <Content Include="Views\Shared\Widgets\Player\FlashPlayer.cshtml" />
     <Content Include="Views\Shared\Widgets\_DemoForPlayer.cshtml" />
@@ -196,7 +194,7 @@
     <Content Include="Views\Shared\_Unify\_UnifyScriptsFix.cshtml" />
     <Content Include="Views\Shared\_Unify\Web.config" />
     <Content Include="Views\Shared\_Debug.cshtml" />
-    <Content Include="Views\Pages\RequireJs\Angular.cshtml" />
+    <Content Include="Views\_Pages\RequireJs\Angular.cshtml" />
     <Content Include="Views\Shared\_Unify\_UnifyLayout.cshtml" />
     <Content Include="Content\libs\unify1.9\fonts\open-sans\fonts\open-sans300normal.eot" />
     <Content Include="Content\libs\unify1.9\fonts\open-sans\fonts\open-sans300normal.woff" />
@@ -222,18 +220,19 @@
     <Content Include="Views\Shared\_Unify\_UnifyBackstretch.cshtml" />
     <Content Include="Views\Shared\Widgets\Backstretch\Backstretch.cshtml" />
     <Content Include="Views\Shared\_AngularConfig.cshtml" />
-    <Content Include="Views\Pages\Unfiy\Index.cshtml" />
+    <Content Include="Views\_Pages\Unfiy\Index.cshtml" />
     <Content Include="Areas\Foo\Views\web.config" />
-    <Content Include="Views\Pages\Unfiy\Index2.cshtml" />
+    <Content Include="Views\_Pages\Unfiy\Index2.cshtml" />
     <Content Include="Views\Shared\_Unify\_UnifyHeader.cshtml" />
     <Content Include="Content\libs\bootstrap\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\libs\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\libs\bootstrap\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\libs\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="Views\Pages\Menus\Index.cshtml" />
-    <Content Include="Views\Pages\RequireJs\AngularFree.cshtml" />
-    <Content Include="Views\Pages\RequireJs\AreaLoader.cshtml" />
-    <Content Include="Views\Pages\Menus\Default.cshtml" />
+    <Content Include="Views\_Pages\Menus\Index.cshtml" />
+    <Content Include="Views\_Pages\RequireJs\AngularFree.cshtml" />
+    <Content Include="Views\_Pages\RequireJs\AreaLoader.cshtml" />
+    <Content Include="Views\_Pages\Menus\Default.cshtml" />
+    <Content Include="Views\_Pages\RequireJs\_ViewStart.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -252,8 +251,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Foo\FooAreaRegistration.cs" />
-    <Compile Include="Controllers\PagesController.cs" />
-    <Compile Include="Controllers\EmptyController.cs" />
+    <Compile Include="Controllers\_PagesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
