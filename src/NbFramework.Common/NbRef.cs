@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
 
@@ -299,7 +300,6 @@ public class NbRefFieldValue
             bool contains = userTypeCodes.Contains(value, StringComparer.OrdinalIgnoreCase);
             return contains;
         }
-
         //helpers
         private static object GetValue(FieldInfo fieldInfo)
         {
@@ -319,5 +319,59 @@ public class NbRefFieldValue
             value = fieldInfo.GetValue(instance);
             return value;
         }
+
+        #region GetRefFieldValue Expression
+        
+        private static readonly Dictionary<string, NbRefFieldValue> nbRefFieldValueCache = new Dictionary<string, NbRefFieldValue>();
+        //not complete yet!
+        public static NbRefFieldValue GetRefFieldValue(Expression<Func<object, object>> action, Type classType)
+        {
+            var expression = GetMemberInfo(action);
+            var fieldInfo = classType.GetField(expression.Member.Name, BindingFlags.Public | BindingFlags.Static);
+            if (fieldInfo == null)
+            {
+                throw new NotSupportedException("不支持非FieldInfo的计算！");
+            }
+
+            var key = string.Format("{0}.{1}", classType.Name, expression.Member.Name);
+            if (!nbRefFieldValueCache.ContainsKey(key))
+            {
+                var customAttributes = fieldInfo.GetCustomAttributes(typeof(NbRefFieldAttribute), false);
+                if (customAttributes.Length > 0)
+                {
+                    var att = (NbRefFieldAttribute)customAttributes[0];
+                    var fieldValue = new NbRefFieldValue { Description = att.Description, FieldName = fieldInfo.Name, ValueBag = att.ValueBag };
+                    var value = fieldInfo.GetValue(fieldInfo);
+                    fieldValue.FieldValue = value.ToString();
+                    nbRefFieldValueCache.Add(key, fieldValue);
+                    Console.WriteLine("cached!");
+                }
+            }
+            return nbRefFieldValueCache[key];
+        }
+        private static MemberExpression GetMemberInfo(Expression method)
+        {
+            LambdaExpression lambda = method as LambdaExpression;
+            if (lambda == null)
+                throw new ArgumentNullException("method");
+
+            MemberExpression memberExpr = null;
+            if (lambda.Body.NodeType == ExpressionType.Convert)
+            {
+                memberExpr =
+                    ((UnaryExpression)lambda.Body).Operand as MemberExpression;
+            }
+            else if (lambda.Body.NodeType == ExpressionType.MemberAccess)
+            {
+                memberExpr = lambda.Body as MemberExpression;
+            }
+
+            if (memberExpr == null)
+                throw new ArgumentException("method");
+
+            return memberExpr;
+        }
+
+        #endregion
     }
 }

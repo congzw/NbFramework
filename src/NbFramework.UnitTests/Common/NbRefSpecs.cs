@@ -12,6 +12,13 @@ namespace NbFramework.Common
         [TestMethod]
         public void GetAllNbRefFieldStrings_should_ok()
         {
+            //var theType = typeof(Dic_DicTypeCode);
+            //var nbRefFileds = NbRefFieldValue.GetAllNbRefFieldStrings(theType);
+            //foreach (var nbRefFiled in nbRefFileds)
+            //{
+            //    var barValue = DicType.Create(nbRefFiled.FieldValue, nbRefFiled.Description, true, true);
+            //    barValue.LogJson();
+            //}
             var allNbRefFieldStrings = NbRefFieldValue.GetAllNbRefFieldStrings(typeof(MockCodes));
             allNbRefFieldStrings.LogJson();
             ShouldOK("A1", "A1", "A1Desc", allNbRefFieldStrings[0]);

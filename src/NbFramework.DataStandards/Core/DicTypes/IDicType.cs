@@ -1,4 +1,9 @@
-﻿namespace NbFramework.DataStandards.Core.DicTypes
+﻿using System;
+using System.Linq.Expressions;
+using NbFramework.Common;
+using NbFramework.DataStandards.Dics;
+
+namespace NbFramework.DataStandards.Core.DicTypes
 {
     /// <summary>
     /// 字典类型的接口
@@ -36,7 +41,17 @@
         public static DicType Create(string code, string name, bool inUse = true, bool canEdit = true)
         {
             //Guard check, todo 
-            return new DicType(){Code = code, Name = name, CanEdit = canEdit, InUse = inUse};
+            return new DicType() { Code = code, Name = name, CanEdit = canEdit, InUse = inUse };
+        }
+
+        public static DicType AutoCreateFromAttribute(Expression<Func<object, object>> action, Type classType)
+        {
+            var nbRefFieldValue = NbRefFieldValue.GetRefFieldValue(action, classType);
+            if (nbRefFieldValue == null)
+            {
+                return null;
+            }
+            return Create(nbRefFieldValue.FieldValue, nbRefFieldValue.Description);
         }
     }
 }
