@@ -3,6 +3,7 @@ using System.Collections;
 using System.Diagnostics;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NbFramework.Common;
+using Newtonsoft.Json;
 
 namespace NbFramework
 {
@@ -127,15 +128,14 @@ namespace NbFramework
             return AssertHelper.PrefixKo(value);
         }
 
-        //public static void LogJson(this object value)
-        //{
-        //    if (value == null)
-        //    {
-        //        Debug.WriteLine("null");
-        //    }
-
-        //    Debug.WriteLine(value.ToJson());
-        //}
+        public static void LogJson(this object value)
+        {
+            if (value == null)
+            {
+                Debug.WriteLine("null");
+            }
+            Debug.WriteLine(JsonConvert.SerializeObject(value));
+        }
 
         public static string ObjectInfo(this object obj)
         {

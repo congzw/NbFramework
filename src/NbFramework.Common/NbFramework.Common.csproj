@@ -51,7 +51,7 @@
     <Compile Include="Extensions\DateTimeExtensions.cs" />
     <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="Extensions\SimpleMapToExtensions.cs" />
-    <Compile Include="GlobalRef.cs" />
+    <Compile Include="NbRef.cs" />
     <Compile Include="NbRegistry.cs" />
     <Compile Include="MyModelHelper.cs" />
     <Compile Include="NbGuard.cs" />

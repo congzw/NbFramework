@@ -8,7 +8,8 @@ namespace NbFramework.DataStandards.Dics.OrgTypes
         public DicMeta Create()
         {
             var dicType = DicType.Create(Dic_DicTypeCode.OrgType, "组织类型", true, false);
-            var dicMeta = DicMeta.Create(dicType);
+            var dicMeta = DicMeta.Create(dicType);     
+            
             return dicMeta;
         }
     }
