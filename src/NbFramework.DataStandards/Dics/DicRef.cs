@@ -55,7 +55,7 @@ namespace NbFramework.DataStandards.Dics
 
     public static class Dic_PhaseCode
     {
-        [NbRefField("幼儿园")]
+        [NbRefField("学前")]
         public static string Phase0 = "Phase0"; //幼
         [NbRefField("小学")]
         public static string Phase1 = "Phase1"; //小
@@ -189,7 +189,7 @@ namespace NbFramework.DataStandards.Dics
         public static string GO014 = "GO014";
     }
 
-    public static class Dic_OrgTypePhase
+    public static class DicRelation_OrgTypePhase
     {
         [NbRefField("教育局.*")]
         public static string JiaoYuJu_Phases = "JiaoYuJu.*";
@@ -211,6 +211,30 @@ namespace NbFramework.DataStandards.Dics
         public static string XueXiao_312_Phases = "XueXiao-312.Phase1,Phase2";
         [NbRefField("十二年一贯制.小,初,高")]
         public static string XueXiao_345_Phases = "XueXiao-345.Phase1,Phase2,Phase3";
+    }
+
+    public static class DicRelation_PhaseGrade
+    {
+        [NbRefField("学前.托班,小班,中班,大班")]
+        public static string Phase0_Grades = "Phase0.GO0a0,GO0a1,GO0a2,GO0a3";
+        [NbRefField("小中.小学一年级,小学二年级,小学三年级,小学四年级,小学五年级,小学六年级")]
+        public static string Phase1_Grades = "Phase1.GO003,GO004,GO005,GO006,GO007,GO008";
+        [NbRefField("初中.初中一年级,初中二年级,初中三年级,初中四年级")]
+        public static string Phase2_Grades = "Phase2.GO009,GO010,GO011,GO01A";
+        [NbRefField("高中.高中一年级,高中二年级,高中三年级")]
+        public static string Phase3_Grades = "Phase3.GO012,GO013,GO014";
+    }
+
+    public static class DicRelation_PhaseSubject
+    {
+        [NbRefField("学前.社会,科学,艺术,健康教育,汉语")]
+        public static string Phase0_Subjects = "Phase0.GS019,GS026,GS029,GS033,GS034";
+        [NbRefField("小学.语文,数学,英语,日语,俄语,音乐,美术,信息技术,品德与社会,品德与生活,科学,体育与健康,艺术,劳动技术")]
+        public static string Phase1_Subjects = "Phase1.GS001,GS002,GS009,GS010,GS011,GS013,GS015,GS018,GS024,GS025,GS026,GS028,GS029,GS030";
+        [NbRefField("初中.语文,数学,物理,化学,政治,历史,地理,生物,英语,日语,俄语,音乐,美术,思想品德,信息技术,科学,体育与健康,艺术,劳动技术,历史与社会")]
+        public static string Phase2_Subjects = "Phase2.GS001,GS002,GS003,GS004,GS005,GS006,GS007,GS008,GS009,GS010,GS011,GS013,GS015,GS017,GS018,GS026,GS028,GS029,GS030,GS035";
+        [NbRefField("高中.语文,数学,物理,化学,政治,历史,地理,生物,英语,日语,俄语,音乐,美术,思想品德,信息技术,体育与健康,艺术,通用技术")]
+        public static string Phase3_Subjects = "Phase3.GS001,GS002,GS003,GS004,GS005,GS006,GS007,GS008,GS009,GS010,GS011,GS013,GS015,GS017,GS018,GS028,GS029,GS037"; 
     }
 
     /// <summary>
