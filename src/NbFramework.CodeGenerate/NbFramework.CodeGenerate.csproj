@@ -4,15 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2A2E4924-731C-46E6-AE56-8D9B02600197}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{EEEDD171-3B54-4033-BEA3-67B8B0646E10}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NbFramework.DataStandards</RootNamespace>
-    <AssemblyName>NbFramework.DataStandards</AssemblyName>
+    <RootNamespace>NbFramework.CodeGenerate</RootNamespace>
+    <AssemblyName>NbFramework.CodeGenerate</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -36,37 +38,56 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\Inits\DicMeta.cs" />
-    <Compile Include="Core\Inits\DicMetaProvider.cs" />
-    <Compile Include="Core\Inits\DicMetaReader.cs" />
-    <Compile Include="Core\Inits\DicMetaRegistry.cs" />
-    <Compile Include="Core\Districts\Districts.cs" />
-    <Compile Include="Core\DicItems\IDicItem.cs" />
-    <Compile Include="Core\DicItems\IDicItemService.cs" />
-    <Compile Include="Core\DicRelations\IDicRelation.cs" />
-    <Compile Include="Core\DicRelations\IDicRelationService.cs" />
-    <Compile Include="Core\DicTypes\IDicType.cs" />
-    <Compile Include="Core\DicTypes\IDicTypeService.cs" />
-    <Compile Include="Dics\DicRef.cs" />
-    <Compile Include="Dics\OrgTypes\OrgType.cs" />
-    <Compile Include="Dics\OrgTypes\OrgTypeMetaProvider.cs" />
-    <Compile Include="Dics\DicRefExt.cs" />
+    <Compile Include="NbRefForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NbRefForm.Designer.cs">
+      <DependentUpon>NbRefForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NbRefs\NbRefCodeHelper.cs" />
+    <Compile Include="NbRefs\NbRefDocumentHelper.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="NbRefForm.resx">
+      <DependentUpon>NbRefForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Core\readme.md" />
+    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NbFramework.Common\NbFramework.Common.csproj">
       <Project>{bdea1bb8-7b9e-4cc5-ad7f-ab40e8290741}</Project>
       <Name>NbFramework.Common</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Core\_Impl\" />
+    <ProjectReference Include="..\NbFramework.DataStandards\NbFramework.DataStandards.csproj">
+      <Project>{2a2e4924-731c-46e6-ae56-8d9b02600197}</Project>
+      <Name>NbFramework.DataStandards</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

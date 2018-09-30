@@ -34,6 +34,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NbFramework.DataStandards",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NbFramework.WebApis", "NbFramework.WebApis\NbFramework.WebApis.csproj", "{2E0D5E07-935E-438B-BC09-10B89E438FF9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NbFramework.CodeGenerate", "NbFramework.CodeGenerate\NbFramework.CodeGenerate.csproj", "{EEEDD171-3B54-4033-BEA3-67B8B0646E10}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -84,6 +86,10 @@ Global
 		{2E0D5E07-935E-438B-BC09-10B89E438FF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E0D5E07-935E-438B-BC09-10B89E438FF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E0D5E07-935E-438B-BC09-10B89E438FF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEEDD171-3B54-4033-BEA3-67B8B0646E10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEEDD171-3B54-4033-BEA3-67B8B0646E10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEEDD171-3B54-4033-BEA3-67B8B0646E10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEEDD171-3B54-4033-BEA3-67B8B0646E10}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -97,5 +103,6 @@ Global
 		{2172DF62-A9FD-4711-A23D-C02608413D11} = {7ADFB802-50AD-4206-9D14-4CDA2DC01F36}
 		{2A2E4924-731C-46E6-AE56-8D9B02600197} = {7ADFB802-50AD-4206-9D14-4CDA2DC01F36}
 		{2E0D5E07-935E-438B-BC09-10B89E438FF9} = {7ADFB802-50AD-4206-9D14-4CDA2DC01F36}
+		{EEEDD171-3B54-4033-BEA3-67B8B0646E10} = {7ADFB802-50AD-4206-9D14-4CDA2DC01F36}
 	EndGlobalSection
 EndGlobal

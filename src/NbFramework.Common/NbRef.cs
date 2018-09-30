@@ -13,7 +13,7 @@ namespace NbFramework.Common
     {
         public static readonly NbRef Instance = new NbRef();
     }
-    
+
     /// <summary>
     /// Attribute for bulid strong type string ref
     /// </summary>
@@ -31,7 +31,8 @@ namespace NbFramework.Common
         /// CTOR
         /// </summary>
         /// <param name="description"></param>
-        public NbRefFieldAttribute(string description):this(description, null)
+        public NbRefFieldAttribute(string description)
+            : this(description, null)
         {
         }
         /// <summary>
@@ -54,7 +55,7 @@ namespace NbFramework.Common
         /// </summary>
         public string ValueBag { get; set; }
     }
-    
+
     /// <summary>
     /// strong type string ref value
     /// </summary>
@@ -206,6 +207,33 @@ public class NbRefFieldValue
             return nbRefFieldValues;
         }
 
+        public static IList<Type> GetNbRefFieldDelcareTypes(params Assembly[] assemblies)
+        {
+            var theTypes = new Dictionary<Type, Type>();
+            foreach (var assembly in assemblies)
+            {
+                var types = assembly.GetTypes();
+                foreach (var type in types)
+                {
+                    if (theTypes.ContainsKey(type))
+                    {
+                        continue;
+                    }
+
+                    var fieldInfos = type.GetFields(BindingFlags.Public | BindingFlags.Static);
+                    foreach (var fieldInfo in fieldInfos)
+                    {
+                        var customAttributes = fieldInfo.GetCustomAttributes(typeof(NbRefFieldAttribute), false);
+                        if (customAttributes.Length > 0 && !theTypes.ContainsKey(type))
+                        {
+                            theTypes.Add(type, type);
+                        }
+                    }
+                }
+            }
+            return theTypes.Values.ToList();
+        }
+
         /// <summary>
         /// 获取某个类型声明的所有的NbRefFieldAttribute字段的信息
         /// </summary>
@@ -236,7 +264,7 @@ public class NbRefFieldValue
                     }
 
                     var att = (NbRefFieldAttribute)customAttributes[0];
-                    var fieldValue = new NbRefFieldValue { Description = att.Description, FieldName = fieldInfo.Name, ValueBag = att.ValueBag};
+                    var fieldValue = new NbRefFieldValue { Description = att.Description, FieldName = fieldInfo.Name, ValueBag = att.ValueBag };
                     //var value = fieldInfo.GetValue(null);
                     var value = GetValue(fieldInfo);
                     fieldValue.FieldValue = value.ToString();
