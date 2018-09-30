@@ -1,4 +1,5 @@
-﻿using NbFramework.DataStandards.Core.DicTypes;
+﻿using NbFramework.Common;
+using NbFramework.DataStandards.Core.DicTypes;
 using NbFramework.DataStandards.Core.Inits;
 
 namespace NbFramework.DataStandards.Dics.OrgTypes
@@ -7,10 +8,8 @@ namespace NbFramework.DataStandards.Dics.OrgTypes
     {
         public DicMeta Create()
         {
-            var dicType = DicType.Create(Dic_DicTypeCode.OrgType, "组织类型", true, false);
-            var dicMeta = DicMeta.Create(dicType);     
-            
-            return dicMeta;
+            //todo
+            return null;
         }
     }
 }

@@ -2,16 +2,18 @@
 
 namespace NbFramework.DataStandards.Dics
 {
-    public static class Dic_DicTypeCode
+    public static class Dic_DicType
     {
+        [NbRefField("组织类型", "{'Code':'OrgType','Name':'组织类型','InUse':true,'CanEdit':true}")]
         public static string OrgType = "OrgType";
-        public static string Dic_DicTypeCode_OrgType(this NbRef nbRef)
+        public static string Dic_DicType_OrgType(this NbRef nbRef)
         {
             return OrgType;
         }
-        
+
+        [NbRefField("学段", "{'Code':'Phase','Name':'学段','InUse':true,'CanEdit':true}")]
         public static string Phase = "Phase";
-        public static string Dic_DicTypeCode_Phase(this NbRef nbRef)
+        public static string Dic_DicType_Phase(this NbRef nbRef)
         {
             return Phase;
         }
@@ -53,9 +55,12 @@ namespace NbFramework.DataStandards.Dics
             return Phase5;
         }
     }
-
+    
     public static class Dic_OrgTypeCode
     {
+        //{"Code":"OrgType","Name":"组织类型","InUse":true,"CanEdit":true}
+        //"{'Code':'OrgType','Name':'组织类型','InUse':true,'CanEdit':true}"
+
         [NbRefField("教育局")]
         public const string JiaoYuJu = "JiaoYuJu";
         [NbRefField("科室")]
@@ -75,8 +80,6 @@ namespace NbFramework.DataStandards.Dics
         [NbRefField("九年一贯制")]
         public const string XueXiao_312 = "XueXiao-312";
         [NbRefField("十二年一贯制")]
-        public const string XueXiao_345 = "XueXiao-345";  
-
-
+        public const string XueXiao_345 = "XueXiao-345"; 
     }
 }

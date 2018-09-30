@@ -31,15 +31,28 @@ namespace NbFramework.Common
         /// CTOR
         /// </summary>
         /// <param name="description"></param>
-        public NbRefFieldAttribute(string description)
+        public NbRefFieldAttribute(string description):this(description, null)
+        {
+        }
+        /// <summary>
+        /// CTOR
+        /// </summary>
+        /// <param name="description"></param>
+        /// <param name="valueBag"></param>
+        public NbRefFieldAttribute(string description, string valueBag)
         {
             Description = description;
+            ValueBag = valueBag;
         }
 
         /// <summary>
         /// 描述
         /// </summary>
         public string Description { get; set; }
+        /// <summary>
+        /// 详细值
+        /// </summary>
+        public string ValueBag { get; set; }
     }
     
     /// <summary>
@@ -59,6 +72,10 @@ namespace NbFramework.Common
         /// 描述
         /// </summary>
         public string Description { get; set; }
+        /// <summary>
+        /// 详细值
+        /// </summary>
+        public string ValueBag { get; set; }
 
         /// <summary>
         /// 反射查找并导出程序集里的注册信息
@@ -219,7 +236,7 @@ public class NbRefFieldValue
                     }
 
                     var att = (NbRefFieldAttribute)customAttributes[0];
-                    var fieldValue = new NbRefFieldValue { Description = att.Description, FieldName = fieldInfo.Name };
+                    var fieldValue = new NbRefFieldValue { Description = att.Description, FieldName = fieldInfo.Name, ValueBag = att.ValueBag};
                     //var value = fieldInfo.GetValue(null);
                     var value = GetValue(fieldInfo);
                     fieldValue.FieldValue = value.ToString();

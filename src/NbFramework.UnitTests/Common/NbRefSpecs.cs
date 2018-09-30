@@ -1,4 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NbFramework.DataStandards.Core.DicTypes;
+using NbFramework.DataStandards.Core.Inits;
+using NbFramework.DataStandards.Dics;
+using Newtonsoft.Json;
 
 namespace NbFramework.Common
 {
@@ -25,11 +29,11 @@ namespace NbFramework.Common
     }
     public static class MockCodes
     {
-        [NbRefField("A1Desc")]
+        [NbRefField("A1Desc", "{'Code':'OrgType','Name':'组织类型','InUse':true,'CanEdit':true}")]
         public const string A1 = "A1";
-        [NbRefField("XDesc")]
+        [NbRefField("XDesc", "SomeValues")]
         public const string B1 = "X";
-        [NbRefField("A2Desc")]
+        [NbRefField("A2Desc", "SomeValues")]
         public const string A2 = "A2";
     }
 }
