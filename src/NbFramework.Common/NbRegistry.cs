@@ -3,52 +3,52 @@ using System.Collections.Generic;
 
 namespace NbFramework.Common
 {
-    public interface INbRegistry
+
+    public abstract class NbRegistry<T> where T : NbRegistry<T>
     {
-        object GetProperty(string name, object defaultValue = null);
-        void SetProperty(string name, object value);
+        private bool _inited;
+        /// <summary>
+        /// 从服务中初始化（通常是声明元信息的服务）
+        /// </summary>
+        /// <param name="nbRegistryServices"></param>
+        /// <returns></returns>
+        public void Init(IList<INbRegistryService<T>> nbRegistryServices)
+        {
+            if (_inited)
+            {
+                throw new InvalidOperationException("NbRegistry should't be inited more then once!");
+            }
+            foreach (var dicRegistryService in nbRegistryServices)
+            {
+                dicRegistryService.Register((T)this);
+            }
+            _inited = true;
+        }
+
+        /// <summary>
+        /// 单例
+        /// </summary>
+        /// <returns></returns>
+        public static T Instance
+        {
+
+            get
+            {
+                return AutoResolveAsSingletonHelper<T>.Lazy.Value;
+            }
+        }
     }
 
-    public class NbRegistry : Dictionary<string, object>, INbRegistry
+    /// <summary>
+    /// 注册服务接口，实现此接口的服务必须具有无参构造函数，供注册表实例进行发现和执行
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public interface INbRegistryService<in T> where T : NbRegistry<T>
     {
-        public static INbRegistry Instance = new NbRegistry();
-
-        public object GetProperty(string name, object defaultValue = null)
-        {
-            var key = CreateKey(name);
-            if (!ContainsKey(key))
-            {
-                return defaultValue;
-            }
-            return this[key];
-        }
-
-        public void SetProperty(string name, object value)
-        {
-            var key = CreateKey(name);
-            this[key] = value;
-        }
-
-        private static string CreateKey(string name)
-        {
-            if (string.IsNullOrWhiteSpace(name))
-            {
-                throw new ArgumentException("name should not be empty or null");
-            }
-            return name.Trim().ToLower();
-        }
-    }
-
-    public static class NbRegistryExtensions
-    {
-        public static T GetProperty<T>(this INbRegistry nbRegistry, string name, T defaultValue = default(T))
-        {
-            return (T)nbRegistry.GetProperty(name);
-        }
-
-        public static void SetProperty<T>(this INbRegistry nbRegistry, string name, T value)
-        {
-            nbRegistry.SetProperty(name, value);
-        }
+        /// <summary>
+        /// 注册自定义信息
+        /// </summary>
+        /// <param name="nbRegistry"></param>
+        void Register(T nbRegistry);
     }
 }

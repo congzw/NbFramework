@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace NbFramework.Common
 {
@@ -101,5 +102,10 @@ namespace NbFramework.Common
 
             #endregion
         }
+    }
+
+    internal sealed class AutoResolveAsSingletonHelper<T>
+    {
+        public static readonly Lazy<T> Lazy = new Lazy<T>(LazyThreadSafetyMode.ExecutionAndPublication);
     }
 }

@@ -39,10 +39,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\Inits\DicMeta.cs" />
-    <Compile Include="Core\Inits\DicMetaProvider.cs" />
-    <Compile Include="Core\Inits\DicMetaReader.cs" />
-    <Compile Include="Core\Inits\DicMetaRegistry.cs" />
     <Compile Include="Core\Districts\Districts.cs" />
     <Compile Include="Core\DicItems\IDicItem.cs" />
     <Compile Include="Core\DicItems\IDicItemService.cs" />
@@ -50,9 +46,9 @@
     <Compile Include="Core\DicRelations\IDicRelationService.cs" />
     <Compile Include="Core\DicTypes\IDicType.cs" />
     <Compile Include="Core\DicTypes\IDicTypeService.cs" />
+    <Compile Include="Core\Inits\DicRegistry.cs" />
     <Compile Include="Dics\DicRef.cs" />
     <Compile Include="Dics\OrgTypes\OrgType.cs" />
-    <Compile Include="Dics\OrgTypes\OrgTypeMetaProvider.cs" />
     <Compile Include="Dics\DicRefExt.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
