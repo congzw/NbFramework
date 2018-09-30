@@ -49,10 +49,12 @@
     <Compile Include="Core\Inits\DicMeta.cs" />
     <Compile Include="Core\Inits\DicRegistry.cs" />
     <Compile Include="Dics\DicRef.cs" />
+    <Compile Include="Dics\Grades\GradeMetaProvider.cs" />
     <Compile Include="Dics\OrgTypes\OrgTypeMetaProvider.cs" />
     <Compile Include="Dics\OrgTypes\OrgTypeService.cs" />
     <Compile Include="Dics\Phases\PhaseService.cs" />
     <Compile Include="Dics\Phases\PhaseMetaProvider.cs" />
+    <Compile Include="Dics\Subjects\SubjectMetaProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

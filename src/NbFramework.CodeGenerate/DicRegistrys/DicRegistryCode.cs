@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Reflection;
 using System.Text;
 using NbFramework.Common;
@@ -12,6 +13,26 @@ namespace NbFramework.CodeGenerate.DicRegistrys
 {
     public class DicRegistryCode
     {
+        public class DicItemDto
+        {
+            public string Code { get; set; }
+            public string Name { get; set; }
+        }
+
+        public static string Temp(string[] lines)
+        {
+            string template = "[NbRefField(\"{0}\")]\r\npublic static string {1} = \"{1}\"; ";
+            StringBuilder sb = new StringBuilder();
+            foreach (var line in lines)
+            {
+                var dicItemDto = new DicItemDto();
+                var strings = line.Split(',');
+                dicItemDto.Code = strings[0].Replace('"',' ').Trim();
+                dicItemDto.Name = strings[1].Replace('"', ' ').Trim();
+                sb.AppendLine(string.Format(template, dicItemDto.Name, dicItemDto.Code));
+            }
+            return sb.ToString();
+        }
     }
 
 

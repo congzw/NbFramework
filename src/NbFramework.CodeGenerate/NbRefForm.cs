@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using NbFramework.CodeGenerate.DicRegistrys;
 using NbFramework.CodeGenerate.NbRefs;
 
 namespace NbFramework.CodeGenerate
@@ -17,7 +18,10 @@ namespace NbFramework.CodeGenerate
 
         private void btnOk_Click(object sender, System.EventArgs e)
         {
-            this.txtResult.Text = NbRefCodeHelper.Generate();
+            var readAllLines = System.IO.File.ReadAllLines("C:\\test.txt");
+
+            this.txtResult.Text = DicRegistryCode.Temp(readAllLines);
+            //this.txtResult.Text = NbRefCodeHelper.Generate();
         }
     }
 }
