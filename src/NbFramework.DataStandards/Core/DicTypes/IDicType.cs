@@ -32,5 +32,11 @@
         public string Name { get; set; }
         public bool InUse { get; set; }
         public bool CanEdit { get; set; }
+
+        public static DicType Create(string code, string name, bool inUse = true, bool canEdit = true)
+        {
+            //Guard check, todo 
+            return new DicType(){Code = code, Name = name, CanEdit = canEdit, InUse = inUse};
+        }
     }
 }

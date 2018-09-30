@@ -1,0 +1,89 @@
+﻿@using Newtonsoft.Json
+
+<h2>Conclusions: All ctor is OK!</h2>
+<hr />
+@AsJson(new Foo())
+<hr/>
+@AsJson(Bar.Create())
+<hr/>
+@AsJson(Blah.Create())
+<hr/>
+@AsJson(Customer.Create())
+<hr />
+
+@helper AsJson(object value)
+{
+    if (value == null)
+    {
+        return;
+    }
+    var serializeObject = JsonConvert.SerializeObject(value);
+    @Html.Raw(JsonConvert.SerializeObject(value))
+    var check = JsonConvert.DeserializeObject(serializeObject);
+    <h2>@check.GetHashCode()</h2>
+}
+@functions
+{
+    public class Foo
+    {
+        public Foo()
+        {
+            Name = "Foo";
+        }
+
+        public string Name { get; set; }
+    }
+
+    public class Bar
+    {
+        protected Bar()
+        {
+            Name = "Bar";
+        }
+
+        public string Name { get; set; }
+
+        public static Bar Create()
+        {
+            return new Bar();
+        }
+    }
+
+    public class Blah
+    {
+        private Blah()
+        {
+            Name = "Blah";
+        }
+
+        public string Name { get; set; }
+
+        public static Blah Create()
+        {
+            return new Blah();
+        }
+    }
+
+    public class Customer
+    {
+        public Customer(string name)
+        {
+            Name = name;
+        }
+        //protected Customer(string name)
+        //{
+        //    Name = name;
+        //}
+        //private Customer(string name)
+        //{
+        //    Name = name;
+        //}
+
+        public string Name { get; set; }
+
+        public static Customer Create()
+        {
+            return new Customer("Customer");
+        }
+    }
+}

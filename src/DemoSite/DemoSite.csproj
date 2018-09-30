@@ -314,6 +314,7 @@
     <Content Include="App_Code\UnifyRender.cshtml" />
     <Content Include="App_Code\NavTopRender.cshtml" />
     <Content Include="Views\_Pages\AppCode\Index.cshtml" />
+    <Content Include="Views\_Pages\Json\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
