@@ -52,6 +52,8 @@
     <Compile Include="Dics\OrgTypes\OrgTypeMetaProvider.cs" />
     <Compile Include="Dics\DicRefExt.cs" />
     <Compile Include="Dics\OrgTypes\OrgTypeService.cs" />
+    <Compile Include="Dics\Phases\PhaseService.cs" />
+    <Compile Include="Dics\Phases\PhaseMetaProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

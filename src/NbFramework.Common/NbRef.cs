@@ -344,7 +344,7 @@ public class NbRefFieldValue
                     var value = fieldInfo.GetValue(fieldInfo);
                     fieldValue.FieldValue = value.ToString();
                     nbRefFieldValueCache.Add(key, fieldValue);
-                    Console.WriteLine("cached!");
+                    //Console.WriteLine("cached!");
                 }
             }
             return nbRefFieldValueCache[key];

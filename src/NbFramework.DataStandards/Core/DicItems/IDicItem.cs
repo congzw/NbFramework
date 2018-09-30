@@ -1,4 +1,9 @@
-﻿namespace NbFramework.DataStandards.Core.DicItems
+﻿using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
+using NbFramework.Common;
+
+namespace NbFramework.DataStandards.Core.DicItems
 {
     /// <summary>
     /// 字典项
@@ -35,5 +40,45 @@
         /// 二级分类，预留扩展，例如： A.B.C.
         /// </summary>
         string SubCategory { get; set; }
+    }
+
+    public class DicItem : IDicItem
+    {
+        public string DicTypeCode { get; set; }
+        public string Code { get; set; }
+        public string Name { get; set; }
+        public string Tags { get; set; }
+        public string Description { get; set; }
+        public bool IsSystemItem { get; set; }
+        public string SubCategory { get; set; }
+
+
+        public static DicItem Create(string dicTypeCode, string code, string name)
+        {
+            //Guard check, todo 
+            return new DicItem() {DicTypeCode = dicTypeCode, Code = code, Name = name};
+        }
+
+        public static DicItem AutoCreateFromAttribute(Expression<Func<object, object>> action, Type classType, string dicTypeCode)
+        {
+            var nbRefFieldValue = NbRefFieldValue.GetRefFieldValue(action, classType);
+            if (nbRefFieldValue == null)
+            {
+                return null;
+            }
+            return Create(dicTypeCode, nbRefFieldValue.FieldValue, nbRefFieldValue.Description);
+        }
+
+        public static IList<DicItem> AutoCreateAllFromAttribute(Type classType, string dicTypeCode)
+        {
+            var dicItems = new List<DicItem>();
+            var nbRefFieldValue = NbRefFieldValue.GetAllNbRefFieldStrings(classType);
+            foreach (var refFieldValue in nbRefFieldValue)
+            {
+                var dicItem = Create(dicTypeCode, refFieldValue.FieldValue, refFieldValue.Description);
+                dicItems.Add(dicItem);
+            }
+            return dicItems;
+        }
     }
 }

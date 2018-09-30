@@ -59,6 +59,8 @@
     <Compile Include="Common\NbRefSpecs.cs" />
     <Compile Include="Common\Trees\TreeItemHolderSpecs.cs" />
     <Compile Include="Common\Trees\_Mocks.cs" />
+    <Compile Include="DataStandards\Dics\OrgTypes\OrgTypeMetaProviderSpecs.cs" />
+    <Compile Include="DataStandards\Dics\Phases\PhaseMetaProviderSpecs.cs" />
     <Compile Include="TestExtensions.cs" />
     <Compile Include="TextRules\_Mocks.cs" />
     <Compile Include="TextRules\TextRuleEngineSpecs.cs" />

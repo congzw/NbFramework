@@ -1,4 +1,6 @@
-﻿using NbFramework.DataStandards.Core.DicTypes;
+﻿using System.Linq;
+using NbFramework.DataStandards.Core.DicItems;
+using NbFramework.DataStandards.Core.DicTypes;
 using NbFramework.DataStandards.Core.Inits;
 
 namespace NbFramework.DataStandards.Dics.OrgTypes
@@ -9,8 +11,8 @@ namespace NbFramework.DataStandards.Dics.OrgTypes
         {
             var dicType = DicType.AutoCreateFromAttribute(x => Dic_DicTypeCode.OrgType, typeof (Dic_DicTypeCode));
             var dicMeta = DicMeta.Create(dicType);
-            //dicMeta.DicItems.Add();
-            //dicMeta.DicRelations.Add();
+            var orgTypeItems = DicItem.AutoCreateAllFromAttribute(typeof (Dic_OrgTypeCode), Dic_DicTypeCode.OrgType);
+            dicMeta.DicItems = orgTypeItems.Cast<IDicItem>().ToList();
             return dicMeta;
         }
     }

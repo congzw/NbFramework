@@ -1,8 +1,4 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using NbFramework.DataStandards.Core.DicTypes;
-using NbFramework.DataStandards.Core.Inits;
-using NbFramework.DataStandards.Dics;
-using Newtonsoft.Json;
 
 namespace NbFramework.Common
 {
@@ -19,6 +15,7 @@ namespace NbFramework.Common
             //    var barValue = DicType.Create(nbRefFiled.FieldValue, nbRefFiled.Description, true, true);
             //    barValue.LogJson();
             //}
+
             var allNbRefFieldStrings = NbRefFieldValue.GetAllNbRefFieldStrings(typeof(MockCodes));
             allNbRefFieldStrings.LogJson();
             ShouldOK("A1", "A1", "A1Desc", allNbRefFieldStrings[0]);
