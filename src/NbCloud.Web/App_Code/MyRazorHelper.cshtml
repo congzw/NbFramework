@@ -1,0 +1,34 @@
+﻿@functions
+{
+    public static string GetCompanyName()
+    {
+        return "Foo";
+    }
+
+    public static string GetAcePath()
+    {
+        //todo switch with cdn, etc...
+        var ace = "/Content/libs/ace";
+        return ace;
+    }
+
+    public static string GetBasicPath()
+    {
+        //todo switch with cdn, etc...
+        var basic = "~/Content/libs/basic";
+        return GetPath(basic);
+    }
+
+    public static string GetUnifyPath()
+    {
+        //todo switch with cdn, etc...
+        var ace = "/Content/libs/unify";
+        return ace;
+    }
+
+    public static string GetPath(string path)
+    {
+        var absolutePath = VirtualPathUtility.ToAbsolute(path);
+        return absolutePath;
+    }
+}

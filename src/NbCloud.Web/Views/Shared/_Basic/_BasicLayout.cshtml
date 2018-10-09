@@ -1,0 +1,43 @@
+﻿@{
+    var rootPath = MyRazorHelper.GetPath("~");
+    var contentPath = MyRazorHelper.GetPath("~/Content");
+    var basicPath = MyRazorHelper.GetBasicPath();
+    var acePath = MyRazorHelper.GetAcePath();
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link href="@basicPath/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="@basicPath/toastr/toastr.css" rel="stylesheet" />
+    @RenderSection("styles", required: false)
+    <script src="@basicPath/require.js"></script>
+    <script>
+        (function () {
+            "use strict";
+            define('app_const', [], function () {
+                var app_const = {
+                    rootPath: '@rootPath',
+                    contentPath: '@contentPath',
+                    acePath: '@acePath',
+                    basicPath: '@basicPath'
+                };
+                //console.log(app_const);
+                return app_const;
+            });
+        })();
+    </script>
+    <script src="~/Content/scripts/basic_config.js"></script>
+</head>
+<body>
+<div class="container body-content">
+    @RenderBody()
+</div>
+    @RenderSection("scripts", required: false)
+    @Html.RenderDelayed()
+    @Html.Partial("_AsyncScripts")
+</body>
+</html>

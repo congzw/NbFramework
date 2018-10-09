@@ -76,10 +76,46 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\css\angular-csp.css" />
+    <Content Include="Content\css\ace-customize.css" />
+    <Content Include="Content\css\unify-customize.css" />
+    <Content Include="Content\images\bg\1.jpg" />
+    <Content Include="Content\images\bg\2.jpg" />
+    <Content Include="Content\images\demo.jpg" />
+    <Content Include="Content\libs\basic\angular\angular-route.js" />
+    <Content Include="Content\libs\basic\angular\angular.js" />
+    <Content Include="Content\libs\basic\areaLoader.js" />
+    <Content Include="Content\libs\basic\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="Content\libs\basic\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\libs\basic\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\libs\basic\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\libs\basic\jquery\jquery-2.1.0.js" />
+    <Content Include="Content\libs\basic\jquery\jquery.backstretch.min.js" />
+    <Content Include="Content\libs\basic\jquery\jquery.form.js" />
+    <Content Include="Content\libs\basic\jquery\jquery.qrcode.min.js" />
+    <Content Include="Content\libs\basic\jquery\jquery.timer.js" />
+    <Content Include="Content\libs\basic\require.js" />
+    <Content Include="Content\libs\basic\text.js" />
+    <Content Include="Content\libs\basic\toastr\toastr.css" />
+    <Content Include="Content\libs\basic\toastr\toastr.js" />
+    <Content Include="Content\scripts\basic_config.js" />
+    <Content Include="Content\scripts\zqnb.js" />
+    <Content Include="Content\scripts\zqnb.log.js" />
     <Content Include="favicon.ico" />
     <Content Include="packages.config" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Content\libs\basic\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\libs\basic\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\libs\basic\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\libs\basic\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Views\Shared\_Basic\_BasicLayout.cshtml" />
+    <Content Include="App_Code\MyRazorHelper.cshtml" />
+    <Content Include="Views\Shared\_Basic\_BasicFooter.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_AsyncScripts.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -94,6 +130,7 @@
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\_PagesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -102,7 +139,21 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Content\" />
+    <Folder Include="Content\libs\ace\" />
+    <Folder Include="Content\libs\unify\" />
+    <Folder Include="Views\Shared\_Ace\" />
+    <Folder Include="Views\Shared\_Unify\" />
+    <Folder Include="Views\_Pages\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NbFramework.Common\NbFramework.Common.csproj">
+      <Project>{bdea1bb8-7b9e-4cc5-ad7f-ab40e8290741}</Project>
+      <Name>NbFramework.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NbFramework.UI\NbFramework.UI.csproj">
+      <Project>{2172df62-a9fd-4711-a23d-c02608413d11}</Project>
+      <Name>NbFramework.UI</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
