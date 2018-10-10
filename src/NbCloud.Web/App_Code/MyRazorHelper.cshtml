@@ -4,12 +4,12 @@
     {
         return "Foo";
     }
-
+    
     public static string GetAcePath()
     {
         //todo switch with cdn, etc...
-        var ace = "/Content/libs/ace";
-        return ace;
+        var ace = "~/Content/libs/ace";
+        return GetPath(ace);
     }
 
     public static string GetBasicPath()

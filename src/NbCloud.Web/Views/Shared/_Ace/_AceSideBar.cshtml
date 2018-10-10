@@ -1,0 +1,25 @@
+﻿@{
+    //todo
+}
+<div id="sidebar" class="sidebar responsive ace-save-state">
+
+    @AceNavHelper.sidebar_shortcut()
+    @AceNavHelper.sidebar_topMenus()
+
+    <script>
+        require(['ace_nav'], function (ace_nav) {
+            "use strict";
+            //console.log('enter ace_nav => ');
+            //mock current page
+            var breadcrumbs = ace_nav.activeNavItem('Sub01_02_02_02');
+            ace_nav.updateBreadcrumbs(breadcrumbs);
+        });
+    </script>
+    
+    <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
+        <i class="ace-icon fa fa-angle-double-left ace-save-state"
+           id="sidebar-toggle-icon"
+           data-icon1="ace-icon fa fa-angle-double-left"
+           data-icon2="ace-icon fa fa-angle-double-right"></i>
+    </div>
+</div>
