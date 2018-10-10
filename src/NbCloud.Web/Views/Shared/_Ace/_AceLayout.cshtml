@@ -1,8 +1,8 @@
 ﻿@{
     var title = ViewBag.Title ?? "NbCloud";
     var ace = MyRazorHelper.GetAcePath();
-    var rootPath = this.Href("~");
-    var contentPath = this.Href("~/Content");
+    var rootPath = MyRazorHelper.GetPath("~");
+    var contentPath = MyRazorHelper.GetPath("~/Content");
 }
 <!DOCTYPE html>
 <html lang="en">
