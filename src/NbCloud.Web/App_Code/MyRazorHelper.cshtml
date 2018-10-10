@@ -1,27 +1,28 @@
 ﻿@functions
 {
+
     public static string GetCompanyName()
     {
         return "Foo";
     }
-    
+
     public static string GetAcePath()
     {
-        //todo switch with cdn, etc...
+    //todo switch with cdn, etc...
         var ace = "~/Content/libs/ace";
         return GetPath(ace);
     }
 
     public static string GetBasicPath()
     {
-        //todo switch with cdn, etc...
+    //todo switch with cdn, etc...
         var basic = "~/Content/libs/basic";
         return GetPath(basic);
     }
 
     public static string GetUnifyPath()
     {
-        //todo switch with cdn, etc...
+    //todo switch with cdn, etc...
         var ace = "/Content/libs/unify";
         return ace;
     }
@@ -30,5 +31,35 @@
     {
         var absolutePath = VirtualPathUtility.ToAbsolute(path);
         return absolutePath;
+    }
+
+    public static string GetLayoutPath()
+    {
+        var layout = "";
+        //todo switch by bussiness context
+        var mode = HttpContext.Current.Request.QueryString["mode"];
+        if (mode == "0")
+        {
+            layout = "~/Views/Shared/_Layout.cshtml";
+            return layout;
+        }
+        if (mode == "1")
+        {
+            layout = "~/Views/Shared/_Basic/_BasicLayout.cshtml";
+            return layout;
+        }
+        if (mode == "2")
+        {
+            layout = "~/Views/Shared/_Ace/_AceLayout.cshtml";
+            return layout;
+        }
+        if (mode == "3")
+        {
+            layout = "~/Views/Shared/_Unify/_UnifyLayout.cshtml";
+            return layout;
+        }
+        //default
+        layout = "~/Views/Shared/_Unify/_UnifyLayout.cshtml";
+        return layout;
     }
 }

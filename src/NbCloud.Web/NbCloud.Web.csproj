@@ -204,6 +204,7 @@
     <Content Include="Content\libs\basic\text.js" />
     <Content Include="Content\libs\basic\toastr\toastr.css" />
     <Content Include="Content\libs\basic\toastr\toastr.js" />
+    <Content Include="Content\libs\basic\toastr\toastr.js.map" />
     <Content Include="Content\libs\basic\toastr\toastr.min.css" />
     <Content Include="Content\libs\basic\toastr\toastr.min.js" />
     <Content Include="Content\scripts\ace_main.js" />
@@ -253,6 +254,7 @@
     <Content Include="Views\Shared\_Ace\_AceSettingBox.cshtml" />
     <Content Include="Views\Shared\_Ace\_AceSideBar.cshtml" />
     <Content Include="App_Code\AceHelper.cshtml" />
+    <Content Include="Views\Shared\_Unify\_UnifyLayout.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -277,7 +279,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\libs\unify\" />
-    <Folder Include="Views\Shared\_Unify\" />
     <Folder Include="Views\_Pages\" />
   </ItemGroup>
   <ItemGroup>
