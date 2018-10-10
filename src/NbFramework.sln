@@ -44,6 +44,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NbCloud", "NbCloud", "{1353
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NbCloud.Web", "NbCloud.Web\NbCloud.Web.csproj", "{2E8526AE-0463-487F-AE74-EF72BBE1082D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NbCloud.Web.Dependencies", "NbCloud.Web.Dependencies\NbCloud.Web.Dependencies.csproj", "{422DC9C3-456B-4721-9182-CFDA25078721}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -106,6 +108,10 @@ Global
 		{2E8526AE-0463-487F-AE74-EF72BBE1082D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E8526AE-0463-487F-AE74-EF72BBE1082D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E8526AE-0463-487F-AE74-EF72BBE1082D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{422DC9C3-456B-4721-9182-CFDA25078721}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{422DC9C3-456B-4721-9182-CFDA25078721}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{422DC9C3-456B-4721-9182-CFDA25078721}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{422DC9C3-456B-4721-9182-CFDA25078721}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -124,5 +130,6 @@ Global
 		{EEEDD171-3B54-4033-BEA3-67B8B0646E10} = {7ADFB802-50AD-4206-9D14-4CDA2DC01F36}
 		{5F6DFD07-8E9D-4149-84B8-D7F25B54AA3E} = {7ADFB802-50AD-4206-9D14-4CDA2DC01F36}
 		{2E8526AE-0463-487F-AE74-EF72BBE1082D} = {13537B4A-ECF7-458B-8FA7-1907F5A6097A}
+		{422DC9C3-456B-4721-9182-CFDA25078721} = {13537B4A-ECF7-458B-8FA7-1907F5A6097A}
 	EndGlobalSection
 EndGlobal

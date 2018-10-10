@@ -282,6 +282,10 @@
     <Folder Include="Views\_Pages\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\NbCloud.Web.Dependencies\NbCloud.Web.Dependencies.csproj">
+      <Project>{422dc9c3-456b-4721-9182-cfda25078721}</Project>
+      <Name>NbCloud.Web.Dependencies</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NbFramework.Common\NbFramework.Common.csproj">
       <Project>{bdea1bb8-7b9e-4cc5-ad7f-ab40e8290741}</Project>
       <Name>NbFramework.Common</Name>
