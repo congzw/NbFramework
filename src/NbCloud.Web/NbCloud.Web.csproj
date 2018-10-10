@@ -118,7 +118,6 @@
     <Content Include="Content\libs\basic\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Views\Shared\_Basic\_BasicLayout.cshtml" />
     <Content Include="App_Code\MyRazorHelper.cshtml" />
-    <Content Include="Views\Shared\_Basic\_BasicFooter.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_AsyncScripts.cshtml" />
     <Content Include="App_Code\AceNavHelper.cshtml" />
