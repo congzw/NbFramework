@@ -89,15 +89,20 @@
     <Content Include="Content\libs\basic\bootstrap\css\bootstrap.min.css" />
     <Content Include="Content\libs\basic\bootstrap\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\libs\basic\bootstrap\js\bootstrap.min.js" />
-    <Content Include="Content\libs\basic\jquery\jquery-2.1.0.js" />
+    <Content Include="Content\libs\basic\jquery\jquery-2.2.4.js" />
+    <Content Include="Content\libs\basic\jquery\jquery-2.2.4.min.js" />
+    <Content Include="Content\libs\basic\jquery\jquery-2.2.4.min.js.map" />
     <Content Include="Content\libs\basic\jquery\jquery.backstretch.min.js" />
     <Content Include="Content\libs\basic\jquery\jquery.form.js" />
     <Content Include="Content\libs\basic\jquery\jquery.qrcode.min.js" />
     <Content Include="Content\libs\basic\jquery\jquery.timer.js" />
     <Content Include="Content\libs\basic\require.js" />
+    <Content Include="Content\libs\basic\require.min.js" />
     <Content Include="Content\libs\basic\text.js" />
     <Content Include="Content\libs\basic\toastr\toastr.css" />
     <Content Include="Content\libs\basic\toastr\toastr.js" />
+    <Content Include="Content\libs\basic\toastr\toastr.min.css" />
+    <Content Include="Content\libs\basic\toastr\toastr.min.js" />
     <Content Include="Content\scripts\basic_config.js" />
     <Content Include="Content\scripts\zqnb.js" />
     <Content Include="Content\scripts\zqnb.log.js" />
@@ -116,6 +121,10 @@
     <Content Include="Views\Shared\_Basic\_BasicFooter.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_AsyncScripts.cshtml" />
+    <Content Include="App_Code\AceNavHelper.cshtml" />
+    <Content Include="Content\libs\basic\require.min.js.map">
+      <DependentUpon>require.min.js</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

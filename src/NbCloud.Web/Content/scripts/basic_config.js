@@ -13,10 +13,10 @@
             baseUrl: rootPath,
             waitSeconds: 2000,
             paths: {
-                'jquery': basicPath + '/jquery/jquery-2.1.0'
+                'jquery': basicPath + '/jquery/jquery-2.2.4.min'
                 , 'bootstrap': basicPath + '/bootstrap/js/bootstrap.min'
                 , 'backstretch': basicPath + '/jquery/jquery.backstretch.min'
-                , 'toastr': basicPath + '/toastr/toastr'
+                , 'toastr': basicPath + '/toastr/toastr.min'
                 , 'zqnb': contentPath + '/scripts/zqnb'
                 , 'nbLog': contentPath + '/scripts/zqnb.log'
             },

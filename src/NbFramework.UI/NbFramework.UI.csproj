@@ -79,6 +79,7 @@
     <Compile Include="DynamicPages\DynamicWidgetContainer.cs" />
     <Compile Include="DynamicPages\_Abstract.cs" />
     <Compile Include="Fx\Angular\AngularContext.cs" />
+    <Compile Include="MvcExtensions\WebViewPage.cs" />
     <Compile Include="Navigations\Api\INavItemTreeApi.cs" />
     <Compile Include="Navigations\Api\_Impl\NavItemTreeApi.cs" />
     <Compile Include="Navigations\INavItemFilter.cs" />
