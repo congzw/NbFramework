@@ -1,5 +1,11 @@
-﻿<script>
+﻿@{
+    //todo render by config
+    //return;
+}
+<script>
     require(['jquery', 'toastr'], function ($, toastr) {
+        "use strict";
+
         toastr.options = {
             "closeButton": false,
             "debug": false,
@@ -20,7 +26,7 @@
         };
 
         var toastMessage = function (msg) {
-            toastr.info(msg, 'async load scripts:');
+            toastr.info(msg, '<p>async load scripts:</p><hr/>');
         };
 
         $(function () {
