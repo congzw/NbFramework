@@ -39,6 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PlatformInfos\PlatformInfo.cs" />
+    <Compile Include="PlatformInfos\PlatformInfoCustomize.cs" />
+    <Compile Include="PlatformInfos\PlatformInfoService.cs" />
     <Compile Include="SoftwareMetas\MoudleMeta.cs" />
     <Compile Include="SoftwareMetas\PlatformMeta.cs" />
     <Compile Include="SoftwareMetas\SoftwareMeta.cs" />
