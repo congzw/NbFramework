@@ -90,6 +90,16 @@
     <Content Include="Views\web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\NbFramework.Common\NbFramework.Common.csproj">
+      <Project>{bdea1bb8-7b9e-4cc5-ad7f-ab40e8290741}</Project>
+      <Name>NbFramework.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\NbFramework.UI\NbFramework.UI.csproj">
+      <Project>{2172df62-a9fd-4711-a23d-c02608413d11}</Project>
+      <Name>NbFramework.UI</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

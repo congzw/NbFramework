@@ -1,16 +1,19 @@
-﻿using System;
+﻿using System.Diagnostics;
 using System.IO;
 using System.Web.Hosting;
-using System.Web.Mvc;
 using NbFramework.Common.Web.CDN;
+// ReSharper disable CheckNamespace
 
-namespace NbFramework.UI.MvcExtensions
+namespace System.Web.Mvc
 {
-    public abstract class WebViewPage<TModel> : System.Web.Mvc.WebViewPage<TModel>
+    public abstract class MyWebViewPage<TModel> : WebViewPage<TModel>
     {
+        private static readonly string ShowRazorPath = "ShowRazorPath";
+
+        //for debug razor view path
         public override void ExecutePageHierarchy()
         {
-            var showDebugInfo = this.Request.QueryString["showrazorpath"]!=null;
+            var showDebugInfo = this.Request.QueryString[ShowRazorPath] != null;
             if (showDebugInfo)
             {
                 this.WriteLiteral("<!--Begin-ViewPath:" + this.VirtualPath + "-->");
@@ -22,6 +25,7 @@ namespace NbFramework.UI.MvcExtensions
             }
         }
 
+        //fix multi themes, ects...
         public override string Layout
         {
             get
@@ -48,6 +52,9 @@ namespace NbFramework.UI.MvcExtensions
 
         public override string Href(string path, params object[] pathParts)
         {
+            //todo switch cdn, if necessary
+            Debug.WriteLine("------> path: " + path);
+            return base.Href(path, pathParts);
             //todo
 
             #region path and pathParts
@@ -79,7 +86,7 @@ namespace NbFramework.UI.MvcExtensions
         }
     }
 
-    public abstract class WebViewPage : WebViewPage<dynamic>
+    public abstract class MyWebViewPage : MyWebViewPage<dynamic>
     {
     }
 }

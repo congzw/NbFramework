@@ -12,14 +12,14 @@
     <title>@title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
     <!-- bootstrap & fontawesome -->
-    <link rel="stylesheet" href="@ace/assets/css/bootstrap.css" />
-    <link rel="stylesheet" href="@ace/components/font-awesome/css/font-awesome.css" />
+    <link href="~/Content/libs/ace/assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/libs/ace/components/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
     <!-- text fonts -->
-    <link rel="stylesheet" href="@ace/assets/css/ace-fonts.css" />
+    <link href="~/Content/libs/ace/assets/css/ace-fonts.css" rel="stylesheet" />
     <!-- ace styles -->
-    <link rel="stylesheet" href="@ace/assets/css/ace.css" class="ace-main-stylesheet" id="main-ace-style" />
+    <link href="~/Content/libs/ace/assets/css/ace.css" rel="stylesheet" />
     @RenderSection("styles", false)
-    <script src="@ace/components/requirejs/require.js"></script>
+    <script src="~/Content/libs/basic/require.min.js"></script>
     <script>
         (function () {
             "use strict";
@@ -51,7 +51,6 @@
                 <div class="row">
                     <div class="col-xs-12">
                         @RenderBody()
-
                         <div id="test">
                             <h2>DEMO</h2>
                         </div>
