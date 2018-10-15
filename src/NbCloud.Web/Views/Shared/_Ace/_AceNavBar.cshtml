@@ -1,6 +1,5 @@
 ﻿@{
     //todo
-    var ace = AceHelper.GetAcePath();
     var company = MyRazorHelper.GetPlatformName();
 }
 <div id="navbar" class="navbar navbar-default ace-save-state">
@@ -11,7 +10,7 @@
 
         @navbar_menu()
 
-        @navbar_user(ace)
+        @navbar_user()
 
     </div><!-- /.navbar-container -->
 </div>
@@ -69,7 +68,7 @@
     </nav>
 }
 
-@helper navbar_user(string ace)
+@helper navbar_user()
 {
     <div class="navbar-buttons navbar-header pull-right" role="navigation">
         <ul class="nav ace-nav">
@@ -164,7 +163,7 @@
                         <ul class="dropdown-menu dropdown-navbar">
                             <li>
                                 <a href="#" class="clearfix">
-                                    <img src="@ace/assets/avatars/avatar.png" class="msg-photo" alt="Alex's Avatar" />
+                                    <img src="~/Content/libs/ace/assets/avatars/avatar.png" class="msg-photo" alt="Alex's Avatar" />
                                     <span class="msg-body">
                                         <span class="msg-title">
                                             <span class="blue">Alex:</span>
@@ -192,7 +191,7 @@
 
             <li class="light-blue">
                 <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-                    <img class="nav-user-photo" src="@ace/assets/avatars/user.jpg" alt="Jason's Photo" />
+                    <img src="~/Content/libs/ace/assets/avatars/user.jpg" alt="Jason's Photo" class="nav-user-photo" />
                     <span class="user-info">
                         <small>Welcome,</small>
                         Jason
