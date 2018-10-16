@@ -129,23 +129,6 @@ namespace NbFramework.Common.Data
             return new DateTimeRange(newStart, this.End);
         }
 
-        public static DateTimeRange CreateMinuteRange(DateTime startDate, int minutes)
-        {
-            return new DateTimeRange(startDate, startDate.AddMinutes(minutes));
-        }
-        public static DateTimeRange CreateHourRange(DateTime startDate, int hour)
-        {
-            return new DateTimeRange(startDate, startDate.AddHours(hour));
-        }
-        public static DateTimeRange CreateOneDayRange(DateTime day)
-        {
-            return new DateTimeRange(day, day.AddDays(1));
-        }
-        public static DateTimeRange CreateOneWeekRange(DateTime startDay)
-        {
-            return new DateTimeRange(startDay, startDay.AddDays(7));
-        }
-
         /// <summary>
         /// 保留时间，把日期部分自动修正为指定的时间的日期
         /// </summary>
@@ -159,7 +142,6 @@ namespace NbFramework.Common.Data
             var dateTimeRange = new DateTimeRange(startFix, endFix);
             return dateTimeRange;
         }
-
         /// <summary>
         /// 只保留时间，日期部分自动修正为2000，1，1
         /// </summary>
@@ -169,7 +151,6 @@ namespace NbFramework.Common.Data
             var fixDateTimeRangeOfSomeDay = FixDateTimeRangeOfSomeDay(new DateTime().GetDefaultDate().Date);
             return fixDateTimeRangeOfSomeDay;
         }
-        
         /// <summary>
         /// 时间间隔的分钟数部分。
         /// </summary>
@@ -188,7 +169,68 @@ namespace NbFramework.Common.Data
             return this.Start < dateTimeRange.End &&
                 this.End > dateTimeRange.Start;
         }
+        /// <summary>
+        /// 查看时间段的状态
+        /// </summary>
+        /// <param name="now"></param>
+        /// <returns></returns>
+        public DateRangeState TellState(DateTime now)
+        {
+            return TellState(this, now);
+        }
+
+
+        //helpers & factory
+        public static DateTimeRange CreateMinuteRange(DateTime startDate, int minutes)
+        {
+            return new DateTimeRange(startDate, startDate.AddMinutes(minutes));
+        }
+        public static DateTimeRange CreateHourRange(DateTime startDate, int hour)
+        {
+            return new DateTimeRange(startDate, startDate.AddHours(hour));
+        }
+        public static DateTimeRange CreateOneDayRange(DateTime day)
+        {
+            return new DateTimeRange(day, day.AddDays(1));
+        }
+        public static DateTimeRange CreateOneWeekRange(DateTime startDay)
+        {
+            return new DateTimeRange(startDay, startDay.AddDays(7));
+        }
+        public static DateRangeState TellState(DateTimeRange range, DateTime now)
+        {
+            if (now < range.Start)
+            {
+                return DateRangeState.UnStarted;
+            }
+            if (now > range.End)
+            {
+                return DateRangeState.End;
+            }
+            return DateRangeState.Processing;
+        }
     }
+
+
+    /// <summary>
+    /// 时间段的状态
+    /// </summary>
+    public enum DateRangeState
+    {
+        /// <summary>
+        /// 未开始
+        /// </summary>
+        UnStarted = 1,
+        /// <summary>
+        /// 进行中
+        /// </summary>
+        Processing = 2,
+        /// <summary>
+        /// 已结束
+        /// </summary>
+        End = 3
+    }
+
 
     //demo for nhibernate map
     //public class DateTimeRangeMap : ComponentMap<DateTimeRange>

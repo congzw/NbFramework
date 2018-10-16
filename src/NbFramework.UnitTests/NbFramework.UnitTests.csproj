@@ -55,6 +55,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="AssertHelper.cs" />
+    <Compile Include="Common\Data\NbValueSpecs.cs" />
     <Compile Include="Common\Extensions\StringExtensionsSpecs.cs" />
     <Compile Include="Common\NbRefSpecs.cs" />
     <Compile Include="Common\Trees\TreeItemHolderSpecs.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="DataStandards\Dics\OrgTypes\OrgTypeMetaProviderSpecs.cs" />
     <Compile Include="DataStandards\Dics\Phases\PhaseMetaProviderSpecs.cs" />
     <Compile Include="DataStandards\Dics\Subjects\SubjectMetaProviderSpecs.cs" />
+    <Compile Include="TemplateSpecs.cs" />
     <Compile Include="TestExtensions.cs" />
     <Compile Include="TextRules\_Mocks.cs" />
     <Compile Include="TextRules\TextRuleEngineSpecs.cs" />
