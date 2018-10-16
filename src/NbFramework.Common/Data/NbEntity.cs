@@ -1,4 +1,6 @@
-﻿namespace NbFramework.Common.Data
+﻿using System;
+
+namespace NbFramework.Common.Data
 {
     public interface INbEntity<TPk>
     {
@@ -55,5 +57,8 @@
         {
             return !Equals(lhs, rhs);
         }
+    }
+    public abstract class NbEntity<T> : NbEntityBase<T, Guid> where T : class ,INbEntity<Guid>
+    {
     }
 }
