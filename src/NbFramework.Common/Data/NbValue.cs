@@ -266,7 +266,7 @@ namespace NbFramework.Common.Data
         {
             if (now < range.Start)
             {
-                return DateRangeState.UnStarted;
+                return DateRangeState.Unstart;
             }
             if (now > range.End)
             {
@@ -284,7 +284,7 @@ namespace NbFramework.Common.Data
         /// <summary>
         /// 未开始
         /// </summary>
-        UnStarted = 1,
+        Unstart = 1,
 
         /// <summary>
         /// 进行中

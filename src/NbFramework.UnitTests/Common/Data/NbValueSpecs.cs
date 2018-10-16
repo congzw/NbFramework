@@ -13,7 +13,7 @@ namespace NbFramework.Common.Data
             var range = DateTimeRange.CreateHourRange(start, 1); //1:00~2:00
             DateTime now = new DateTime(2000, 1, 1, 0, 59, 0); //0:59
 
-            range.TellState(now).ShouldEqual(DateRangeState.UnStarted);
+            range.TellState(now).ShouldEqual(DateRangeState.Unstart);
         }
 
         [TestMethod]
