@@ -56,6 +56,7 @@
     <Compile Include="Extensions\DateTimeExtensions.cs" />
     <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="Extensions\SimpleMapToExtensions.cs" />
+    <Compile Include="GuidHelper.cs" />
     <Compile Include="SimpleJsonHelper.cs" />
     <Compile Include="NbRef.cs" />
     <Compile Include="NbRegistry.cs" />

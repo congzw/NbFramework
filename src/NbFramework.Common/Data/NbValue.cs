@@ -94,7 +94,7 @@ namespace NbFramework.Common.Data
             return !(x == y);
         }
     }
-    
+
     //demo for use NbValueObject
     /// <summary>
     /// 自定义的时间段模型，可用于有开始时间和结束时间的场合
@@ -178,8 +178,7 @@ namespace NbFramework.Common.Data
         {
             return TellState(this, now);
         }
-
-
+        
         //helpers & factory
         public static DateTimeRange CreateMinuteRange(DateTime startDate, int minutes)
         {
@@ -189,14 +188,80 @@ namespace NbFramework.Common.Data
         {
             return new DateTimeRange(startDate, startDate.AddHours(hour));
         }
+        /// <summary>
+        /// 创建时间段，不自动调整起始时间点（天）
+        /// </summary>
+        /// <param name="day"></param>
+        /// <returns></returns>
         public static DateTimeRange CreateOneDayRange(DateTime day)
         {
             return new DateTimeRange(day, day.AddDays(1));
         }
+        /// <summary>
+        /// 创建时间段，不自动调整起始时间点（周）
+        /// </summary>
+        /// <param name="startDay"></param>
+        /// <returns></returns>
+        public static DateTimeRange CreateOneMonthRange(DateTime startDay)
+        {
+            return new DateTimeRange(startDay, startDay.AddMonths(1));
+        }
+        /// <summary>
+        /// 创建时间段，不自动调整起始时间点（月）
+        /// </summary>
+        /// <param name="startDay"></param>
+        /// <returns></returns>
         public static DateTimeRange CreateOneWeekRange(DateTime startDay)
         {
             return new DateTimeRange(startDay, startDay.AddDays(7));
         }
+        /// <summary>
+        /// 创建时间段，自动调整起始时间点（天）
+        /// </summary>
+        /// <param name="now"></param>
+        /// <param name="diffDay"></param>
+        /// <returns></returns>
+        public static DateTimeRange CreateThisDayRange(DateTime now, int diffDay = 0)
+        {
+            return new DateTimeRange(now.Date, now.Date.AddDays(1).AddMilliseconds(-1));
+        }
+        /// <summary>
+        /// 创建时间段，自动调整起始时间点（周）
+        /// </summary>
+        /// <param name="now"></param>
+        /// <param name="startOfWeek"></param>
+        /// <param name="diffWeek"></param>
+        /// <returns></returns>
+        public static DateTimeRange CreateThisWeekRange(DateTime now, DayOfWeek startOfWeek, int diffWeek = 0)
+        {
+            //星期一 ： 星期日
+            int diff = (7 + (now.DayOfWeek - startOfWeek)) % 7;
+            var startOfThisWeek = now.AddDays(-1 * diff).Date;
+            return new DateTimeRange(startOfThisWeek.AddDays(diffWeek * 7), startOfThisWeek.AddDays(7 + diffWeek * 7).AddMilliseconds(-1));
+        }
+        /// <summary>
+        /// 创建时间段，自动调整起始时间点（月）
+        /// </summary>
+        /// <param name="now"></param>
+        /// <param name="diffMonth"></param>
+        /// <returns></returns>
+        public static DateTimeRange CreateThisMonthRange(DateTime now, int diffMonth = 0)
+        {
+            var today = now.Date;
+            //-m,0,+m
+            var monthStart = new DateTime(today.Year, today.Month + diffMonth, 1);
+            var nextMonth = new DateTime(today.Year, today.Month + 1 + diffMonth, 1);
+            //Get month's first and last day dates:
+            var firstDate = monthStart;
+            var lastDate = nextMonth.AddMilliseconds(-1);
+            return new DateTimeRange(firstDate, lastDate);
+        }
+        /// <summary>
+        /// 根据当前时间，计算时间段的逾期状态
+        /// </summary>
+        /// <param name="range"></param>
+        /// <param name="now"></param>
+        /// <returns></returns>
         public static DateRangeState TellState(DateTimeRange range, DateTime now)
         {
             if (now < range.Start)
@@ -211,7 +276,6 @@ namespace NbFramework.Common.Data
         }
     }
 
-
     /// <summary>
     /// 时间段的状态
     /// </summary>
@@ -221,16 +285,38 @@ namespace NbFramework.Common.Data
         /// 未开始
         /// </summary>
         UnStarted = 1,
+
         /// <summary>
         /// 进行中
         /// </summary>
         Processing = 2,
+
         /// <summary>
         /// 已结束
         /// </summary>
         End = 3
     }
 
+    /// <summary>
+    /// 用于课程查询的枚举，例如按本日，本周，本学期查询
+    /// </summary>
+    public enum DateRangeType
+    {
+        /// <summary>
+        /// 本日查询
+        /// </summary>
+        Today = 1,
+
+        /// <summary>
+        /// 本周查询
+        /// </summary>
+        Week = 2,
+
+        /// <summary>
+        /// 本学期查询
+        /// </summary>
+        Term = 3
+    }
 
     //demo for nhibernate map
     //public class DateTimeRangeMap : ComponentMap<DateTimeRange>

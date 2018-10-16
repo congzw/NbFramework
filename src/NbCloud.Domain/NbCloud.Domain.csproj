@@ -43,6 +43,7 @@
     <Compile Include="Timetables\Meetings\MeetingOrder.cs" />
     <Compile Include="Timetables\TimeOrder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Timetables\TimeOrderTemplate.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NbFramework.Common\NbFramework.Common.csproj">
