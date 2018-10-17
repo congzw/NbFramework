@@ -263,6 +263,9 @@
     <Content Include="Views\Shared\_Unify\_UnifyLayout.cshtml" />
     <Content Include="Areas\_Demo\Views\web.config" />
     <Content Include="Views\Shared\_QRCode.cshtml" />
+    <Content Include="Views\_Pages\RequireJs\Index.cshtml" />
+    <Content Include="Views\_Pages\RequireJs\_PartialDemo.cshtml" />
+    <Content Include="Views\_Pages\RequireJs\_PartialDemoRequireJs.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -290,7 +293,6 @@
   <ItemGroup>
     <Folder Include="Areas\_Demo\Views\Shared\" />
     <Folder Include="Content\libs\unify\" />
-    <Folder Include="Views\_Pages\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NbCloud.Web.Dependencies\NbCloud.Web.Dependencies.csproj">

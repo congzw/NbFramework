@@ -2,7 +2,7 @@
     "use strict";
     require(['app_const'], function (app_const) {
 
-        //console.log("enter ace_main => ");
+        console.log("enter ace_main => config require js");
         //console.log(app_const);
         var rootPath = app_const.rootPath;
         var contentPath = app_const.contentPath;
@@ -31,22 +31,6 @@
                     deps: ['ace']
                 }
             }
-        });
-        
-        require(['jquery', 'bootstrap', 'ace', 'ace-extra', 'ace-elements'], function ($) {
-            try {
-                ace.demo.init(true);//true means the call is not from inside a jQuery document ready event
-            } catch (e) { }
-
-            /**
-            //you can restore state of elements now (ace-extra.js is loaded)
-            $('.ace-save-state').each(function() {
-                ace.settings.loadState(this);
-            });
-    
-            //or as soon as you render an element such as sidebar, etc ...
-              ace.settings.loadState('sidebar');
-            */
         });
     });
 })();

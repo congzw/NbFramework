@@ -227,6 +227,30 @@ string.Format("<!-- delayed-block: {0} -->", injectionBlockId) +
 #endif
  string.Join(Environment.NewLine, stack));
         }
+        
+        #region extend for require js
 
+        private static string InjectionBlockId_RequireJsConfig = "InjectionBlockId_RequireJsConfig";
+        public static IDisposable DelayedRequireJsConfig(this HtmlHelper helper, string isOnlyOne = null)
+        {
+            return Delayed(helper, InjectionBlockId_RequireJsConfig, isOnlyOne);
+        }
+        public static MvcHtmlString RenderDelayedRequireJsConfig(this HtmlHelper helper, bool removeAfterRendering = true)
+        {
+            return RenderDelayed(helper, InjectionBlockId_RequireJsConfig, removeAfterRendering);
+        }
+        
+
+        private static string InjectionBlockId_RequireJs = "InjectionBlockId_RequireJs";
+        public static IDisposable DelayedRequireJs(this HtmlHelper helper, string isOnlyOne = null)
+        {
+            return Delayed(helper, InjectionBlockId_RequireJs, isOnlyOne);
+        }
+        public static MvcHtmlString RenderDelayedRequireJs(this HtmlHelper helper, bool removeAfterRendering = true)
+        {
+            return RenderDelayed(helper, InjectionBlockId_RequireJs, removeAfterRendering);
+        }
+
+        #endregion
     }
 }

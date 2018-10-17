@@ -1,0 +1,56 @@
+﻿@using NbFramework.UI.MvcExtensions
+@model dynamic
+@{
+    ViewBag.Title = "某页面";
+    this.Layout = "~/Views/Shared/_Ace/_AceLayout.cshtml";
+}
+<h2>@ViewBag.Title</h2>
+<hr />
+
+@Html.Partial("RequireJs/_PartialDemo", "P_01")
+@Html.Partial("RequireJs/_PartialDemoRequireJs", "P_R_01")
+
+@using (Html.DelayedRequireJs())
+{
+    <script>
+        require(['app_const', 'qrcode'], function (app_const) {
+            console.log("enter page => use require js");
+            //console.log(app_const);
+        });
+    </script>
+}
+@using (Html.Delayed())
+{
+    <script>
+        console.log('Page');
+    </script>
+}
+
+@using (Html.DelayedRequireJsConfig())
+{
+    <script>
+        require(['app_const'], function(app_const) {
+
+            console.log("enter page => config require js");
+            //var rootPath = app_const.rootPath;
+            //var contentPath = app_const.contentPath;
+            var basicPath = app_const.basicPath;
+
+            //console.log(requirejs.s.contexts._.config.paths["qrcode"]);
+            require.config({
+                paths: {
+                    'qrcode': basicPath + '/qrcode/jquery.qrcode.min'
+                },
+                shim: {
+                    'qrcode': {
+                        deps: ['jquery']
+                    }
+                }
+            });
+            //console.log(requirejs.s.contexts._.config.paths["qrcode"]);
+        });
+    </script>
+}
+
+@Html.Partial("RequireJs/_PartialDemo", "P_02")
+@Html.Partial("RequireJs/_PartialDemoRequireJs", "P_R_02")

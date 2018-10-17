@@ -1,0 +1,13 @@
+﻿@model string
+@using NbFramework.UI.MvcExtensions
+@using (Html.Delayed())
+{
+    var value = "_PartialDemo";
+    if (!string.IsNullOrWhiteSpace(Model))
+    {
+        value = value + " : " + Model;
+    }
+    <script>
+        console.log('@value');
+    </script>
+}

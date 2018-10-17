@@ -3,6 +3,7 @@
     var ace = MyRazorHelper.GetAcePath();
     var rootPath = MyRazorHelper.GetPath("~");
     var contentPath = MyRazorHelper.GetPath("~/Content");
+    var basicPath = MyRazorHelper.GetBasicPath();
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -23,18 +24,44 @@
     <script>
         (function () {
             "use strict";
+            //a global variable to make multi-page app happy
+            var app_const = {
+                rootPath: '@rootPath',
+                contentPath: '@contentPath',
+                acePath: '@ace',
+                basicPath: '@basicPath'
+            };
+            console.log('global app_const created!');
+            window.app_const = app_const;
+
             define('app_const', [], function () {
-                var app_const = {
-                    rootPath: '@rootPath',
-                    contentPath: '@contentPath',
-                    acePath: '@ace'
-                };
+                ////for require modules use
+                //console.log("require app_const:");
                 //console.log(app_const);
                 return app_const;
             });
         })();
     </script>
     <script src="~/Content/scripts/ace_main.js"></script>
+    @Html.RenderDelayedRequireJsConfig()
+    <script>
+        require(['jquery', 'bootstrap', 'ace', 'ace-extra', 'ace-elements'], function ($) {
+            try {
+                ace.demo.init(true);//true means the call is not from inside a jQuery document ready event
+            } catch (e) { }
+
+            /**
+            //you can restore state of elements now (ace-extra.js is loaded)
+            $('.ace-save-state').each(function() {
+                ace.settings.loadState(this);
+            });
+
+            //or as soon as you render an element such as sidebar, etc ...
+              ace.settings.loadState('sidebar');
+            */
+        });
+    </script>
+    @Html.RenderDelayedRequireJs()
 </head>
 <body class="no-skin">
     @Html.Partial("_Ace/_AceNavBar")
@@ -60,5 +87,6 @@
         </div>
         @Html.Partial("_Ace/_AceFooter")
     </div>
+    @Html.RenderDelayed()
 </body>
 </html>

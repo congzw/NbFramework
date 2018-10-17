@@ -1,0 +1,22 @@
+﻿@model string
+@using NbFramework.UI.MvcExtensions
+@using (Html.DelayedRequireJs())
+{
+    var value = "_PartialDemoRequireJs";
+    if (!string.IsNullOrWhiteSpace(Model))
+    {
+        value = value + " : " + Model;
+    }
+
+    <script>
+        (function () {
+            "use strict";
+            require(['app_const'], function (app_const) {
+                
+                //use global variable
+                console.log('@value');
+                //console.log(app_const);
+            });
+        })();
+    </script>
+}
