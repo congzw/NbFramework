@@ -10,6 +10,11 @@ namespace NbCloud.Domain.Timetables
     /// </summary>
     public class TimeOrder : NbEntity<TimeOrder>
     {
+        public TimeOrder()
+        {
+            SourceCreate = SourceCreate_Single;
+        }
+
         /// <summary>
         /// 会议室、教室等空间对象的Id
         /// </summary>
@@ -27,9 +32,13 @@ namespace NbCloud.Domain.Timetables
         /// </summary>
         public virtual string EventType { get; set; }
         /// <summary>
-        /// 用于区分多种来源(A,B,...)
+        /// 用于区分多种来源模块(A,B,...)
         /// </summary>
-        public virtual string Source { get; set; }
+        public virtual string SourceArea { get; set; }
+        /// <summary>
+        /// 创建方式："Single", "Batch"(Import)
+        /// </summary>
+        public virtual string SourceCreate { get; set; }
         /// <summary>
         /// 备注信息
         /// </summary>
@@ -49,6 +58,31 @@ namespace NbCloud.Domain.Timetables
         /// <summary>
         /// 审核日期
         /// </summary>
-        public virtual DateTime AuditDate { get; set; }
+        public virtual DateTime? AuditDate { get; set; }
+
+        #region exts
+
+        public static string SourceCreate_Single = "Single";
+        public static string SourceCreate_Batch = "Batch";
+        
+        /// <summary>
+        /// 是否是批量导入
+        /// </summary>
+        /// <returns></returns>
+        public virtual bool IsFromUpload()
+        {
+            return SourceCreate_Batch.Equals(this.SourceCreate, StringComparison.OrdinalIgnoreCase);
+        }
+
+        /// <summary>
+        /// 是否通过了审核
+        /// </summary>
+        /// <returns></returns>
+        public virtual bool IsAudit()
+        {
+            return AuditDate != null;
+        }
+
+        #endregion
     }
 }

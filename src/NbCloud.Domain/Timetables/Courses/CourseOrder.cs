@@ -27,28 +27,11 @@ namespace NbCloud.Domain.Timetables.Courses
         /// 教师名称
         /// </summary>
         public virtual string TeacherName { get; set; }
-        /// <summary>
-        /// 是否通过了审核
-        /// </summary>
-        public virtual bool IsAudit { get; set; }
-        /// <summary>
-        /// 审核人Id
-        /// </summary>
-        public virtual Guid? AuditorId { get; set; }
-        /// <summary>
-        /// 是否是批量上传的预约课
-        /// </summary>
-        public virtual bool IsUpload { get; set; }
 
         /// <summary>
         /// 课节所属学科
         /// </summary>
         public virtual string SubjectCode { get; set; }
-        /// <summary>
-        /// 是否推送到父站
-        /// </summary>
-        public virtual bool IsPushParent { get; set; }
-
         /// <summary>
         /// 课节所属年级
         /// </summary>
@@ -57,6 +40,7 @@ namespace NbCloud.Domain.Timetables.Courses
         /// 课节所属学段
         /// </summary>
         public virtual string PhaseCode { get; set; }
+
         /// <summary>
         /// 存放物理文件的模块(例如ktpj,zdkt...)
         /// </summary>
