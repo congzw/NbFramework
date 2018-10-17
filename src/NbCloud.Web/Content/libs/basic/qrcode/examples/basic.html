@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>basic example</title>
+</head>
+<body>
+
+    <script src="../../jquery/jquery-2.2.4.min.js"></script>
+    <script src="../jquery.qrcode.min.js"></script>
+    <script src="../jquery.canvasConvert.js"></script>
+
+    <p>Render in table</p>
+    <div id="qrcodeTable"></div>
+    <p>Render in canvas</p>
+    <div id="qrcodeCanvas"></div>
+    <hr />
+    <div id="img"></div>
+    <script>
+        //jQuery('#qrcode').qrcode("this plugin is great");
+        jQuery('#qrcodeTable').qrcode({
+            render: "table",
+            text: "http://192.168.1.10:9010"
+        });
+        jQuery('#qrcodeCanvas').qrcode({
+            text: "http://192.168.1.10:9010"
+        });
+
+        jQuery("#qrcodeCanvas canvas").appendCanvasToImage("#img");
+    </script>
+
+</body>
+</html>

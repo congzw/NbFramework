@@ -1,0 +1,21 @@
+﻿@model String
+@{
+    //todo replace with C# code
+    var content = Model;
+    if (string.IsNullOrWhiteSpace(content))
+    {
+        return;
+    }
+    var domId = Guid.NewGuid();
+}
+<div id="@domId"></div>
+<script>
+    require(['jquery', 'canvasConvert'], function ($) {
+        "use strict";
+
+        //console.log("QRCode: " + '@content');
+        $('#@domId').qrcode({
+            text: '@content'
+        });
+    });
+</script>

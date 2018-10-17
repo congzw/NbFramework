@@ -17,12 +17,20 @@
                 , 'bootstrap': basicPath + '/bootstrap/js/bootstrap.min'
                 , 'backstretch': basicPath + '/jquery/jquery.backstretch.min'
                 , 'toastr': basicPath + '/toastr/toastr.min'
+                , 'qrcode': basicPath + '/qrcode/jquery.qrcode.min'
+                , 'canvasConvert': basicPath + '/qrcode/jquery.canvasConvert'
                 , 'zqnb': contentPath + '/scripts/zqnb'
                 , 'nbLog': contentPath + '/scripts/zqnb.log'
             },
             shim: {
                 'bootstrap': {
                     deps: ['jquery']
+                },
+                'qrcode': {
+                    deps: ['jquery']
+                },
+                'canvasConvert': {
+                    deps: ['qrcode']
                 }
             }
         });
