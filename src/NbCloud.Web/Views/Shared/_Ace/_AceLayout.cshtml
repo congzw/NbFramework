@@ -61,7 +61,6 @@
             */
         });
     </script>
-    @Html.RenderDelayedRequireJs()
 </head>
 <body class="no-skin">
     @Html.Partial("_Ace/_AceNavBar")
@@ -88,5 +87,6 @@
         @Html.Partial("_Ace/_AceFooter")
     </div>
     @Html.RenderDelayed()
+    @Html.RenderDelayedRequireJs()
 </body>
 </html>
