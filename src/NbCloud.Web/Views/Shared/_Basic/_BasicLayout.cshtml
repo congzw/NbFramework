@@ -38,6 +38,7 @@
     </div>
     @RenderSection("scripts", required: false)
     @Html.RenderDelayed()
+    @Html.Partial("_QRCode")
     @Html.Partial("_AsyncScripts")
 </body>
 </html>
