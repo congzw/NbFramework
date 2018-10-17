@@ -1,21 +1,19 @@
-﻿@model String
-@{
-    //todo replace with C# code
-    var content = Model;
-    if (string.IsNullOrWhiteSpace(content))
-    {
-        return;
-    }
+﻿@{
+    //demo
+    var content = Guid.NewGuid().ToString();
     var domId = Guid.NewGuid();
 }
 <div id="@domId"></div>
 <script>
-    require(['jquery', 'canvasConvert'], function ($) {
+    require(['jquery', 'canvasConvert'], function($) {
         "use strict";
-
-        //console.log("QRCode: " + '@content');
+        console.log("QRCode: " + '@content');
         $('#@domId').qrcode({
             text: '@content'
         });
     });
 </script>
+@*@helper ShowBase64Png(MemoryStream ms)
+{
+    @Html.Raw("data:image/png;base64," + Convert.ToBase64String(ms.ToArray()))
+}*@
