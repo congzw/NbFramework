@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>QrCode with Logo browser test</title>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <script src="qr-code-with-logo.browser.min.js"></script>
+    <button onclick="download()">Downoad</button>
+    <script>
+        QrCodeWithLogo.toCanvas({
+            canvas: document.getElementById('canvas'),
+            content: 'hello world!',
+            width: 256,
+            downloadName: 'hehe.jpg',
+            nodeQrCodeOptions: {
+                color: {
+                    dark: '#ff4538',
+                    light: '#d2ffdb'
+                }
+            },
+            logo: {
+                src: '/Content/images/demo.jpg',
+                logoRadius: 8,
+                borderColor: '#d2ffdb'
+            }
+        });
+
+        function download() {
+
+            QrCodeWithLogo.toImage({
+                download: true,
+                downloadName: 'ЖўЮЌТы',
+                content: 'hello world!',
+                width: 1080,
+                nodeQrCodeOptions: {
+                    color: {
+                        dark: '#ff4538',
+                        light: '#d2ffdb'
+                    }
+                },
+                logo: {
+                    src: '/Content/images/demo.jpg',
+                    logoRadius: 8,
+                    borderColor: '#d2ffdb'
+                }
+            });
+        }
+    </script>
+</body>
+</html>

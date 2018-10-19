@@ -1,0 +1,135 @@
+﻿@using NbFramework.UI.MvcExtensions
+@model dynamic
+@{
+    ViewBag.Title = "二维码演示";
+    //this.Layout = "~/Views/Shared/_Ace/_AceLayout.cshtml";
+    this.Layout = "~/Views/Shared/_Basic/_BasicLayout.cshtml";
+}
+
+<div class="container" id="qrCodeLogos">
+    <h3 class="header smaller lighter green">
+        <i class="ace-icon fa fa-bullhorn"></i>
+        @ViewBag.Title
+    </h3>
+    <div class="row">
+        @for (int i = 0; i < 18; i++)
+        {
+            <div class="col-sm-3" style="margin-top: 20px">
+                <div class="img-thumbnail">
+                    <canvas></canvas>
+                    <div class="center">
+                        <input type="hidden" value="@i.ToString("录播教室-00")" />
+                        <button class="btn btn-white">@i.ToString("保存: 录播教室-00")</button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@using (Html.DelayedRequireJsConfig())
+{
+    <script>
+        require(['app_const'], function (app_const) {
+
+            console.log("enter page => config require js");
+            //var rootPath = app_const.rootPath;
+            //var contentPath = app_const.contentPath;
+            var basicPath = app_const.basicPath;
+
+            require.config({
+                paths: {
+                    'qrcode': basicPath + '/qrcode/jquery.qrcode.min',
+                    'QrCodeWithLogo': basicPath + '/qrcodelogo/qr-code-with-logo.browser.min',
+                    'html2pdf': basicPath + '/html2pdf/html2pdf.bundle.min'
+                },
+                shim: {
+                    'qrcode': {
+                        deps: ['jquery']
+                    },
+                    'QrCodeWithLogo': {
+                        exports: 'QrCodeWithLogo'
+                    },
+                    'html2pdf': {
+                        exports: 'html2pdf'
+                    }
+                }
+            });
+        });
+    </script>
+}
+@using (Html.Delayed())
+{
+    <script>
+        require(['jquery', 'QrCodeWithLogo'], function ($, QrCodeWithLogo) {
+            "use strict";
+
+            function randomContent() {
+                function s4() {
+                    return Math.floor((1 + Math.random()) * 0x10000)
+                      .toString(16)
+                      .substring(1);
+                }
+                //var guid = s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+                var guid = s4() + s4() + '-' + s4();
+                //console.log(guid);
+                return guid;
+            };
+
+
+            $(document).ready(function () {
+                //console.log($);
+                $('#qrCodeLogos canvas').each(function (index, element) {
+                    //var $this = $(element);
+                    //console.log();
+                    var text = randomContent();
+                    QrCodeWithLogo.toCanvas({
+                        canvas: element,
+                        content: text,
+                        width: 256,
+                        downloadName: text,
+                        nodeQrCodeOptions: {
+                            color: {
+                                dark: '#ff4538',
+                                light: '#d2ffdb'
+                            }
+                        },
+                        logo: {
+                            src: '/Content/images/demo.jpg',
+                            logoRadius: 8,
+                            borderColor: '#d2ffdb'
+                        }
+                    });
+
+                    var $this = $(element);
+                    var $button = $this.siblings("div").find('button');
+                    var $hidden = $this.siblings("div").find('input');
+                    $button.click(function (event) {
+                        var saveFileName = $hidden.val();
+                        var codeContent = text;
+                        //console.log('saveFileName: ' + saveFileName);
+                        //console.log('codeContent: ' + codeContent);
+
+                        QrCodeWithLogo.toImage({
+                            download: true,
+                            downloadName: saveFileName,
+                            content: codeContent,
+                            width: 1080,
+                            nodeQrCodeOptions: {
+                                color: {
+                                    dark: '#ff4538',
+                                    light: '#d2ffdb'
+                                }
+                            },
+                            logo: {
+                                src: '/Content/images/demo.jpg',
+                                logoRadius: 8,
+                                borderColor: '#d2ffdb'
+                            }
+                        });
+                    });
+                });
+            });
+        });
+    </script>
+}

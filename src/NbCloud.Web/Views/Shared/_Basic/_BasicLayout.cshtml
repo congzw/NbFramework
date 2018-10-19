@@ -31,6 +31,7 @@
         })();
     </script>
     <script src="~/Content/scripts/basic_config.js"></script>
+    @Html.RenderDelayedRequireJsConfig()
 </head>
 <body>
     <div class="container body-content">
@@ -38,7 +39,6 @@
     </div>
     @RenderSection("scripts", required: false)
     @Html.RenderDelayed()
-    @Html.Partial("_QRCode")
     @Html.Partial("_AsyncScripts")
 </body>
 </html>

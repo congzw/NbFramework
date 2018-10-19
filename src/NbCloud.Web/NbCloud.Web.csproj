@@ -199,6 +199,8 @@
     <Content Include="Content\libs\basic\jquery\jquery.form.js" />
     <Content Include="Content\libs\basic\jquery\jquery.qrcode.min.js" />
     <Content Include="Content\libs\basic\jquery\jquery.timer.js" />
+    <Content Include="Content\libs\basic\qrcodelogo\index.html" />
+    <Content Include="Content\libs\basic\qrcodelogo\qr-code-with-logo.browser.min.js" />
     <Content Include="Content\libs\basic\qrcode\jquery.canvasConvert.js" />
     <Content Include="Content\libs\basic\qrcode\examples\basic.html" />
     <Content Include="Content\libs\basic\qrcode\examples\demo.html" />
@@ -266,6 +268,7 @@
     <Content Include="Views\_Pages\RequireJs\Index.cshtml" />
     <Content Include="Views\_Pages\RequireJs\_PartialDemo.cshtml" />
     <Content Include="Views\_Pages\RequireJs\_PartialDemoRequireJs.cshtml" />
+    <Content Include="Views\_Pages\QRCode\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
