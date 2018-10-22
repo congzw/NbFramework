@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppServices\IAppService.cs" />
     <Compile Include="Data\ISimpleRepository.cs" />
     <Compile Include="Data\ITransactionManager.cs" />
     <Compile Include="Data\NbEntity.cs" />

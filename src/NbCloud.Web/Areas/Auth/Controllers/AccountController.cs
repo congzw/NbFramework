@@ -1,10 +1,17 @@
 ﻿using System.Web.Mvc;
-using NbCloud.Web.Areas.Auth.ViewModels;
+using NbCloud.Web.Areas.Auth.AppServices;
 
 namespace NbCloud.Web.Areas.Auth.Controllers
 {
     public class AccountController : Controller
     {
+        private readonly IAccountAppService _accountAppService;
+
+        public AccountController(IAccountAppService accountAppService)
+        {
+            _accountAppService = accountAppService;
+        }
+        //todo return url
         public ActionResult Login()
         {
             return View();
@@ -13,7 +20,17 @@ namespace NbCloud.Web.Areas.Auth.Controllers
         [HttpPost]
         public ActionResult Login(LoginVo vo)
         {
-            return Content("Account Login From Auth");
+            if (ModelState.IsValid)
+            {
+                var result = _accountAppService.ValidateLogin(vo);
+                if (result.Success)
+                {
+                    return Redirect("~/");
+                }
+                ModelState.AddModelError("", result.Message);
+                ModelState.AddModelError("", "无效的登录凭证");
+            }
+            return View(vo);
         }
 
         public ActionResult Logout()
