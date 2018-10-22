@@ -40,8 +40,7 @@
             require.config({
                 paths: {
                     'qrcode': basicPath + '/qrcode/jquery.qrcode.min',
-                    'QrCodeWithLogo': basicPath + '/qrcodelogo/qr-code-with-logo.browser.min',
-                    'html2pdf': basicPath + '/html2pdf/html2pdf.bundle.min'
+                    'QrCodeWithLogo': basicPath + '/qrcodelogo/qr-code-with-logo.browser.min'
                 },
                 shim: {
                     'qrcode': {
@@ -49,9 +48,6 @@
                     },
                     'QrCodeWithLogo': {
                         exports: 'QrCodeWithLogo'
-                    },
-                    'html2pdf': {
-                        exports: 'html2pdf'
                     }
                 }
             });
