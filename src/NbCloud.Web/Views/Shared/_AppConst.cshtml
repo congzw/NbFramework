@@ -1,0 +1,30 @@
+﻿@{
+    var rootPath = MyRazorHelper.GetPath("~");
+    var contentPath = MyRazorHelper.GetPath("~/Content");
+    var basicPath = MyRazorHelper.GetBasicPath();
+    var ace = MyRazorHelper.GetAcePath();
+    var unify = MyRazorHelper.GetUnifyPath();
+}
+<script>
+    (function () {
+        "use strict";
+        //a global variable to make multi-page app happy
+        var app_const = {
+            rootPath: '@rootPath',
+            contentPath: '@contentPath',
+            basicPath: '@basicPath',
+            acePath: '@ace',
+            unifyPath: '@unify'
+        };
+        console.log('global app_const created!');
+        window.app_const = app_const;
+        if (require) {
+            define('app_const', [], function () {
+                ////for require modules use
+                //console.log("require app_const:");
+                //console.log(app_const);
+                return app_const;
+            });
+        }
+    })();
+</script>

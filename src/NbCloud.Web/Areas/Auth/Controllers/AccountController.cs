@@ -7,7 +7,7 @@ namespace NbCloud.Web.Areas.Auth.Controllers
     {
         public ActionResult Login()
         {
-            return Content("Account Login From Auth");
+            return View();
         }
 
         [HttpPost]
