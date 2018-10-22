@@ -475,7 +475,6 @@
     <Content Include="Content\libs\unify\assets\plugins\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\libs\unify\assets\plugins\bootstrap\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\libs\unify\assets\plugins\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="Views\Shared\_Unify\_UnifyLayoutEmpty.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

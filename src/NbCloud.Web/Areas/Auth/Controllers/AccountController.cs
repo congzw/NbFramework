@@ -11,7 +11,7 @@ namespace NbCloud.Web.Areas.Auth.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login(LoginVo loginVo)
+        public ActionResult Login(LoginVo vo)
         {
             return Content("Account Login From Auth");
         }
@@ -20,5 +20,16 @@ namespace NbCloud.Web.Areas.Auth.Controllers
         {
             return Content("Account Logout From Auth");
         }
+
+        //public ActionResult Register()
+        //{
+        //    return View();
+        //}
+
+        //[HttpPost]
+        //public ActionResult Register(RegisterVo vo)
+        //{
+        //    return Content("Account Register From Auth");
+        //}
     }
 }
