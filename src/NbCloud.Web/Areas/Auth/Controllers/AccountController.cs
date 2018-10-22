@@ -25,10 +25,12 @@ namespace NbCloud.Web.Areas.Auth.Controllers
                 var result = _accountAppService.ValidateLogin(vo);
                 if (result.Success)
                 {
+                    //todo
+                    //FormAuth.SingIn();
                     return Redirect("~/");
                 }
-                ModelState.AddModelError("", result.Message);
                 ModelState.AddModelError("", "无效的登录凭证");
+                ModelState.AddModelError("", result.Message);
             }
             return View(vo);
         }
