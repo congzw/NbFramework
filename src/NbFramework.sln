@@ -52,6 +52,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NbCloud.Web.Areas.Admin", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NbCloud.Domain", "NbCloud.Domain\NbCloud.Domain.csproj", "{8354D13D-8954-4CA2-82F7-07FC0E76DFF0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NbCloud.Web.Areas.Auth", "NbCloud.Web\Areas\Auth\NbCloud.Web.Areas.Auth.csproj", "{9B0909A1-0262-4937-87FE-E110EA9F0F4E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -130,6 +132,10 @@ Global
 		{8354D13D-8954-4CA2-82F7-07FC0E76DFF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8354D13D-8954-4CA2-82F7-07FC0E76DFF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8354D13D-8954-4CA2-82F7-07FC0E76DFF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B0909A1-0262-4937-87FE-E110EA9F0F4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B0909A1-0262-4937-87FE-E110EA9F0F4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B0909A1-0262-4937-87FE-E110EA9F0F4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B0909A1-0262-4937-87FE-E110EA9F0F4E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -152,5 +158,6 @@ Global
 		{E73CFE46-80F5-405D-9AB7-C14EAE0579CC} = {13537B4A-ECF7-458B-8FA7-1907F5A6097A}
 		{7AAB4B29-1330-4A30-9205-F7C770B54306} = {13537B4A-ECF7-458B-8FA7-1907F5A6097A}
 		{8354D13D-8954-4CA2-82F7-07FC0E76DFF0} = {68CE3D6C-0346-45A4-954F-D982AF1A8A33}
+		{9B0909A1-0262-4937-87FE-E110EA9F0F4E} = {13537B4A-ECF7-458B-8FA7-1907F5A6097A}
 	EndGlobalSection
 EndGlobal
