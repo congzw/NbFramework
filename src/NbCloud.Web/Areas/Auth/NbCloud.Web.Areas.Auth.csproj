@@ -76,7 +76,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppServices\IAccountAppService.cs" />
+    <Compile Include="AppServices\IAccountAppService.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="AppServices\_Impl\AccountAppService.cs" />
     <Compile Include="AuthAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
